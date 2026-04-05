@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 
-import { MessageIcon } from "@/components/icons";
+import { WhatsAppIcon } from "@/components/icons";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
 import type { Locale, SitePage } from "@/lib/i18n";
 
@@ -37,16 +38,13 @@ export function SiteFrame({
 
         <main id="main">{children}</main>
 
-        <a
+        <SmartLink
           href={content.contact.whatsappCta.href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={content.contact.whatsappCta.label}
-          className="whatsapp-float"
+          className="whatsapp-float button button-whatsapp"
         >
-          <MessageIcon className="h-5 w-5" />
+          <WhatsAppIcon className="h-5 w-5" />
           <span>WhatsApp</span>
-        </a>
+        </SmartLink>
 
         <SiteFooter content={content} locale={locale} currentPage={currentPage} />
       </div>

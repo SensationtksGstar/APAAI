@@ -1,4 +1,5 @@
-import { MessageIcon } from "@/components/icons";
+import Image from "next/image";
+
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
@@ -28,21 +29,18 @@ export function ContactSection({ content }: { content: SiteContent }) {
               eyebrow={content.contact.eyebrow}
               title={content.contact.title}
               description={content.contact.description}
+              descriptionClassName="text-[var(--ink)]"
             />
 
             <div className="mt-8 flex flex-wrap gap-3">
               {content.contact.quickLinks.map((link) => (
                 <ActionButton key={link.label} {...link} />
               ))}
-              <a
+              <ActionButton
+                label={content.contact.whatsappCta.label}
                 href={content.contact.whatsappCta.href}
-                target="_blank"
-                rel="noreferrer"
-                className="button button-whatsapp"
-              >
-                <MessageIcon className="h-4 w-4" />
-                {content.contact.whatsappCta.label}
-              </a>
+                variant="whatsapp"
+              />
             </div>
 
             <div className="mt-8 rounded-[2rem] border border-[var(--line)] bg-white px-6 py-6">
@@ -76,10 +74,12 @@ export function ContactSection({ content }: { content: SiteContent }) {
                 {content.locale === "pt" ? "Direção visual" : "Visual direction"}
               </p>
               <div className="mt-5 overflow-hidden rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)]">
-                <img
+                <Image
                   src="https://images.pexels.com/photos/7697818/pexels-photo-7697818.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt={visualReference.alt}
-                  loading="lazy"
+                  width={1200}
+                  height={800}
+                  sizes="(max-width: 768px) 100vw, 48vw"
                   className="h-64 w-full object-cover"
                 />
                 <div className="grid gap-3 px-5 py-5">
@@ -87,7 +87,7 @@ export function ContactSection({ content }: { content: SiteContent }) {
                   <a
                     href="https://www.pexels.com/photo/woman-lifting-dumbbell-7697818/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="text-sm font-semibold text-[var(--accent-red)] hover:opacity-80"
                   >
                     {visualReference.sourceLabel}

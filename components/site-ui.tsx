@@ -13,6 +13,7 @@ import {
   ShieldIcon,
   SparkIcon,
   UsersIcon,
+  WhatsAppIcon,
 } from "@/components/icons";
 
 const iconMap = {
@@ -49,7 +50,7 @@ export function SmartLink({ href, className, children }: LinkLikeProps) {
         href={href}
         className={className}
         target={shouldOpenNewTab ? "_blank" : undefined}
-        rel={shouldOpenNewTab ? "noreferrer" : undefined}
+        rel={shouldOpenNewTab ? "noopener noreferrer" : undefined}
       >
         {children}
       </a>
@@ -70,13 +71,18 @@ export function ActionButton({
 }: {
   label: string;
   href: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "whatsapp";
 }) {
+  const variantClass =
+    variant === "primary"
+      ? "button-primary"
+      : variant === "whatsapp"
+        ? "button-whatsapp"
+        : "button-secondary";
+
   return (
-    <SmartLink
-      href={href}
-      className={`button ${variant === "primary" ? "button-primary" : "button-secondary"}`}
-    >
+    <SmartLink href={href} className={`button ${variantClass}`}>
+      {variant === "whatsapp" ? <WhatsAppIcon className="h-4 w-4" /> : null}
       {label}
     </SmartLink>
   );

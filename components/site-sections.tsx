@@ -111,7 +111,7 @@ export function PageHero({
         <h1 className="fade-up rise-1 mt-6 max-w-4xl font-serif text-4xl leading-none text-white sm:text-5xl lg:text-6xl">
           {title}
         </h1>
-        <p className="fade-up rise-2 mt-6 max-w-2xl text-lg leading-8 text-white/74 lg:text-xl">
+        <p className="fade-up rise-2 mt-6 max-w-2xl text-lg leading-8 text-white/88 lg:text-xl">
           {description}
         </p>
         <div className="fade-up rise-3 mt-8 flex flex-wrap gap-4">
@@ -493,7 +493,7 @@ export function FinalCtaSection({
             <h2 className="mt-5 font-serif text-3xl text-white sm:text-4xl">
               {content.contact.title}
             </h2>
-            <p className="mt-5 text-base leading-7 text-white/72">{content.contact.description}</p>
+            <p className="mt-5 text-base leading-7 text-white/88">{content.contact.description}</p>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -501,7 +501,7 @@ export function FinalCtaSection({
             <ActionButton
               label={content.contact.whatsappCta.label}
               href={content.contact.whatsappCta.href}
-              variant="secondary"
+              variant="whatsapp"
             />
             <ActionButton
               label={locale === "pt" ? "Ver contactos" : "View contact page"}

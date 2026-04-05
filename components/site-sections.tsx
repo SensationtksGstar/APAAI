@@ -493,7 +493,9 @@ export function FinalCtaSection({
             <h2 className="mt-5 font-serif text-3xl text-white sm:text-4xl">
               {content.contact.title}
             </h2>
-            <p className="mt-5 text-base leading-7 text-white/88">{content.contact.description}</p>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-white">
+              {content.contact.description}
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -514,12 +516,14 @@ export function FinalCtaSection({
             {content.contact.details.map((detail) => (
               <div
                 key={`${detail.label}-${detail.value}`}
-                className="rounded-[1.6rem] border border-white/10 bg-white/5 px-5 py-5"
+                className="rounded-[1.6rem] border border-white/20 bg-white/12 px-5 py-5 shadow-[0_12px_32px_rgba(0,0,0,0.18)]"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/52">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
                   {detail.label}
                 </p>
-                <p className="mt-3 text-lg font-semibold text-white">{detail.value}</p>
+                <p className="mt-3 text-xl font-semibold tracking-[0.01em] text-white">
+                  {detail.value}
+                </p>
               </div>
             ))}
           </div>

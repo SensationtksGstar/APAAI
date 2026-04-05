@@ -11,18 +11,18 @@ export const ptContent: SiteContent = {
   skipToContent: "Saltar para o conteúdo",
   headerCta: {
     label: "Falar sobre parcerias",
-    href: "#contact",
+    href: "/pt/contactos",
     variant: "primary",
   },
   nav: [
-    { label: "Início", href: "#home" },
-    { label: "Quem Somos", href: "#about" },
-    { label: "O Projeto", href: "#project" },
-    { label: "Impacto", href: "#impact" },
-    { label: "Parcerias", href: "#partners" },
-    { label: "Onde Estamos", href: "#locations" },
-    { label: "Notícias", href: "#news" },
-    { label: "Contactos", href: "#contact" },
+    { label: "Início", href: "/pt" },
+    { label: "Quem Somos", href: "/pt/quem-somos" },
+    { label: "O Projeto", href: "/pt/projeto" },
+    { label: "Impacto", href: "/pt/impacto" },
+    { label: "Parcerias", href: "/pt/parcerias" },
+    { label: "Onde Estamos", href: "/pt/onde-estamos" },
+    { label: "Notícias", href: "/pt/noticias" },
+    { label: "Contactos", href: "/pt/contactos" },
   ],
   hero: {
     eyebrow: "APAAI | Associação Portuguesa de Aikido Adaptado Inclusivo",
@@ -31,12 +31,12 @@ export const ptContent: SiteContent = {
       "Desenvolvemos sessões, formação e parcerias institucionais que usam o Aikido adaptado como ferramenta real de inclusão, autonomia, bem-estar e participação.",
     primaryCta: {
       label: "Quero participar",
-      href: "#contact",
+      href: "/pt/contactos",
       variant: "primary",
     },
     secondaryCta: {
       label: "Quero ser parceiro",
-      href: "#partners",
+      href: "/pt/parcerias",
       variant: "secondary",
     },
     proof: [
@@ -194,7 +194,7 @@ export const ptContent: SiteContent = {
       "Bloco pensado para mostrar maturidade institucional sem afirmar apoios não confirmados. IPDJ e Erasmus+ aparecem como frentes estratégicas de crescimento e parceria.",
     partnerCta: {
       label: "Abrir conversa institucional",
-      href: "#contact",
+      href: "/pt/contactos",
       variant: "primary",
     },
   },
@@ -262,6 +262,7 @@ export const ptContent: SiteContent = {
         description:
           "Momentos práticos para conhecer a metodologia, observar adaptações e discutir implementação com quem decide no terreno.",
         cta: "Solicitar apresentação",
+        href: "/pt/contactos",
       },
       {
         category: "Comunidade",
@@ -269,6 +270,7 @@ export const ptContent: SiteContent = {
         description:
           "Ativações de proximidade com foco na experimentação, no esclarecimento e na entrada de novos praticantes.",
         cta: "Pedir informação",
+        href: "/pt/contactos",
       },
       {
         category: "Capacitação",
@@ -276,6 +278,7 @@ export const ptContent: SiteContent = {
         description:
           "Conteúdos pensados para técnicos, professores, parceiros sociais e programas territoriais que precisam de ferramentas replicáveis.",
         cta: "Explorar parceria",
+        href: "/pt/parcerias",
       },
     ],
   },
@@ -285,9 +288,9 @@ export const ptContent: SiteContent = {
     description:
       "Se procura uma atividade inclusiva, uma parceria institucional ou uma iniciativa preparada para financiamento, a conversa começa aqui.",
     quickLinks: [
-      { label: "Quero participar", href: "#contact", variant: "secondary" },
-      { label: "Quero apoiar", href: "#contact", variant: "secondary" },
-      { label: "Parceria institucional", href: "#partners", variant: "secondary" },
+      { label: "Quero participar", href: "/pt/contactos", variant: "secondary" },
+      { label: "Quero apoiar", href: "/pt/contactos", variant: "secondary" },
+      { label: "Parceria institucional", href: "/pt/parcerias", variant: "secondary" },
     ],
     whatsappCta: {
       label: "Falar por WhatsApp",

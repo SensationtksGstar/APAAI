@@ -3,14 +3,17 @@ import Link from "next/link";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
 import type { SiteContent } from "@/data/site-content";
-import type { Locale } from "@/lib/i18n";
+import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
 
 type SiteHeaderProps = {
   content: SiteContent;
   locale: Locale;
+  currentPage: SitePage;
 };
 
-export function SiteHeader({ content, locale }: SiteHeaderProps) {
+export function SiteHeader({ content, locale, currentPage }: SiteHeaderProps) {
+  const currentHref = getPageHref(locale, currentPage);
+
   return (
     <header className="relative z-20 border-b border-white/10">
       <div className="container-shell flex flex-col gap-4 py-5 lg:flex-row lg:items-center lg:justify-between">
@@ -37,19 +40,22 @@ export function SiteHeader({ content, locale }: SiteHeaderProps) {
           <ul className="flex min-w-max items-center gap-5 text-sm text-white/72">
             {content.nav.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="nav-link">
+                <Link
+                  href={item.href}
+                  className={`nav-link ${item.href === currentHref ? "text-white" : ""}`}
+                >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
         <div className="flex items-center gap-3">
-          <LanguageSwitcher currentLocale={locale} />
-          <a href={content.headerCta.href} className="button button-primary hidden lg:inline-flex">
+          <LanguageSwitcher currentLocale={locale} currentPage={currentPage} />
+          <Link href={content.headerCta.href} className="button button-primary hidden lg:inline-flex">
             {content.headerCta.label}
-          </a>
+          </Link>
         </div>
       </div>
     </header>

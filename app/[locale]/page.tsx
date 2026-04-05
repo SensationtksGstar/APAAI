@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Homepage } from "@/components/homepage";
+import { getSitePageMetadata } from "@/components/site-page-view";
 import { getSiteContent } from "@/data/site-content";
 import { isLocale, locales } from "@/lib/i18n";
 
@@ -22,39 +23,7 @@ export function generateMetadata({ params }: LocalePageProps): Metadata {
 
   const content = getSiteContent(params.locale);
 
-  return {
-    title: content.seo.title,
-    description: content.seo.description,
-    alternates: {
-      canonical: `/${params.locale}`,
-      languages: {
-        pt: "/pt",
-        en: "/en",
-      },
-    },
-    openGraph: {
-      title: content.seo.title,
-      description: content.seo.description,
-      url: `/${params.locale}`,
-      siteName: "APAAI",
-      locale: params.locale === "pt" ? "pt_PT" : "en_GB",
-      type: "website",
-      images: [
-        {
-          url: "/logo-apaai.jpeg",
-          width: 768,
-          height: 768,
-          alt: "APAAI logo",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: content.seo.title,
-      description: content.seo.description,
-      images: ["/logo-apaai.jpeg"],
-    },
-  };
+  return getSitePageMetadata(content, params.locale, "home");
 }
 
 export default function LocalePage({ params }: LocalePageProps) {
@@ -73,4 +42,3 @@ export default function LocalePage({ params }: LocalePageProps) {
     </>
   );
 }
-

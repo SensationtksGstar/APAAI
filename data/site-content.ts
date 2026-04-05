@@ -65,6 +65,7 @@ type NewsCard = {
   title: string;
   description: string;
   cta: string;
+  href: string;
 };
 
 type ContactField = {

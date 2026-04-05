@@ -2,14 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { SiteContent } from "@/data/site-content";
-import type { Locale } from "@/lib/i18n";
+import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
 
 type SiteFooterProps = {
   content: SiteContent;
   locale: Locale;
+  currentPage: SitePage;
 };
 
-export function SiteFooter({ content, locale }: SiteFooterProps) {
+export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
+  const currentHref = getPageHref(locale, currentPage);
+
   return (
     <footer className="border-t border-[var(--line)] bg-[#111111] text-white">
       <div className="container-shell grid gap-10 py-12 lg:grid-cols-[auto_1fr_auto] lg:items-end">
@@ -29,9 +32,15 @@ export function SiteFooter({ content, locale }: SiteFooterProps) {
 
         <div className="grid gap-3 text-sm text-white/66 sm:grid-cols-3">
           {content.nav.slice(1).map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-white">
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`transition hover:text-white ${
+                item.href === currentHref ? "text-white" : ""
+              }`}
+            >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 

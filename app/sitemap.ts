@@ -1,16 +1,18 @@
 import type { MetadataRoute } from "next";
 
-import { locales } from "@/lib/i18n";
+import { getPageHref, locales, sitePages } from "@/lib/i18n";
 
 const baseUrl = "https://apaai.pt";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  return locales.map((locale) => ({
-    url: `${baseUrl}/${locale}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: locale === "pt" ? 1 : 0.9,
-  }));
+  return locales.flatMap((locale) =>
+    sitePages.map((page) => ({
+      url: `${baseUrl}${getPageHref(locale, page)}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: locale === "pt" && page === "home" ? 1 : page === "home" ? 0.9 : 0.8,
+    })),
+  );
 }

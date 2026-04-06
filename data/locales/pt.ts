@@ -28,7 +28,7 @@ export const ptContent: SiteContent = {
     eyebrow: "APAAI | Associação Portuguesa de Aikido Adaptado Inclusivo",
     title: "O Aikido é para todos. Adaptamos o caminho, nunca o valor.",
     subtitle:
-      "Desenvolvemos sessões, formação e parcerias que transformam o Aikido adaptado numa ferramenta concreta de inclusão, autonomia e bem-estar.",
+      "Desenvolvemos sessões e parcerias que transformam o Aikido adaptado numa ferramenta real de inclusão, autonomia e bem-estar.",
     primaryCta: {
       label: "Quero participar",
       href: "/pt#contactos",
@@ -58,25 +58,25 @@ export const ptContent: SiteContent = {
     eyebrow: "Quem somos",
     title: "Um projeto nascido no terreno e desenhado para crescer com seriedade.",
     description:
-      "A APAAI organiza e dá escala a um trabalho que acontece com pessoas, instituições e comunidade. Não é uma atividade solta. É uma metodologia inclusiva em construção contínua.",
+      "Trabalhamos com pessoas reais, histórias reais e desafios reais.",
     cards: [
       {
         icon: "movement",
         title: "Missão em contexto real",
         description:
-          "Levamos a prática a crianças, jovens e adultos com diferentes perfis funcionais, respeitando ritmo, comunicação, confiança e objetivos individuais.",
+          "Levamos a prática a crianças, jovens e adultos, respeitando o ritmo, a comunicação e as necessidades de cada pessoa.",
       },
       {
         icon: "shield",
         title: "Progressão com adaptação",
         description:
-          "Cada sessão é pensada para desenvolver segurança, coordenação, autorregulação e autoestima sem perder exigência pedagógica nem dignidade.",
+          "Cada pessoa evolui ao seu ritmo, com segurança, confiança e acompanhamento.",
       },
       {
         icon: "globe",
         title: "Pronto para escala",
         description:
-          "O projeto fala a linguagem das famílias e dos participantes, mas também a das instituições, dos municípios e dos financiadores que exigem estrutura.",
+          "Um projeto preparado para crescer com impacto real nas pessoas e nas comunidades.",
       },
     ],
   },
@@ -284,14 +284,10 @@ export const ptContent: SiteContent = {
   },
   gallery: {
     eyebrow: "Galeria do projeto",
-    title: "O projeto visto no terreno, sem imagens de catálogo.",
+    title: "O projeto visto no terreno.",
     description:
-      "Momentos reais de prática, adaptação e acompanhamento próximo. A linguagem visual do site passa agora a refletir o trabalho como ele acontece.",
+      "Momentos reais de prática, adaptação e acompanhamento próximo.",
     photos: [
-      {
-        src: "/media/project/apaai-group-hands.jpeg",
-        alt: "Participantes e equipa da APAAI em roda, com as mãos unidas no centro.",
-      },
       {
         src: "/media/project/apaai-guided-practice-bw.jpeg",
         alt: "Momento de prática orientada entre instrutor e participante em contexto adaptado.",

@@ -151,6 +151,14 @@ export function PageHero({
 }
 
 export function StorySection({ content }: { content: SiteContent }) {
+  const storyVisual = {
+    src: getAssetPath("/media/project/apaai-group-hands.jpeg"),
+    alt:
+      content.locale === "pt"
+        ? "Participantes e equipa da APAAI em roda, com as mãos unidas no centro."
+        : "APAAI participants and team in a circle with joined hands at the centre.",
+  };
+
   return (
     <section id={getPageSlug(content.locale, "about")} className="section-shell">
       <div className="container-shell">
@@ -160,19 +168,37 @@ export function StorySection({ content }: { content: SiteContent }) {
           description={content.story.description}
         />
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {content.story.cards.map((card, index) => (
-            <article
-              key={card.title}
-              className={`soft-panel fade-up ${
-                index === 0 ? "rise-1" : index === 1 ? "rise-2" : "rise-3"
-              }`}
-            >
-              <IconBadge icon={card.icon} />
-              <h3 className="mt-6 font-serif text-2xl text-[var(--ink)]">{card.title}</h3>
-              <p className="mt-4 text-base leading-7 text-[var(--muted)]">{card.description}</p>
-            </article>
-          ))}
+        <div className="mt-10 grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
+          <figure className="fade-up rise-1 relative min-h-[420px] overflow-hidden rounded-[2.2rem] border border-[var(--line)] bg-[#111] shadow-[0_22px_52px_rgba(23,21,20,0.13)]">
+            <Image
+              src={storyVisual.src}
+              alt={storyVisual.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              className="object-cover"
+            />
+          </figure>
+
+          <div className="grid gap-5">
+            {content.story.cards.map((card, index) => (
+              <article
+                key={card.title}
+                className={`soft-panel fade-up ${
+                  index === 0 ? "rise-1" : index === 1 ? "rise-2" : "rise-3"
+                }`}
+              >
+                <div className="flex gap-5">
+                  <IconBadge icon={card.icon} />
+                  <div>
+                    <h3 className="font-serif text-2xl text-[var(--ink)]">{card.title}</h3>
+                    <p className="mt-3 text-base leading-7 text-[var(--muted)]">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

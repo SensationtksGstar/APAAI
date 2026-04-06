@@ -28,7 +28,7 @@ export const enContent: SiteContent = {
     eyebrow: "APAAI | Portuguese Association of Inclusive Adapted Aikido",
     title: "Aikido belongs to everyone. We adapt the path, never the value.",
     subtitle:
-      "We design sessions, training and institutional partnerships that use adapted Aikido as a real tool for inclusion, autonomy, wellbeing and participation.",
+      "We develop sessions and partnerships that turn adapted Aikido into a real tool for inclusion, autonomy and wellbeing.",
     primaryCta: {
       label: "I want to join",
       href: "/en#contact",
@@ -58,25 +58,25 @@ export const enContent: SiteContent = {
     eyebrow: "About",
     title: "A project built in real settings and designed to grow with credibility.",
     description:
-      "APAAI gives structure and scale to work already happening with people, institutions and community. It is not an isolated activity. It is an inclusive methodology in continuous development.",
+      "We work with real people, real stories and real challenges.",
     cards: [
       {
         icon: "movement",
         title: "Mission in real contexts",
         description:
-          "We work with children, young people and adults across different functional profiles, respecting rhythm, communication, trust and individual goals.",
+          "We bring the practice to children, young people and adults while respecting each person’s rhythm, communication and needs.",
       },
       {
         icon: "shield",
         title: "Progression through adaptation",
         description:
-          "Each session is designed to build safety, coordination, self-regulation and confidence without losing pedagogical depth or dignity.",
+          "Each person progresses at their own pace, with safety, confidence and close support.",
       },
       {
         icon: "globe",
         title: "Ready to scale",
         description:
-          "The project speaks to families and participants, while also addressing institutions, municipalities and funders who require structure and clarity.",
+          "A project prepared to grow with real impact for people and communities.",
       },
     ],
   },
@@ -288,10 +288,6 @@ export const enContent: SiteContent = {
     description:
       "A selection of moments from the project in group work, adapted practice and close support.",
     photos: [
-      {
-        src: "/media/project/apaai-group-hands.jpeg",
-        alt: "APAAI participants and team in a circle with joined hands at the centre.",
-      },
       {
         src: "/media/project/apaai-guided-practice-bw.jpeg",
         alt: "Guided practice moment between instructor and participant in an adapted setting.",

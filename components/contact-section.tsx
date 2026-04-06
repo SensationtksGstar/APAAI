@@ -5,7 +5,6 @@ import type { SiteContent } from "@/data/site-content";
 import { getPageSlug } from "@/lib/i18n";
 
 export function ContactSection({ content }: { content: SiteContent }) {
-  const visibleQuickLinks = content.contact.quickLinks.filter((link) => link.variant !== "facebook");
   const visibleDetails = content.contact.details.filter((detail) => detail.label !== "Facebook");
   const emailDetail = content.contact.details.find((detail) => detail.href?.startsWith("mailto:"));
 
@@ -22,7 +21,7 @@ export function ContactSection({ content }: { content: SiteContent }) {
             />
 
             <div className="mt-8 flex flex-wrap gap-3">
-              {visibleQuickLinks.map((link) => (
+              {content.contact.quickLinks.map((link) => (
                 <ActionButton key={link.label} {...link} />
               ))}
               <ActionButton

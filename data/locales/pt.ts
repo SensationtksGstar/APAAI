@@ -28,7 +28,7 @@ export const ptContent: SiteContent = {
     eyebrow: "APAAI | Associação Portuguesa de Aikido Adaptado Inclusivo",
     title: "O Aikido é para todos. Adaptamos o caminho, nunca o valor.",
     subtitle:
-      "Desenvolvemos sessões, formação e parcerias institucionais que usam o Aikido adaptado como ferramenta real de inclusão, autonomia, bem-estar e participação.",
+      "Desenvolvemos sessões, formação e parcerias que transformam o Aikido adaptado numa ferramenta concreta de inclusão, autonomia e bem-estar.",
     primaryCta: {
       label: "Quero participar",
       href: "/pt/contactos",
@@ -44,10 +44,10 @@ export const ptContent: SiteContent = {
       "Metodologia inclusiva orientada para progressão individual.",
       "Preparado para crescimento local, nacional e europeu.",
     ],
-    posterKicker: "Projeto Aikido Inclusive",
-    posterTitle: "Uma prática estruturada para inclusão com continuidade.",
+    posterKicker: "Projeto em ação",
+    posterTitle: "Inclusão com método, presença e continuidade.",
     posterBody:
-      "Ligamos prática corporal, relação, autonomia e pertença num modelo credível para municípios, escolas, IPSS, famílias e financiadores.",
+      "Da demonstração à prática regular, a APAAI aproxima participantes, famílias, instituições e parceiros através de uma proposta adaptada, séria e humana.",
     posterHighlights: [
       "Aulas adaptadas com acompanhamento humano",
       "Formação para equipas e técnicos",
@@ -284,9 +284,9 @@ export const ptContent: SiteContent = {
   },
   gallery: {
     eyebrow: "Galeria do projeto",
-    title: "Imagens reais do trabalho da APAAI no terreno.",
+    title: "O projeto visto no terreno, sem imagens de catálogo.",
     description:
-      "Uma seleção de momentos do projeto em contexto de grupo, prática adaptada e acompanhamento próximo.",
+      "Momentos reais de prática, adaptação e acompanhamento próximo. A linguagem visual do site passa agora a refletir o trabalho como ele acontece.",
     photos: [
       {
         src: "/media/project/apaai-group-hands.jpeg",
@@ -310,13 +310,13 @@ export const ptContent: SiteContent = {
     eyebrow: "Contactos",
     title: "Vamos construir impacto em conjunto.",
     description:
-      "Se procura uma atividade inclusiva, uma parceria institucional ou uma iniciativa preparada para financiamento, a conversa começa aqui.",
+      "Se procura participação, parceria institucional ou uma conversa séria sobre implementação e financiamento, fale connosco.",
     quickLinks: [
       { label: "Quero participar", href: "/pt/contactos", variant: "secondary" },
       { label: "Quero apoiar", href: "/pt/contactos", variant: "secondary" },
       { label: "Parceria institucional", href: "/pt/parcerias", variant: "secondary" },
       {
-        label: "Facebook APAAI",
+        label: "Facebook oficial",
         href: "https://www.facebook.com/people/Associa%C3%A7%C3%A3o-Portuguesa-de-Aikido-Adaptado-Inclusivo-APAAI/61574527752279/",
         variant: "secondary",
       },
@@ -332,7 +332,7 @@ export const ptContent: SiteContent = {
       { label: "Telefone", value: "926 334 870", href: "tel:+351926334870" },
       {
         label: "Facebook",
-        value: "Associação Portuguesa de Aikido Adaptado Inclusivo",
+        value: "Facebook oficial da APAAI",
         href: "https://www.facebook.com/people/Associa%C3%A7%C3%A3o-Portuguesa-de-Aikido-Adaptado-Inclusivo-APAAI/61574527752279/",
       },
     ],

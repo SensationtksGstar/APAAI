@@ -15,7 +15,13 @@ export function HomeHero({
   content: SiteContent;
   locale: Locale;
 }) {
-  const heroVisual = content.gallery.photos[1] ?? content.gallery.photos[0];
+  const heroVisual = {
+    src: getAssetPath("/media/project/apaai-hero-cover.jpg"),
+    alt:
+      locale === "pt"
+        ? "Sessão de Aikido com demonstração no tatami perante um grupo alargado de participantes."
+        : "Aikido session on the tatami with a live demonstration in front of a wider group.",
+  };
 
   return (
     <div className="container-shell relative z-10 pb-16 pt-12 sm:pb-20 lg:pb-24 lg:pt-16">
@@ -45,17 +51,15 @@ export function HomeHero({
         </div>
 
         <div className="fade-up rise-2">
-          <div className="relative min-h-[420px] overflow-hidden rounded-[2.2rem] border border-white/10 bg-black/30 shadow-glow">
-            {heroVisual ? (
-              <Image
-                src={getAssetPath(heroVisual.src)}
-                alt={heroVisual.alt}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 42vw"
-                className="object-cover object-center"
-              />
-            ) : null}
+          <div className="relative min-h-[440px] overflow-hidden rounded-[2.2rem] border border-white/10 bg-black/30 shadow-glow">
+            <Image
+              src={heroVisual.src}
+              alt={heroVisual.alt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              className="object-cover object-center"
+            />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,7,7,0.08),rgba(7,7,7,0.76))]" />
 
             <div className="absolute left-5 top-5 z-10 inline-flex items-center gap-3 rounded-full border border-white/12 bg-black/35 px-4 py-3 backdrop-blur-sm">
@@ -76,8 +80,10 @@ export function HomeHero({
               </div>
             </div>
 
-            <div className="relative z-10 flex min-h-[420px] flex-col justify-end p-6 sm:p-8">
-              <p className="eyebrow text-[var(--accent-green)]">{content.hero.posterKicker}</p>
+            <div className="relative z-10 flex min-h-[440px] flex-col justify-end p-6 sm:p-8">
+              <p className="inline-flex max-w-fit rounded-full border border-white/16 bg-white/12 px-3 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/86 backdrop-blur-sm">
+                {content.hero.posterKicker}
+              </p>
               <h2 className="mt-4 max-w-lg font-serif text-3xl leading-tight text-white">
                 {content.hero.posterTitle}
               </h2>
@@ -247,7 +253,7 @@ export function RouteHighlightsSection({
               <p className="mt-4 text-base leading-7 text-[var(--muted)]">{card.description}</p>
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-red)]">
                 {locale === "pt" ? "Ver página" : "Open page"}
-                <span aria-hidden="true">â†’</span>
+                <span aria-hidden="true">→</span>
               </span>
             </Link>
           ))}
@@ -305,24 +311,22 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
 }
 
 export function ProjectGallerySection({ content }: { content: SiteContent }) {
-  const [featuredPhoto, ...supportingPhotos] = content.gallery.photos;
-
-  if (!featuredPhoto) {
+  if (content.gallery.photos.length === 0) {
     return null;
   }
 
   return (
     <section className="section-shell">
       <div className="container-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="sticky-panel border-[var(--line)] bg-white">
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div className="rounded-[2rem] border border-[var(--line)] bg-white px-6 py-6 shadow-[0_16px_40px_rgba(23,21,20,0.06)]">
             <SectionHeading
               eyebrow={content.gallery.eyebrow}
               title={content.gallery.title}
               description={content.gallery.description}
             />
 
-            <div className="mt-8 rounded-[1.9rem] border border-[var(--line)] bg-[var(--surface-soft)] px-6 py-6">
+            <div className="mt-8 rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-5">
               <p className="eyebrow">
                 {content.locale === "pt" ? "Em contexto real" : "In real settings"}
               </p>
@@ -332,45 +336,36 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
                   : "The imagery now shows APAAI's real work with human presence, adaptation and practice instead of relying only on generic photography."}
               </p>
             </div>
+
+            <div className="mt-4 rounded-[1.6rem] border border-[rgba(208,28,31,0.12)] bg-[rgba(208,28,31,0.05)] px-5 py-5 text-sm leading-7 text-[var(--muted)]">
+              {content.locale === "pt"
+                ? "A capa do site passou a usar uma fotografia própria e a galeria mostra apenas imagens complementares, sem repetir o mesmo momento visual."
+                : "The cover now uses its own photograph and the gallery shows only supporting images, without repeating the same visual moment."}
+            </div>
           </div>
 
-          <div className="grid gap-5">
-            <figure className="overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white shadow-[0_18px_48px_rgba(23,21,20,0.08)]">
-              <div className="relative aspect-[6/5]">
-                <Image
-                  src={getAssetPath(featuredPhoto.src)}
-                  alt={featuredPhoto.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 56vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="px-6 py-5 text-sm leading-6 text-[var(--muted)]">
-                {featuredPhoto.alt}
-              </figcaption>
-            </figure>
-
-            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-              {supportingPhotos.map((photo) => (
-                <figure
-                  key={photo.src}
-                  className="overflow-hidden rounded-[1.8rem] border border-[var(--line)] bg-white shadow-[0_14px_36px_rgba(23,21,20,0.06)]"
-                >
-                  <div className="relative aspect-[4/5]">
-                    <Image
-                      src={getAssetPath(photo.src)}
-                      alt={photo.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 18vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="px-5 py-4 text-sm leading-6 text-[var(--muted)]">
-                    {photo.alt}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {content.gallery.photos.map((photo, index) => (
+              <figure
+                key={photo.src}
+                className={`overflow-hidden rounded-[1.9rem] border border-[var(--line)] bg-white shadow-[0_14px_36px_rgba(23,21,20,0.06)] ${
+                  index === 0 ? "sm:translate-y-6" : ""
+                }`}
+              >
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src={getAssetPath(photo.src)}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 26vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm leading-6 text-[var(--muted)]">
+                  {photo.alt}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </div>
@@ -555,7 +550,7 @@ export function NewsSection({ content }: { content: SiteContent }) {
                 className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-red)]"
               >
                 {card.cta}
-                <span aria-hidden="true">â†’</span>
+                <span aria-hidden="true">→</span>
               </SmartLink>
             </article>
           ))}

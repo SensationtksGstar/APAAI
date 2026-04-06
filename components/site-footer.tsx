@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
 import { getAssetPath } from "@/lib/assets";
 import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
@@ -13,6 +14,7 @@ type SiteFooterProps = {
 
 export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
   const currentHref = getPageHref(locale, currentPage);
+  const facebookDetail = content.contact.details.find((detail) => detail.label === "Facebook");
 
   return (
     <footer className="border-t border-[var(--line)] bg-[#111111] text-white">
@@ -47,6 +49,14 @@ export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
 
         <div className="text-sm text-white/60">
           <p>{content.footer.location}</p>
+          {facebookDetail?.href ? (
+            <SmartLink
+              href={facebookDetail.href}
+              className="mt-3 inline-flex font-semibold text-white/82 transition hover:text-white"
+            >
+              {content.locale === "pt" ? "Facebook oficial da APAAI" : "APAAI official Facebook"}
+            </SmartLink>
+          ) : null}
           <p className="mt-2">{content.footer.rights}</p>
         </div>
       </div>

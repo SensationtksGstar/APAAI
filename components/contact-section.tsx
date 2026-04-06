@@ -1,34 +1,9 @@
-import Image from "next/image";
-
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
-import { getAssetPath } from "@/lib/assets";
 
 export function ContactSection({ content }: { content: SiteContent }) {
-  const projectVisual = content.gallery.photos[1] ?? content.gallery.photos[0];
-  const visualReference =
-    content.locale === "pt"
-      ? {
-          alt:
-            projectVisual?.alt ??
-            "Fotografia do projeto APAAI em contexto real de prática adaptada.",
-          caption:
-            "Fotografia real do projeto APAAI em contexto de prática adaptada, acompanhamento próximo e relação com os participantes.",
-          sourceLabel: "Galeria do projeto APAAI",
-          body:
-            "As imagens do site passaram a usar momentos reais do projeto para mostrar a dimensão humana, técnica e inclusiva do trabalho.",
-        }
-      : {
-          alt:
-            projectVisual?.alt ??
-            "APAAI project photography in a real adapted practice setting.",
-          caption:
-            "Real APAAI project photography showing adapted practice, close support and participant connection.",
-          sourceLabel: "APAAI project gallery",
-          body:
-            "The site now uses real project moments to show the human, technical and inclusive dimension of the work.",
-        };
+  const facebookDetail = content.contact.details.find((detail) => detail.label === "Facebook");
 
   return (
     <section className="section-shell">
@@ -79,33 +54,34 @@ export function ContactSection({ content }: { content: SiteContent }) {
               </div>
             </div>
 
-            <div className="mt-10 rounded-[2rem] border border-[var(--line)] bg-white px-6 py-6">
+            <div className="mt-10 rounded-[2rem] border border-[var(--line)] bg-[var(--surface-soft)] px-6 py-6">
               <p className="eyebrow">
-                {content.locale === "pt" ? "Projeto em prática" : "Project in practice"}
+                {content.locale === "pt" ? "Acompanhar o projeto" : "Follow the project"}
               </p>
-              <div className="mt-5 overflow-hidden rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)]">
-                <Image
-                  src={getAssetPath(projectVisual?.src ?? "/logo-apaai.jpeg")}
-                  alt={visualReference.alt}
-                  width={1200}
-                  height={800}
-                  sizes="(max-width: 768px) 100vw, 48vw"
-                  className="h-64 w-full object-cover"
+              <h3 className="mt-4 max-w-xl font-serif text-2xl text-[var(--ink)]">
+                {content.locale === "pt"
+                  ? "O Facebook oficial da APAAI reúne notícias, bastidores e atividade no terreno."
+                  : "APAAI's official Facebook brings together updates, behind-the-scenes moments and field activity."}
+              </h3>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--muted)]">
+                {content.locale === "pt"
+                  ? "Se quiser perceber melhor o ritmo do projeto, acompanhar sessões e partilhar o trabalho com parceiros ou famílias, este é o ponto de entrada certo."
+                  : "If you want a clearer sense of the project's rhythm, sessions and public-facing activity, this is the right place to start."}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {facebookDetail?.href ? (
+                  <ActionButton
+                    label={content.locale === "pt" ? "Ver Facebook oficial" : "Open official Facebook"}
+                    href={facebookDetail.href}
+                    variant="secondary"
+                  />
+                ) : null}
+                <ActionButton
+                  label={content.contact.whatsappCta.label}
+                  href={content.contact.whatsappCta.href}
+                  variant="whatsapp"
                 />
-                <div className="grid gap-3 px-5 py-5">
-                  <p className="text-sm leading-7 text-[var(--muted)]">{visualReference.caption}</p>
-                  <p className="text-sm font-semibold text-[var(--accent-green)]">
-                    {visualReference.sourceLabel}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-5 grid gap-4 text-sm leading-7 text-[var(--muted)]">
-                <p>{visualReference.body}</p>
-                <p>
-                  {content.locale === "pt"
-                    ? "As fotografias foram organizadas em `public/media/project` para o repositório ficar mais claro e simples de manter."
-                    : "The photographs were organised under `public/media/project` so the repository stays clearer and easier to maintain."}
-                </p>
               </div>
             </div>
           </div>

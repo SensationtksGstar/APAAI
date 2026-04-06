@@ -294,15 +294,22 @@ section {
 }
 
 .button-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: transparent;
-  color: inherit;
+  border: 1px solid rgba(208, 28, 31, 0.26);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--accent-red);
 }
 
 .section-shell .button-secondary,
-.section-shell-muted .button-secondary {
-  border-color: rgba(23, 21, 20, 0.12);
-  background: rgba(255, 255, 255, 0.76);
+.section-shell-muted .button-secondary,
+.section-shell-dark .button-secondary {
+  border-color: rgba(208, 28, 31, 0.28);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--accent-red);
+}
+
+.button-secondary:hover {
+  border-color: rgba(208, 28, 31, 0.5);
+  background: rgba(208, 28, 31, 0.08);
 }
 
 .nav-link {

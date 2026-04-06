@@ -1,4 +1,7 @@
 const isProduction = process.env.NODE_ENV === "production";
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const repoName = "APAAI";
+const basePath = isGitHubPages ? `/${repoName}` : "";
 
 const securityHeaders = [
   {
@@ -38,9 +41,14 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  output: isGitHubPages ? "export" : undefined,
+  trailingSlash: isGitHubPages,
+  basePath,
+  assetPrefix: isGitHubPages ? `${basePath}/` : undefined,
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 7,
+    unoptimized: isGitHubPages,
     remotePatterns: [
       {
         protocol: "https",
@@ -48,18 +56,22 @@ const nextConfig = {
       },
     ],
   },
-  async headers() {
-    if (!isProduction) {
-      return [];
-    }
+  ...(!isGitHubPages
+    ? {
+        async headers() {
+          if (!isProduction) {
+            return [];
+          }
 
-    return [
-      {
-        source: "/:path*",
-        headers: securityHeaders,
-      },
-    ];
-  },
+          return [
+            {
+              source: "/:path*",
+              headers: securityHeaders,
+            },
+          ];
+        },
+      }
+    : {}),
 };
 
 export default nextConfig;

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://apaai.pt";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://apaai.pt"),
+  metadataBase: new URL(siteUrl),
   title: "APAAI",
   description: "Associação Portuguesa de Aikido Adaptado Inclusivo",
 };
@@ -19,4 +21,3 @@ export default function RootLayout({
     </html>
   );
 }
-

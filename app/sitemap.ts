@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { getPageHref, locales, sitePages } from "@/lib/i18n";
 
-const baseUrl = "https://apaai.pt";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://apaai.pt";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

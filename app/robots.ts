@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://apaai.pt";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://apaai.pt/sitemap.xml",
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }
-

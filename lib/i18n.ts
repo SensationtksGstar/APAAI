@@ -65,6 +65,18 @@ export function getPublicPageHref(locale: Locale, page: SitePage): string {
   return `${publicBasePath}${getPageHref(locale, page)}`;
 }
 
+export function getSectionHref(locale: Locale, page: SitePage): string {
+  if (page === "home") {
+    return getPageHref(locale, page);
+  }
+
+  return `${getPageHref(locale, "home")}#${getPageSlug(locale, page)}`;
+}
+
+export function getPublicSectionHref(locale: Locale, page: SitePage): string {
+  return `${publicBasePath}${getSectionHref(locale, page)}`;
+}
+
 export function resolveSitePage(locale: Locale, slug?: string): SitePage | null {
   if (!slug) {
     return "home";

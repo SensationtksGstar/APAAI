@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
 import { getAssetPath } from "@/lib/assets";
 import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
@@ -14,7 +13,11 @@ type SiteFooterProps = {
 
 export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
   const currentHref = getPageHref(locale, currentPage);
-  const facebookDetail = content.contact.details.find((detail) => detail.label === "Facebook");
+  const rightsLabel = content.footer.rights.startsWith("©")
+    ? content.footer.rights
+    : `© ${content.footer.rights}`;
+  const authorCredit =
+    locale === "pt" ? "Website desenvolvido por Bruno Correia" : "Website developed by Bruno Correia";
 
   return (
     <footer className="border-t border-[var(--line)] bg-[#111111] text-white">
@@ -22,7 +25,7 @@ export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
         <Link href={`/${locale}`} className="flex items-center gap-4">
           <Image
             src={getAssetPath("/logo-apaai.jpeg")}
-            alt="Logótipo APAAI"
+            alt="Logotipo APAAI"
             width={72}
             height={72}
             className="h-[4.5rem] w-[4.5rem] rounded-[1.4rem] object-cover"
@@ -49,18 +52,10 @@ export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
 
         <div className="text-sm text-white/60">
           <p>{content.footer.location}</p>
-          {facebookDetail?.href ? (
-            <SmartLink
-              href={facebookDetail.href}
-              className="mt-3 inline-flex font-semibold text-white/82 transition hover:text-white"
-            >
-              {content.locale === "pt" ? "Facebook oficial da APAAI" : "APAAI official Facebook"}
-            </SmartLink>
-          ) : null}
-          <p className="mt-2">{content.footer.rights}</p>
+          <p className="mt-2">{rightsLabel}</p>
+          <p className="mt-2 text-white/72">{authorCredit}</p>
         </div>
       </div>
     </footer>
   );
 }
-

@@ -316,7 +316,7 @@ export function ImpactSection({ content }: { content: SiteContent }) {
           </div>
         </div>
 
-        <div className="soft-panel flex flex-col justify-between">
+        <div className="soft-panel">
           <div>
             <p className="eyebrow">{content.impact.outcomesTitle}</p>
             <div className="mt-7 grid gap-5">
@@ -334,10 +334,6 @@ export function ImpactSection({ content }: { content: SiteContent }) {
                 </article>
               ))}
             </div>
-          </div>
-
-          <div className="mt-8 rounded-[1.9rem] border border-[var(--line)] bg-[rgba(31,122,70,0.08)] px-6 py-6 text-sm leading-7 text-[var(--muted)]">
-            {content.impact.note}
           </div>
         </div>
       </div>

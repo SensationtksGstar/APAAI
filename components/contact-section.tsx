@@ -3,6 +3,7 @@ import Image from "next/image";
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
+import { getAssetPath } from "@/lib/assets";
 
 export function ContactSection({ content }: { content: SiteContent }) {
   const projectVisual = content.gallery.photos[1] ?? content.gallery.photos[0];
@@ -84,7 +85,7 @@ export function ContactSection({ content }: { content: SiteContent }) {
               </p>
               <div className="mt-5 overflow-hidden rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)]">
                 <Image
-                  src={projectVisual?.src ?? "/logo-apaai.jpeg"}
+                  src={getAssetPath(projectVisual?.src ?? "/logo-apaai.jpeg")}
                   alt={visualReference.alt}
                   width={1200}
                   height={800}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { SiteContent } from "@/data/site-content";
+import { getAssetPath } from "@/lib/assets";
 import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
 
 type SiteFooterProps = {
@@ -18,7 +19,7 @@ export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
       <div className="container-shell grid gap-10 py-12 lg:grid-cols-[auto_1fr_auto] lg:items-end">
         <Link href={`/${locale}`} className="flex items-center gap-4">
           <Image
-            src="/logo-apaai.jpeg"
+            src={getAssetPath("/logo-apaai.jpeg")}
             alt="Logótipo APAAI"
             width={72}
             height={72}

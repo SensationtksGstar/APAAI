@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
 import type { SiteContent } from "@/data/site-content";
+import { getAssetPath } from "@/lib/assets";
 import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
 
 type SiteHeaderProps = {
@@ -20,7 +21,7 @@ export function SiteHeader({ content, locale, currentPage }: SiteHeaderProps) {
         <Link href={`/${locale}`} className="flex items-center gap-3 text-white">
           <div className="overflow-hidden rounded-[1.35rem] border border-white/15 bg-white/10 p-1 shadow-glow">
             <Image
-              src="/logo-apaai.jpeg"
+              src={getAssetPath("/logo-apaai.jpeg")}
               alt="Logótipo APAAI"
               width={56}
               height={56}

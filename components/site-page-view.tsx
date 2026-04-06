@@ -16,6 +16,7 @@ import {
   StorySection,
 } from "@/components/site-sections";
 import type { SiteContent } from "@/data/site-content";
+import { getAssetPath } from "@/lib/assets";
 import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
 
 type SitePageViewProps = {
@@ -211,7 +212,7 @@ export function getSitePageMetadata(
       type: "website",
       images: [
         {
-          url: "/logo-apaai.jpeg",
+          url: getAssetPath("/logo-apaai.jpeg"),
           width: 768,
           height: 768,
           alt: "APAAI logo",
@@ -222,7 +223,7 @@ export function getSitePageMetadata(
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      images: ["/logo-apaai.jpeg"],
+      images: [getAssetPath("/logo-apaai.jpeg")],
     },
   };
 }

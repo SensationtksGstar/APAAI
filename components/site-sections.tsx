@@ -1,10 +1,11 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 
 import { SparkIcon } from "@/components/icons";
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, IconBadge, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
+import { getAssetPath } from "@/lib/assets";
 import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
 
 export function HomeHero({
@@ -14,6 +15,8 @@ export function HomeHero({
   content: SiteContent;
   locale: Locale;
 }) {
+  const heroVisual = content.gallery.photos[1] ?? content.gallery.photos[0];
+
   return (
     <div className="container-shell relative z-10 pb-16 pt-12 sm:pb-20 lg:pb-24 lg:pt-16">
       <div className="grid items-end gap-12 lg:grid-cols-[1.12fr_0.88fr]">
@@ -42,45 +45,56 @@ export function HomeHero({
         </div>
 
         <div className="fade-up rise-2">
-          <div className="glass-panel shadow-glow">
-            <div className="grid gap-7 sm:grid-cols-[auto_1fr] sm:items-center">
-              <div className="radial-frame">
-                <Image
-                  src="/logo-apaai.jpeg"
-                  alt="APAAI logo"
-                  width={256}
-                  height={256}
-                  priority
-                  className="h-40 w-40 rounded-[2.25rem] object-cover sm:h-44 sm:w-44"
-                />
-              </div>
+          <div className="relative min-h-[420px] overflow-hidden rounded-[2.2rem] border border-white/10 bg-black/30 shadow-glow">
+            {heroVisual ? (
+              <Image
+                src={getAssetPath(heroVisual.src)}
+                alt={heroVisual.alt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover object-center"
+              />
+            ) : null}
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,7,7,0.08),rgba(7,7,7,0.76))]" />
 
+            <div className="absolute left-5 top-5 z-10 inline-flex items-center gap-3 rounded-full border border-white/12 bg-black/35 px-4 py-3 backdrop-blur-sm">
+              <Image
+                src={getAssetPath("/logo-apaai.jpeg")}
+                alt="APAAI logo"
+                width={56}
+                height={56}
+                className="h-12 w-12 rounded-full object-cover"
+              />
               <div>
-                <p className="eyebrow text-[var(--accent-green)]">{content.hero.posterKicker}</p>
-                <h2 className="mt-4 font-serif text-3xl leading-tight text-white">
-                  {content.hero.posterTitle}
-                </h2>
-                <p className="mt-4 text-base leading-7 text-white/72">
-                  {content.hero.posterBody}
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-white/62">
+                  APAAI
+                </p>
+                <p className="mt-1 text-sm text-white/86">
+                  {locale === "pt" ? "Projeto em movimento real" : "Project in real motion"}
                 </p>
               </div>
             </div>
 
-            <div className="poster-grid mt-8">
-              {content.hero.posterHighlights.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[1.6rem] border border-white/10 bg-white/5 px-4 py-5 text-sm text-white/72"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
+            <div className="relative z-10 flex min-h-[420px] flex-col justify-end p-6 sm:p-8">
+              <p className="eyebrow text-[var(--accent-green)]">{content.hero.posterKicker}</p>
+              <h2 className="mt-4 max-w-lg font-serif text-3xl leading-tight text-white">
+                {content.hero.posterTitle}
+              </h2>
+              <p className="mt-4 max-w-lg text-base leading-7 text-white/78">
+                {content.hero.posterBody}
+              </p>
 
-            <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-white/5 px-4 py-5 text-sm text-white/74">
-              {locale === "pt"
-                ? "O conteúdo deixou de depender apenas de uma scroll page e passou a estar distribuído por páginas próprias."
-                : "The content no longer relies on a single scroll page and is now distributed across dedicated pages."}
+              <div className="mt-7 grid gap-3 sm:grid-cols-3">
+                {content.hero.posterHighlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-full border border-white/16 bg-black/30 px-4 py-3 text-xs font-medium tracking-[0.01em] text-white/80 backdrop-blur-sm"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -233,7 +247,7 @@ export function RouteHighlightsSection({
               <p className="mt-4 text-base leading-7 text-[var(--muted)]">{card.description}</p>
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-red)]">
                 {locale === "pt" ? "Ver página" : "Open page"}
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true">â†’</span>
               </span>
             </Link>
           ))}
@@ -324,7 +338,7 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
             <figure className="overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white shadow-[0_18px_48px_rgba(23,21,20,0.08)]">
               <div className="relative aspect-[6/5]">
                 <Image
-                  src={featuredPhoto.src}
+                  src={getAssetPath(featuredPhoto.src)}
                   alt={featuredPhoto.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 56vw"
@@ -344,7 +358,7 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
                 >
                   <div className="relative aspect-[4/5]">
                     <Image
-                      src={photo.src}
+                      src={getAssetPath(photo.src)}
                       alt={photo.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 18vw"
@@ -541,7 +555,7 @@ export function NewsSection({ content }: { content: SiteContent }) {
                 className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-red)]"
               >
                 {card.cta}
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true">â†’</span>
               </SmartLink>
             </article>
           ))}
@@ -615,3 +629,4 @@ export function FinalCtaSection({
     </section>
   );
 }
+

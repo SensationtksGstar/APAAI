@@ -59,6 +59,12 @@ export function getPageHref(locale: Locale, page: SitePage): string {
   return slug ? `/${locale}/${slug}` : `/${locale}`;
 }
 
+const publicBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+
+export function getPublicPageHref(locale: Locale, page: SitePage): string {
+  return `${publicBasePath}${getPageHref(locale, page)}`;
+}
+
 export function resolveSitePage(locale: Locale, slug?: string): SitePage | null {
   if (!slug) {
     return "home";

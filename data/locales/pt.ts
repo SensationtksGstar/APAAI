@@ -6,7 +6,7 @@ export const ptContent: SiteContent = {
   seo: {
     title: "APAAI | Aikido Inclusive para inclusão, autonomia e bem-estar",
     description:
-      "Website institucional da APAAI - Associação Portuguesa de Aikido Adaptado Inclusivo. Uma plataforma de impacto para participantes, instituições, parceiros e programas de financiamento.",
+      "APAAI - Associação Portuguesa de Aikido Adaptado Inclusivo. Sessões, formação e parcerias para inclusão, autonomia e bem-estar.",
   },
   skipToContent: "Saltar para o conteúdo",
   headerCta: {
@@ -128,21 +128,21 @@ export const ptContent: SiteContent = {
     metrics: [
       {
         value: "+50",
-        label: "participantes como base editorial",
+        label: "participações em aulas, demonstrações e ações de proximidade",
         detail:
-          "Valor estrutural para a homepage. Deve ser confirmado com registo interno antes da publicação final.",
+          "Presença continuada em contexto adaptado, com foco na relação, no movimento e na participação regular.",
       },
       {
         value: "3",
-        label: "instituições e contextos de demonstração",
+        label: "frentes de intervenção em prática, demonstração e capacitação",
         detail:
-          "Número de referência para comunicar piloto e parceria. Atualizar com dados institucionais consolidados.",
+          "Trabalho pensado para responder a participantes, equipas técnicas e contextos institucionais distintos.",
       },
       {
         value: "5+",
-        label: "anos de experiência aplicada",
+        label: "anos de experiência aplicada em Aikido adaptado",
         detail:
-          "Estimativa editorial suportada por atividade pública de Aikido adaptado visível desde 2019.",
+          "Experiência acumulada com adaptação pedagógica, acompanhamento próximo e continuidade do processo.",
       },
     ],
     outcomesTitle: "Resultados humanos que importam",
@@ -152,7 +152,7 @@ export const ptContent: SiteContent = {
       "Mais desenvolvimento: coordenação, consciência corporal e capacidade de adaptação.",
     ],
     note:
-      "Secção preparada para receber indicadores anuais, estudos de caso, testemunhos institucionais e métricas auditadas por parceiro.",
+      "O impacto sente-se no corpo, na autoestima e na forma como cada participante se relaciona consigo, com os outros e com o espaço.",
   },
   credibility: {
     eyebrow: "Parcerias e credibilidade",
@@ -191,7 +191,7 @@ export const ptContent: SiteContent = {
       "Erasmus+ Sport",
     ],
     programsNote:
-      "Bloco pensado para mostrar maturidade institucional sem afirmar apoios não confirmados. IPDJ e Erasmus+ aparecem como frentes estratégicas de crescimento e parceria.",
+      "A APAAI procura relações duradouras com instituições, autarquias, escolas e programas que valorizam impacto real, proximidade e qualidade de implementação.",
     partnerCta: {
       label: "Abrir conversa institucional",
       href: "/pt#contactos",
@@ -254,7 +254,7 @@ export const ptContent: SiteContent = {
     eyebrow: "Notícias e eventos",
     title: "Uma montra viva para agenda, relatos de terreno e convites a parceiros.",
     description:
-      "A homepage pode acolher atualizações regulares sem perder clareza institucional: atividade pública, jornadas abertas, iniciativas locais e momentos de formação.",
+      "Partilhamos sessões abertas, momentos de comunidade, convites institucionais e iniciativas que aproximam o projeto de famílias, parceiros e território.",
     cards: [
       {
         category: "Sessões abertas",
@@ -344,9 +344,9 @@ export const ptContent: SiteContent = {
     ],
     messageLabel: "Mensagem",
     messagePlaceholder: "Conte-nos o contexto, a necessidade ou a oportunidade que gostaria de desenvolver.",
-    submitLabel: "Pedir contacto",
+    submitLabel: "Abrir email",
     note:
-      "Estrutura pronta para ligar a serviço de email, CRM ou automação. Atualize o destino de envio antes do lançamento.",
+      "Ao clicar, o seu programa de email abre com a mensagem preparada para a equipa da APAAI.",
   },
   footer: {
     statement: "A inclusão não é um extra. É a forma como desenhamos a prática desde o primeiro encontro.",

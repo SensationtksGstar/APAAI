@@ -17,7 +17,7 @@ import {
 } from "@/components/site-sections";
 import type { SiteContent } from "@/data/site-content";
 import { getAssetPath } from "@/lib/assets";
-import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
+import { getPageHref, getPublicPageHref, type Locale, type SitePage } from "@/lib/i18n";
 
 type SitePageViewProps = {
   content: SiteContent;
@@ -173,7 +173,7 @@ function getPageMeta(content: SiteContent, locale: Locale, page: SitePage) {
     return {
       title: content.seo.title,
       description: content.seo.description,
-      href: getPageHref(locale, "home"),
+      href: getPublicPageHref(locale, "home"),
     };
   }
 
@@ -182,7 +182,7 @@ function getPageMeta(content: SiteContent, locale: Locale, page: SitePage) {
   return {
     title: `${copy.title} | APAAI`,
     description: copy.description,
-    href: getPageHref(locale, page),
+    href: getPublicPageHref(locale, page),
   };
 }
 
@@ -199,8 +199,8 @@ export function getSitePageMetadata(
     alternates: {
       canonical: meta.href,
       languages: {
-        pt: getPageHref("pt", page),
-        en: getPageHref("en", page),
+        pt: getPublicPageHref("pt", page),
+        en: getPublicPageHref("en", page),
       },
     },
     openGraph: {

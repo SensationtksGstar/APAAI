@@ -6,7 +6,7 @@ export const enContent: SiteContent = {
   seo: {
     title: "APAAI | Inclusive Aikido for inclusion, autonomy and wellbeing",
     description:
-      "Institutional website for APAAI - Portuguese Association of Inclusive Adapted Aikido. A strategic platform for participants, institutions, partners and social impact funders.",
+      "APAAI - Portuguese Association of Inclusive Adapted Aikido. Sessions, training and partnerships for inclusion, autonomy and wellbeing.",
   },
   skipToContent: "Skip to content",
   headerCta: {
@@ -128,21 +128,21 @@ export const enContent: SiteContent = {
     metrics: [
       {
         value: "+50",
-        label: "participants as editorial baseline",
+        label: "participations across classes, demonstrations and community actions",
         detail:
-          "Homepage structure value. Confirm internally before publishing the final public version.",
+          "Ongoing presence in adapted settings, with a focus on relationship, movement and regular participation.",
       },
       {
         value: "3",
-        label: "institutions and pilot contexts",
+        label: "intervention fronts across practice, demonstration and training",
         detail:
-          "Reference number to communicate pilot work and partnerships. Update with consolidated institutional data.",
+          "Work designed to respond to participants, technical teams and distinct institutional settings.",
       },
       {
         value: "5+",
-        label: "years of applied experience",
+        label: "years of applied experience in adapted Aikido",
         detail:
-          "Editorial estimate supported by public adapted Aikido activity visible since 2019.",
+          "Built on pedagogical adaptation, close support and continuity over time.",
       },
     ],
     outcomesTitle: "Human outcomes that matter",
@@ -152,7 +152,7 @@ export const enContent: SiteContent = {
       "More development: coordination, body awareness and adaptive capacity grow over time.",
     ],
     note:
-      "This section is ready to receive annual indicators, case studies, institutional testimonials and audited partner-level metrics.",
+      "Impact is felt in the body, in confidence and in the way each participant relates to themselves, to others and to the space around them.",
   },
   credibility: {
     eyebrow: "Partnerships and credibility",
@@ -191,7 +191,7 @@ export const enContent: SiteContent = {
       "Erasmus+ Sport",
     ],
     programsNote:
-      "This block is intentionally framed to show institutional maturity without claiming unconfirmed support. IPDJ and Erasmus+ are presented as strategic growth and partnership pathways.",
+      "APAAI is looking for durable relationships with institutions, municipalities, schools and programmes that value real impact, proximity and implementation quality.",
     partnerCta: {
       label: "Start an institutional conversation",
       href: "/en#contact",
@@ -254,7 +254,7 @@ export const enContent: SiteContent = {
     eyebrow: "News and events",
     title: "A living showcase for agenda updates, field stories and partner invitations.",
     description:
-      "The homepage can host regular updates without losing institutional clarity: public-facing activity, open sessions, local initiatives and training moments.",
+      "We share open sessions, community moments, institutional invitations and initiatives that bring the project closer to families, partners and local territory.",
     cards: [
       {
         category: "Open sessions",
@@ -344,9 +344,9 @@ export const enContent: SiteContent = {
     ],
     messageLabel: "Message",
     messagePlaceholder: "Tell us about the context, need or opportunity you would like to explore.",
-    submitLabel: "Request contact",
+    submitLabel: "Open email",
     note:
-      "Form structure is ready to connect to email delivery, CRM or automation. Update the sending destination before launch.",
+      "Clicking the button opens your email app with the message prepared for the APAAI team.",
   },
   footer: {
     statement: "Inclusion is not an add-on. It is the way we design practice from the very first encounter.",

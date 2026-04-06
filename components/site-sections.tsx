@@ -1,12 +1,10 @@
 ﻿import Image from "next/image";
-import Link from "next/link";
-
 import { SparkIcon } from "@/components/icons";
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, IconBadge, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
 import { getAssetPath } from "@/lib/assets";
-import { getPageHref, getPageSlug, type Locale, type SitePage } from "@/lib/i18n";
+import { getPageHref, getPageSlug, type Locale } from "@/lib/i18n";
 
 export function HomeHero({
   content,
@@ -181,96 +179,6 @@ export function StorySection({ content }: { content: SiteContent }) {
   );
 }
 
-export function RouteHighlightsSection({
-  content,
-  locale,
-}: {
-  content: SiteContent;
-  locale: Locale;
-}) {
-  const cards: Array<{
-    page: SitePage;
-    eyebrow: string;
-    title: string;
-    description: string;
-  }> = [
-    {
-      page: "project",
-      eyebrow: content.nav[2]?.label ?? content.programs.eyebrow,
-      title: content.programs.title,
-      description: content.programs.description,
-    },
-    {
-      page: "impact",
-      eyebrow: content.nav[3]?.label ?? content.impact.eyebrow,
-      title: content.impact.title,
-      description: content.impact.description,
-    },
-    {
-      page: "partners",
-      eyebrow: content.nav[4]?.label ?? content.credibility.eyebrow,
-      title: content.credibility.title,
-      description: content.credibility.description,
-    },
-    {
-      page: "locations",
-      eyebrow: content.nav[5]?.label ?? content.locations.eyebrow,
-      title: content.locations.title,
-      description: content.locations.description,
-    },
-    {
-      page: "news",
-      eyebrow: content.nav[6]?.label ?? content.news.eyebrow,
-      title: content.news.title,
-      description: content.news.description,
-    },
-    {
-      page: "contact",
-      eyebrow: content.nav[7]?.label ?? content.contact.eyebrow,
-      title: content.contact.title,
-      description: content.contact.description,
-    },
-  ];
-
-  return (
-    <section className="section-shell section-shell-muted">
-      <div className="container-shell">
-        <SectionHeading
-          eyebrow={locale === "pt" ? "Mapa do site" : "Site map"}
-          title={
-            locale === "pt"
-              ? "Cada área ganhou uma página própria."
-              : "Each area now has its own dedicated page."
-          }
-          description={
-            locale === "pt"
-              ? "A navegação ficou mais clara, os links podem ser partilhados por tema e o site aproxima-se mais de uma estrutura institucional."
-              : "Navigation is clearer, links can be shared by topic and the site now feels much closer to a proper institutional structure."
-          }
-        />
-
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {cards.map((card) => (
-            <Link
-              key={card.page}
-              href={getPageHref(locale, card.page)}
-              className="soft-panel block transition hover:-translate-y-1"
-            >
-              <p className="eyebrow">{card.eyebrow}</p>
-              <h3 className="mt-5 font-serif text-2xl text-[var(--ink)]">{card.title}</h3>
-              <p className="mt-4 text-base leading-7 text-[var(--muted)]">{card.description}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-red)]">
-                {locale === "pt" ? "Ver página" : "Open page"}
-                <span aria-hidden="true">→</span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function ProgramsSection({ content }: { content: SiteContent }) {
   return (
     <section id={getPageSlug(content.locale, "project")} className="section-shell section-shell-muted">
@@ -340,15 +248,15 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
               </p>
               <p className="mt-4 text-base leading-7 text-[var(--ink)]">
                 {content.locale === "pt"
-                  ? "As imagens passam a mostrar o trabalho da APAAI com presença humana, adaptação e prática concreta, em vez de depender apenas de fotografia genérica."
-                  : "The imagery now shows APAAI's real work with human presence, adaptation and practice instead of relying only on generic photography."}
+                  ? "Cada imagem mostra relação, adaptação e prática partilhada. É aqui que o projeto ganha corpo, confiança e continuidade."
+                  : "Each image shows relationship, adaptation and shared practice. This is where the project gains substance, trust and continuity."}
               </p>
             </div>
 
             <div className="mt-4 rounded-[1.6rem] border border-[rgba(208,28,31,0.12)] bg-[rgba(208,28,31,0.05)] px-5 py-5 text-sm leading-7 text-[var(--muted)]">
               {content.locale === "pt"
-                ? "A capa do site passou a usar uma fotografia própria e a galeria mostra apenas imagens complementares, sem repetir o mesmo momento visual."
-                : "The cover now uses its own photograph and the gallery shows only supporting images, without repeating the same visual moment."}
+                ? "Um retrato fiel de sessões, demonstrações e momentos de proximidade entre equipa, participantes e parceiros."
+                : "A faithful portrait of sessions, demonstrations and close moments between the team, participants and partners."}
             </div>
           </div>
 

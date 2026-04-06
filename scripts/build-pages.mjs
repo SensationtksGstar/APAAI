@@ -12,7 +12,7 @@ const child = spawn(process.execPath, [nextBin, "build"], {
     ...process.env,
     GITHUB_PAGES: "true",
     NEXT_PUBLIC_SITE_URL:
-      process.env.NEXT_PUBLIC_SITE_URL ?? "https://sensationtksgstar.github.io/APAAI",
+      process.env.NEXT_PUBLIC_SITE_URL ?? "https://sensationtksgstar.github.io",
   },
 });
 

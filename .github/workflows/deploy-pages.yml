@@ -37,7 +37,7 @@ jobs:
       - name: Build static export
         env:
           GITHUB_PAGES: "true"
-          NEXT_PUBLIC_SITE_URL: "https://sensationtksgstar.github.io/APAAI"
+          NEXT_PUBLIC_SITE_URL: "https://sensationtksgstar.github.io"
         run: npm run build
 
       - name: Add .nojekyll

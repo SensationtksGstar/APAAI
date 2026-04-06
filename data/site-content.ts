@@ -68,6 +68,11 @@ type NewsCard = {
   href: string;
 };
 
+type GalleryPhoto = {
+  src: string;
+  alt: string;
+};
+
 type ContactField = {
   label: string;
   name: string;
@@ -134,6 +139,12 @@ export type SiteContent = {
     title: string;
     description: string;
     cards: NewsCard[];
+  };
+  gallery: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    photos: GalleryPhoto[];
   };
   contact: {
     eyebrow: string;

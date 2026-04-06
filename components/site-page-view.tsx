@@ -10,6 +10,7 @@ import {
   LocationsSection,
   NewsSection,
   PageHero,
+  ProjectGallerySection,
   ProgramsSection,
   RouteHighlightsSection,
   StorySection,
@@ -240,6 +241,7 @@ function renderPageSections(content: SiteContent, locale: Locale, page: SitePage
       return (
         <>
           <ProgramsSection content={content} />
+          <ProjectGallerySection content={content} />
           <LocationsSection content={content} />
           <FinalCtaSection content={content} locale={locale} />
         </>
@@ -280,6 +282,7 @@ function renderPageSections(content: SiteContent, locale: Locale, page: SitePage
         <>
           <StorySection content={content} />
           <RouteHighlightsSection content={content} locale={locale} />
+          <ProjectGallerySection content={content} />
           <NewsSection content={content} />
           <FinalCtaSection content={content} locale={locale} />
         </>

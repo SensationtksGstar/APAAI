@@ -282,6 +282,30 @@ export const ptContent: SiteContent = {
       },
     ],
   },
+  gallery: {
+    eyebrow: "Galeria do projeto",
+    title: "Imagens reais do trabalho da APAAI no terreno.",
+    description:
+      "Uma seleção de momentos do projeto em contexto de grupo, prática adaptada e acompanhamento próximo.",
+    photos: [
+      {
+        src: "/media/project/apaai-group-hands.jpeg",
+        alt: "Participantes e equipa da APAAI em roda, com as mãos unidas no centro.",
+      },
+      {
+        src: "/media/project/apaai-guided-practice-bw.jpeg",
+        alt: "Momento de prática orientada entre instrutor e participante em contexto adaptado.",
+      },
+      {
+        src: "/media/project/apaai-adapted-partner-drill.jpeg",
+        alt: "Exercício de parceiro em contexto desportivo com adaptação e acompanhamento.",
+      },
+      {
+        src: "/media/project/apaai-floor-technique.jpeg",
+        alt: "Técnica no solo em sessão de Aikido Adaptado com acompanhamento próximo.",
+      },
+    ],
+  },
   contact: {
     eyebrow: "Contactos",
     title: "Vamos construir impacto em conjunto.",
@@ -291,6 +315,11 @@ export const ptContent: SiteContent = {
       { label: "Quero participar", href: "/pt/contactos", variant: "secondary" },
       { label: "Quero apoiar", href: "/pt/contactos", variant: "secondary" },
       { label: "Parceria institucional", href: "/pt/parcerias", variant: "secondary" },
+      {
+        label: "Facebook APAAI",
+        href: "https://www.facebook.com/people/Associa%C3%A7%C3%A3o-Portuguesa-de-Aikido-Adaptado-Inclusivo-APAAI/61574527752279/",
+        variant: "secondary",
+      },
     ],
     whatsappCta: {
       label: "Falar por WhatsApp",
@@ -301,6 +330,11 @@ export const ptContent: SiteContent = {
     details: [
       { label: "Email", value: "aikidoadaptado@gmail.com", href: "mailto:aikidoadaptado@gmail.com" },
       { label: "Telefone", value: "926 334 870", href: "tel:+351926334870" },
+      {
+        label: "Facebook",
+        value: "Associação Portuguesa de Aikido Adaptado Inclusivo",
+        href: "https://www.facebook.com/people/Associa%C3%A7%C3%A3o-Portuguesa-de-Aikido-Adaptado-Inclusivo-APAAI/61574527752279/",
+      },
     ],
     formFields: [
       { label: "Nome", name: "name", placeholder: "O seu nome" },

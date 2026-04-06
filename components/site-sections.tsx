@@ -290,6 +290,80 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
   );
 }
 
+export function ProjectGallerySection({ content }: { content: SiteContent }) {
+  const [featuredPhoto, ...supportingPhotos] = content.gallery.photos;
+
+  if (!featuredPhoto) {
+    return null;
+  }
+
+  return (
+    <section className="section-shell">
+      <div className="container-shell">
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="sticky-panel border-[var(--line)] bg-white">
+            <SectionHeading
+              eyebrow={content.gallery.eyebrow}
+              title={content.gallery.title}
+              description={content.gallery.description}
+            />
+
+            <div className="mt-8 rounded-[1.9rem] border border-[var(--line)] bg-[var(--surface-soft)] px-6 py-6">
+              <p className="eyebrow">
+                {content.locale === "pt" ? "Em contexto real" : "In real settings"}
+              </p>
+              <p className="mt-4 text-base leading-7 text-[var(--ink)]">
+                {content.locale === "pt"
+                  ? "As imagens passam a mostrar o trabalho da APAAI com presença humana, adaptação e prática concreta, em vez de depender apenas de fotografia genérica."
+                  : "The imagery now shows APAAI's real work with human presence, adaptation and practice instead of relying only on generic photography."}
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-5">
+            <figure className="overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white shadow-[0_18px_48px_rgba(23,21,20,0.08)]">
+              <div className="relative aspect-[6/5]">
+                <Image
+                  src={featuredPhoto.src}
+                  alt={featuredPhoto.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 56vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="px-6 py-5 text-sm leading-6 text-[var(--muted)]">
+                {featuredPhoto.alt}
+              </figcaption>
+            </figure>
+
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {supportingPhotos.map((photo) => (
+                <figure
+                  key={photo.src}
+                  className="overflow-hidden rounded-[1.8rem] border border-[var(--line)] bg-white shadow-[0_14px_36px_rgba(23,21,20,0.06)]"
+                >
+                  <div className="relative aspect-[4/5]">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 18vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="px-5 py-4 text-sm leading-6 text-[var(--muted)]">
+                    {photo.alt}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function ImpactSection({ content }: { content: SiteContent }) {
   return (
     <section className="section-shell">
@@ -512,7 +586,7 @@ export function FinalCtaSection({
             />
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {content.contact.details.map((detail) => (
               <div
                 key={`${detail.label}-${detail.value}`}
@@ -521,9 +595,18 @@ export function FinalCtaSection({
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
                   {detail.label}
                 </p>
-                <p className="mt-3 text-xl font-semibold tracking-[0.01em] text-white">
-                  {detail.value}
-                </p>
+                {detail.href ? (
+                  <SmartLink
+                    href={detail.href}
+                    className="mt-3 block text-xl font-semibold tracking-[0.01em] text-white hover:text-white/78"
+                  >
+                    {detail.value}
+                  </SmartLink>
+                ) : (
+                  <p className="mt-3 text-xl font-semibold tracking-[0.01em] text-white">
+                    {detail.value}
+                  </p>
+                )}
               </div>
             ))}
           </div>

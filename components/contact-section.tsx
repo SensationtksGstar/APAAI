@@ -1,23 +1,32 @@
 import Image from "next/image";
 
 import { SectionHeading } from "@/components/section-heading";
-import { ActionButton } from "@/components/site-ui";
+import { ActionButton, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
 
 export function ContactSection({ content }: { content: SiteContent }) {
+  const projectVisual = content.gallery.photos[1] ?? content.gallery.photos[0];
   const visualReference =
     content.locale === "pt"
       ? {
-          alt: "Referência visual inclusiva com treino adaptado em contexto desportivo.",
+          alt:
+            projectVisual?.alt ??
+            "Fotografia do projeto APAAI em contexto real de prática adaptada.",
           caption:
-            "Referência visual gratuita para o protótipo: treino adaptado com foco em inclusão, movimento e proximidade humana.",
-          sourceLabel: "Fonte gratuita: Pexels",
+            "Fotografia real do projeto APAAI em contexto de prática adaptada, acompanhamento próximo e relação com os participantes.",
+          sourceLabel: "Galeria do projeto APAAI",
+          body:
+            "As imagens do site passaram a usar momentos reais do projeto para mostrar a dimensão humana, técnica e inclusiva do trabalho.",
         }
       : {
-          alt: "Inclusive visual reference showing adapted training in a sports context.",
+          alt:
+            projectVisual?.alt ??
+            "APAAI project photography in a real adapted practice setting.",
           caption:
-            "Free visual reference for the prototype: adapted training with a focus on inclusion, movement and human connection.",
-          sourceLabel: "Free source: Pexels",
+            "Real APAAI project photography showing adapted practice, close support and participant connection.",
+          sourceLabel: "APAAI project gallery",
+          body:
+            "The site now uses real project moments to show the human, technical and inclusive dimension of the work.",
         };
 
   return (
@@ -55,12 +64,12 @@ export function ContactSection({ content }: { content: SiteContent }) {
                       {detail.label}
                     </span>
                     {detail.href ? (
-                      <a
+                      <SmartLink
                         href={detail.href}
                         className="text-lg font-semibold text-[var(--ink)] hover:text-[var(--accent-red)]"
                       >
                         {detail.value}
-                      </a>
+                      </SmartLink>
                     ) : (
                       <span className="text-lg font-semibold text-[var(--ink)]">{detail.value}</span>
                     )}
@@ -71,11 +80,11 @@ export function ContactSection({ content }: { content: SiteContent }) {
 
             <div className="mt-10 rounded-[2rem] border border-[var(--line)] bg-white px-6 py-6">
               <p className="eyebrow">
-                {content.locale === "pt" ? "Direção visual" : "Visual direction"}
+                {content.locale === "pt" ? "Projeto em prática" : "Project in practice"}
               </p>
               <div className="mt-5 overflow-hidden rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)]">
                 <Image
-                  src="https://images.pexels.com/photos/7697818/pexels-photo-7697818.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  src={projectVisual?.src ?? "/logo-apaai.jpeg"}
                   alt={visualReference.alt}
                   width={1200}
                   height={800}
@@ -84,26 +93,17 @@ export function ContactSection({ content }: { content: SiteContent }) {
                 />
                 <div className="grid gap-3 px-5 py-5">
                   <p className="text-sm leading-7 text-[var(--muted)]">{visualReference.caption}</p>
-                  <a
-                    href="https://www.pexels.com/photo/woman-lifting-dumbbell-7697818/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-semibold text-[var(--accent-red)] hover:opacity-80"
-                  >
+                  <p className="text-sm font-semibold text-[var(--accent-green)]">
                     {visualReference.sourceLabel}
-                  </a>
+                  </p>
                 </div>
               </div>
               <div className="mt-5 grid gap-4 text-sm leading-7 text-[var(--muted)]">
+                <p>{visualReference.body}</p>
                 <p>
                   {content.locale === "pt"
-                    ? "Fotografia recomendada: sessões reais em instituições, retratos de proximidade, momentos de apoio individual e imagens com luz natural."
-                    : "Recommended photography: real institutional sessions, close-up portraits, moments of individual support and natural-light imagery."}
-                </p>
-                <p>
-                  {content.locale === "pt"
-                    ? "Ícones e elementos gráficos: linha fina, ritmo calmo, contraste forte e referências circulares inspiradas no logótipo."
-                    : "Icons and graphic elements: fine-line style, calm rhythm, strong contrast and circular cues inspired by the logo."}
+                    ? "As fotografias foram organizadas em `public/media/project` para o repositório ficar mais claro e simples de manter."
+                    : "The photographs were organised under `public/media/project` so the repository stays clearer and easier to maintain."}
                 </p>
               </div>
             </div>

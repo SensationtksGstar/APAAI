@@ -11,18 +11,18 @@ export const enContent: SiteContent = {
   skipToContent: "Skip to content",
   headerCta: {
     label: "Discuss partnerships",
-    href: "/en/contact",
+    href: "/en#contact",
     variant: "primary",
   },
   nav: [
     { label: "Home", href: "/en" },
-    { label: "About", href: "/en/about" },
-    { label: "Project", href: "/en/project" },
-    { label: "Impact", href: "/en/impact" },
-    { label: "Partnerships", href: "/en/partnerships" },
-    { label: "Where We Are", href: "/en/locations" },
-    { label: "News", href: "/en/news" },
-    { label: "Contact", href: "/en/contact" },
+    { label: "About", href: "/en#about" },
+    { label: "Project", href: "/en#project" },
+    { label: "Impact", href: "/en#impact" },
+    { label: "Partnerships", href: "/en#partnerships" },
+    { label: "Where We Are", href: "/en#locations" },
+    { label: "News", href: "/en#news" },
+    { label: "Contact", href: "/en#contact" },
   ],
   hero: {
     eyebrow: "APAAI | Portuguese Association of Inclusive Adapted Aikido",
@@ -31,12 +31,12 @@ export const enContent: SiteContent = {
       "We design sessions, training and institutional partnerships that use adapted Aikido as a real tool for inclusion, autonomy, wellbeing and participation.",
     primaryCta: {
       label: "I want to join",
-      href: "/en/contact",
+      href: "/en#contact",
       variant: "primary",
     },
     secondaryCta: {
       label: "I want to partner",
-      href: "/en/partnerships",
+      href: "/en#partnerships",
       variant: "secondary",
     },
     proof: [
@@ -194,7 +194,7 @@ export const enContent: SiteContent = {
       "This block is intentionally framed to show institutional maturity without claiming unconfirmed support. IPDJ and Erasmus+ are presented as strategic growth and partnership pathways.",
     partnerCta: {
       label: "Start an institutional conversation",
-      href: "/en/contact",
+      href: "/en#contact",
       variant: "primary",
     },
   },
@@ -262,7 +262,7 @@ export const enContent: SiteContent = {
         description:
           "Practical sessions to understand the methodology, observe adaptations and discuss implementation with decision-makers.",
         cta: "Request a presentation",
-        href: "/en/contact",
+        href: "/en#contact",
       },
       {
         category: "Community",
@@ -270,7 +270,7 @@ export const enContent: SiteContent = {
         description:
           "Proximity-based activations focused on experimentation, clarity and onboarding new practitioners.",
         cta: "Ask for details",
-        href: "/en/contact",
+        href: "/en#contact",
       },
       {
         category: "Capacity building",
@@ -278,7 +278,7 @@ export const enContent: SiteContent = {
         description:
           "Content designed for technicians, teachers, social partners and territorial programmes that need replicable tools.",
         cta: "Explore a partnership",
-        href: "/en/partnerships",
+        href: "/en#partnerships",
       },
     ],
   },
@@ -312,9 +312,9 @@ export const enContent: SiteContent = {
     description:
       "If you are looking for an inclusive activity, an institutional partnership or a funding-ready initiative, the conversation starts here.",
     quickLinks: [
-      { label: "I want to join", href: "/en/contact", variant: "secondary" },
-      { label: "I want to support", href: "/en/contact", variant: "secondary" },
-      { label: "Institutional partnership", href: "/en/partnerships", variant: "secondary" },
+      { label: "I want to join", href: "/en#contact", variant: "secondary" },
+      { label: "I want to support", href: "/en#contact", variant: "secondary" },
+      { label: "Institutional partnership", href: "/en#partnerships", variant: "secondary" },
       {
         label: "APAAI on Facebook",
         href: "https://www.facebook.com/people/Associa%C3%A7%C3%A3o-Portuguesa-de-Aikido-Adaptado-Inclusivo-APAAI/61574527752279/",

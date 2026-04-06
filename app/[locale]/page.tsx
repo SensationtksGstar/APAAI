@@ -31,14 +31,5 @@ export default function LocalePage({ params }: LocalePageProps) {
     notFound();
   }
 
-  const content = getSiteContent(params.locale);
-
-  return (
-    <>
-      <a href="#main" className="skip-link">
-        {content.skipToContent}
-      </a>
-      <Homepage content={content} locale={params.locale} />
-    </>
-  );
+  return <Homepage content={getSiteContent(params.locale)} locale={params.locale} />;
 }

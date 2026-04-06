@@ -1,12 +1,13 @@
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
+import { getPageSlug } from "@/lib/i18n";
 
 export function ContactSection({ content }: { content: SiteContent }) {
   const facebookDetail = content.contact.details.find((detail) => detail.label === "Facebook");
 
   return (
-    <section className="section-shell">
+    <section id={getPageSlug(content.locale, "contact")} className="section-shell">
       <div className="container-shell">
         <div className="contact-shell">
           <div>

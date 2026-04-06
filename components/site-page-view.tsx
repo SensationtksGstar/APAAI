@@ -10,9 +10,9 @@ import {
   LocationsSection,
   NewsSection,
   PageHero,
+  ProjectStatementSection,
   ProjectGallerySection,
   ProgramsSection,
-  RouteHighlightsSection,
   StorySection,
 } from "@/components/site-sections";
 import type { SiteContent } from "@/data/site-content";
@@ -281,11 +281,15 @@ function renderPageSections(content: SiteContent, locale: Locale, page: SitePage
     default:
       return (
         <>
+          <ProjectStatementSection content={content} />
           <StorySection content={content} />
-          <RouteHighlightsSection content={content} locale={locale} />
+          <ProgramsSection content={content} />
+          <ImpactSection content={content} />
+          <CredibilitySection content={content} />
           <ProjectGallerySection content={content} />
+          <LocationsSection content={content} />
           <NewsSection content={content} />
-          <FinalCtaSection content={content} locale={locale} />
+          <ContactSection content={content} />
         </>
       );
   }

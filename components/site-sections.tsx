@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, IconBadge, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
 import { getAssetPath } from "@/lib/assets";
-import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
+import { getPageHref, getPageSlug, type Locale, type SitePage } from "@/lib/i18n";
 
 export function HomeHero({
   content,
@@ -79,33 +79,41 @@ export function HomeHero({
                 </p>
               </div>
             </div>
-
-            <div className="relative z-10 flex min-h-[440px] flex-col justify-end p-6 sm:p-8">
-              <p className="inline-flex max-w-fit rounded-full border border-white/16 bg-white/12 px-3 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/86 backdrop-blur-sm">
-                {content.hero.posterKicker}
-              </p>
-              <h2 className="mt-4 max-w-lg font-serif text-3xl leading-tight text-white">
-                {content.hero.posterTitle}
-              </h2>
-              <p className="mt-4 max-w-lg text-base leading-7 text-white/78">
-                {content.hero.posterBody}
-              </p>
-
-              <div className="mt-7 grid gap-3 sm:grid-cols-3">
-                {content.hero.posterHighlights.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-full border border-white/16 bg-black/30 px-4 py-3 text-xs font-medium tracking-[0.01em] text-white/80 backdrop-blur-sm"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+export function ProjectStatementSection({ content }: { content: SiteContent }) {
+  return (
+    <section className="section-shell">
+      <div className="container-shell">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="rounded-[2rem] border border-[rgba(208,28,31,0.14)] bg-[rgba(208,28,31,0.05)] px-6 py-6">
+            <p className="eyebrow">{content.hero.posterKicker}</p>
+            <h2 className="mt-4 max-w-lg font-serif text-3xl leading-tight text-[var(--ink)] sm:text-4xl">
+              {content.hero.posterTitle}
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg">
+              {content.hero.posterBody}
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-3">
+            {content.hero.posterHighlights.map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.7rem] border border-[var(--line)] bg-white px-5 py-5 text-sm font-semibold leading-6 text-[var(--ink)] shadow-[0_14px_30px_rgba(23,21,20,0.05)]"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -146,7 +154,7 @@ export function PageHero({
 
 export function StorySection({ content }: { content: SiteContent }) {
   return (
-    <section className="section-shell">
+    <section id={getPageSlug(content.locale, "about")} className="section-shell">
       <div className="container-shell">
         <SectionHeading
           eyebrow={content.story.eyebrow}
@@ -265,7 +273,7 @@ export function RouteHighlightsSection({
 
 export function ProgramsSection({ content }: { content: SiteContent }) {
   return (
-    <section className="section-shell section-shell-muted">
+    <section id={getPageSlug(content.locale, "project")} className="section-shell section-shell-muted">
       <div className="container-shell">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
@@ -375,7 +383,7 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
 
 export function ImpactSection({ content }: { content: SiteContent }) {
   return (
-    <section className="section-shell">
+    <section id={getPageSlug(content.locale, "impact")} className="section-shell">
       <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="sticky-panel border-[rgba(208,28,31,0.18)] bg-white">
           <SectionHeading
@@ -431,7 +439,10 @@ export function ImpactSection({ content }: { content: SiteContent }) {
 
 export function CredibilitySection({ content }: { content: SiteContent }) {
   return (
-    <section className="section-shell section-shell-dark">
+    <section
+      id={getPageSlug(content.locale, "partners")}
+      className="section-shell section-shell-dark"
+    >
       <div className="container-shell">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr]">
           <div>
@@ -489,7 +500,7 @@ export function CredibilitySection({ content }: { content: SiteContent }) {
 
 export function LocationsSection({ content }: { content: SiteContent }) {
   return (
-    <section className="section-shell">
+    <section id={getPageSlug(content.locale, "locations")} className="section-shell">
       <div className="container-shell">
         <SectionHeading
           eyebrow={content.locations.eyebrow}
@@ -531,7 +542,7 @@ export function LocationsSection({ content }: { content: SiteContent }) {
 
 export function NewsSection({ content }: { content: SiteContent }) {
   return (
-    <section className="section-shell section-shell-muted">
+    <section id={getPageSlug(content.locale, "news")} className="section-shell section-shell-muted">
       <div className="container-shell">
         <SectionHeading
           eyebrow={content.news.eyebrow}

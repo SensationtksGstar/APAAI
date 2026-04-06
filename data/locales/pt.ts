@@ -318,7 +318,7 @@ export const ptContent: SiteContent = {
       {
         label: "Facebook oficial",
         href: "https://www.facebook.com/people/Associa%C3%A7%C3%A3o-Portuguesa-de-Aikido-Adaptado-Inclusivo-APAAI/61574527752279/",
-        variant: "secondary",
+        variant: "facebook",
       },
     ],
     whatsappCta: {

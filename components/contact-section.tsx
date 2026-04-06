@@ -75,7 +75,7 @@ export function ContactSection({ content }: { content: SiteContent }) {
                   <ActionButton
                     label={content.locale === "pt" ? "Ver Facebook oficial" : "Open official Facebook"}
                     href={facebookDetail.href}
-                    variant="secondary"
+                    variant="facebook"
                   />
                 ) : null}
                 <ActionButton

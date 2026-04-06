@@ -13,6 +13,7 @@ import {
   ShieldIcon,
   SparkIcon,
   UsersIcon,
+  FacebookIcon,
   WhatsAppIcon,
 } from "@/components/icons";
 
@@ -71,17 +72,20 @@ export function ActionButton({
 }: {
   label: string;
   href: string;
-  variant?: "primary" | "secondary" | "whatsapp";
+  variant?: "primary" | "secondary" | "whatsapp" | "facebook";
 }) {
   const variantClass =
     variant === "primary"
       ? "button-primary"
+      : variant === "facebook"
+        ? "button-facebook"
       : variant === "whatsapp"
         ? "button-whatsapp"
         : "button-secondary";
 
   return (
     <SmartLink href={href} className={`button ${variantClass}`}>
+      {variant === "facebook" ? <FacebookIcon className="h-4 w-4" /> : null}
       {variant === "whatsapp" ? <WhatsAppIcon className="h-4 w-4" /> : null}
       {label}
     </SmartLink>

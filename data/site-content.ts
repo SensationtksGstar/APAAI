@@ -16,7 +16,7 @@ type SeoContent = {
 type ActionLink = {
   label: string;
   href: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "facebook";
 };
 
 type HeroContent = {

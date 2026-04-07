@@ -115,7 +115,7 @@ export function SiteFooter({ content, locale, currentPage }: SiteFooterProps) {
           </div>
         </div>
 
-        <div className="mt-7 flex flex-col gap-2 border-t border-white/10 pt-5 text-xs text-white/52 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-7 flex flex-col gap-2 border-t border-white/10 pb-14 pr-20 pt-5 text-xs text-white/52 sm:pb-12 lg:flex-row lg:items-center lg:justify-between lg:pb-0 lg:pr-40">
           <p>{content.footer.location}</p>
           <p>{rightsLabel}</p>
           <p className="text-white/78">{authorCredit}</p>

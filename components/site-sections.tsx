@@ -260,15 +260,15 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
   return (
     <section className="section-shell">
       <div className="container-shell">
-        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div className="rounded-[2rem] border border-[var(--line)] bg-white px-6 py-6 shadow-[0_16px_40px_rgba(23,21,20,0.06)]">
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+          <div>
             <SectionHeading
               eyebrow={content.gallery.eyebrow}
               title={content.gallery.title}
               description={content.gallery.description}
             />
 
-            <div className="mt-8 rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-5">
+            <div className="mt-7 rounded-[1.6rem] border border-[var(--line)] bg-white/72 px-5 py-5">
               <p className="eyebrow">
                 {content.locale === "pt" ? "Em contexto real" : "In real settings"}
               </p>
@@ -278,34 +278,23 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
                   : "Each image shows relationship, adaptation and shared practice. This is where the project gains substance, trust and continuity."}
               </p>
             </div>
-
-            <div className="mt-4 rounded-[1.6rem] border border-[rgba(208,28,31,0.12)] bg-[rgba(208,28,31,0.05)] px-5 py-5 text-sm leading-7 text-[var(--muted)]">
-              {content.locale === "pt"
-                ? "Um retrato fiel de sessões, demonstrações e momentos de proximidade entre equipa, participantes e parceiros."
-                : "A faithful portrait of sessions, demonstrations and close moments between the team, participants and partners."}
-            </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            {content.gallery.photos.map((photo, index) => (
+          <div className="grid items-start gap-5 sm:grid-cols-3">
+            {content.gallery.photos.map((photo) => (
               <figure
                 key={photo.src}
-                className={`overflow-hidden rounded-[1.9rem] border border-[var(--line)] bg-white shadow-[0_14px_36px_rgba(23,21,20,0.06)] ${
-                  index === 0 ? "sm:translate-y-6" : ""
-                }`}
+                className="overflow-hidden rounded-[1.7rem] border border-[var(--line)] bg-white shadow-[0_14px_36px_rgba(23,21,20,0.06)]"
               >
                 <div className="relative aspect-[4/5]">
                   <Image
                     src={getAssetPath(photo.src)}
                     alt={photo.alt}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 26vw"
-                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 33vw, 24vw"
+                    className="object-cover object-center"
                   />
                 </div>
-                <figcaption className="px-5 py-4 text-sm leading-6 text-[var(--muted)]">
-                  {photo.alt}
-                </figcaption>
               </figure>
             ))}
           </div>
@@ -318,7 +307,7 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
 export function ImpactSection({ content }: { content: SiteContent }) {
   return (
     <section id={getPageSlug(content.locale, "impact")} className="section-shell">
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <div className="sticky-panel border-[rgba(208,28,31,0.18)] bg-white">
           <SectionHeading
             eyebrow={content.impact.eyebrow}
@@ -342,14 +331,14 @@ export function ImpactSection({ content }: { content: SiteContent }) {
           </div>
         </div>
 
-        <div className="soft-panel">
+        <div className="soft-panel self-start">
           <div>
             <p className="eyebrow">{content.impact.outcomesTitle}</p>
-            <div className="mt-7 grid gap-5">
+            <div className="mt-6 grid gap-4">
               {content.impact.outcomes.map((item) => (
                 <article
                   key={item}
-                  className="rounded-[1.75rem] border border-[var(--line)] bg-white px-5 py-5"
+                  className="rounded-[1.45rem] border border-[var(--line)] bg-white px-5 py-4"
                 >
                   <div className="flex items-start gap-4">
                     <div className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(208,28,31,0.1)] text-[var(--accent-red)]">
@@ -374,7 +363,7 @@ export function CredibilitySection({ content }: { content: SiteContent }) {
       className="section-shell section-shell-dark"
     >
       <div className="container-shell">
-        <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr]">
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
           <div>
             <SectionHeading
               eyebrow={content.credibility.eyebrow}
@@ -393,27 +382,27 @@ export function CredibilitySection({ content }: { content: SiteContent }) {
             </div>
           </div>
 
-          <div className="grid gap-6">
-            <div className="contrast-panel">
+          <div className="grid content-start gap-5">
+            <div className="contrast-panel self-start">
               <p className="eyebrow text-[var(--accent-red)]">{content.credibility.ecosystemTitle}</p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-5 flex flex-wrap gap-2.5">
                 {content.credibility.ecosystem.map((item) => (
                   <span key={item} className="contrast-chip">
                     {item}
                   </span>
                 ))}
               </div>
-              <div className="contrast-note mt-6">
-                <p className="text-sm leading-7 text-[var(--ink)]">{content.credibility.programsNote}</p>
-              </div>
+              <p className="mt-5 text-sm leading-6 text-[var(--muted)]">
+                {content.credibility.programsNote}
+              </p>
             </div>
 
-            <div className="dark-cta">
+            <div className="dark-cta self-start">
               <div>
                 <p className="eyebrow text-white/52">
                   {content.locale === "pt" ? "Convite institucional" : "Institutional invitation"}
                 </p>
-                <h3 className="mt-5 font-serif text-3xl text-white">
+                <h3 className="mt-4 font-serif text-2xl leading-tight text-white">
                   {content.locale === "pt"
                     ? "Se procura impacto com método, esta parceria merece conversa."
                     : "If you are looking for impact with method, this partnership deserves a conversation."}

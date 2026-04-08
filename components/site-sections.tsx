@@ -205,11 +205,74 @@ export function StorySection({ content }: { content: SiteContent }) {
   );
 }
 
+export function TeamSection({ content }: { content: SiteContent }) {
+  const teamVisual = {
+    src: getAssetPath("/media/project/apaai-adapted-partner-drill.jpeg"),
+    alt:
+      content.locale === "pt"
+        ? "Acompanhamento técnico numa sessão de Aikido Adaptado."
+        : "Technical support during an Adapted Aikido session.",
+  };
+
+  return (
+    <section className="section-shell section-shell-muted">
+      <div className="container-shell">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <figure className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white shadow-[0_18px_48px_rgba(23,21,20,0.09)]">
+            <Image
+              src={teamVisual.src}
+              alt={teamVisual.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              className="object-cover object-center"
+            />
+          </figure>
+
+          <div>
+            <SectionHeading
+              eyebrow={content.team.eyebrow}
+              title={content.team.title}
+              description={content.team.description}
+            />
+
+            <div className="mt-8 grid gap-4">
+              {content.team.members.map((member) => (
+                <article
+                  key={member.name}
+                  className="rounded-[1.6rem] border border-[var(--line)] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(23,21,20,0.05)]"
+                >
+                  <p className="font-serif text-2xl leading-tight text-[var(--ink)]">
+                    {member.name}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-red)]">
+                    {member.role}
+                  </p>
+                  <p className="mt-3 text-base leading-7 text-[var(--muted)]">
+                    {member.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function ProgramsSection({ content }: { content: SiteContent }) {
+  const programVisual = {
+    src: getAssetPath("/media/project/apaai-floor-technique.jpeg"),
+    alt:
+      content.locale === "pt"
+        ? "Prática de Aikido Adaptado com acompanhamento próximo no tatami."
+        : "Adapted Aikido practice with close support on the tatami.",
+  };
+
   return (
     <section id={getPageSlug(content.locale, "project")} className="section-shell section-shell-muted">
       <div className="container-shell">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr]">
           <div>
             <SectionHeading
               eyebrow={content.programs.eyebrow}
@@ -217,7 +280,17 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
               description={content.programs.description}
             />
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <figure className="relative mt-8 aspect-[16/7] overflow-hidden rounded-[1.8rem] border border-[var(--line)] bg-white shadow-[0_16px_38px_rgba(23,21,20,0.07)]">
+              <Image
+                src={programVisual.src}
+                alt={programVisual.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 54vw"
+                className="object-cover object-center"
+              />
+            </figure>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {content.programs.cards.map((card) => (
                 <article key={card.title} className="soft-panel">
                   <IconBadge icon={card.icon} />
@@ -305,6 +378,14 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
 }
 
 export function ImpactSection({ content }: { content: SiteContent }) {
+  const impactVisual = {
+    src: getAssetPath("/media/project/apaai-guided-practice-bw.jpeg"),
+    alt:
+      content.locale === "pt"
+        ? "Momento de orientação individual numa sessão adaptada."
+        : "Individual guidance during an adapted session.",
+  };
+
   return (
     <section id={getPageSlug(content.locale, "impact")} className="section-shell">
       <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
@@ -315,7 +396,17 @@ export function ImpactSection({ content }: { content: SiteContent }) {
             description={content.impact.description}
           />
 
-          <div className="mt-8 grid gap-4">
+          <figure className="relative mt-8 aspect-[16/7] overflow-hidden rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)]">
+            <Image
+              src={impactVisual.src}
+              alt={impactVisual.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 44vw"
+              className="object-cover object-center"
+            />
+          </figure>
+
+          <div className="mt-6 grid gap-4">
             {content.impact.metrics.map((metric) => (
               <div
                 key={metric.label}

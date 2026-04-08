@@ -80,76 +80,96 @@ export const ptContent: SiteContent = {
       },
     ],
   },
+  team: {
+    eyebrow: "Quem está no terreno",
+    title: "Uma equipa próxima da prática e das pessoas.",
+    description:
+      "A confiança nasce no contacto direto: na forma como se escuta, adapta e acompanha cada pessoa durante a prática.",
+    members: [
+      {
+        name: "Hélder Oliveira Rodrigues",
+        role: "Coordenação e desenvolvimento do projeto",
+        description:
+          "Experiência no ensino de Aikido e Aikido Adaptado em contexto real.",
+      },
+      {
+        name: "Equipa técnica APAAI",
+        role: "Apoio técnico e desenvolvimento das sessões",
+        description:
+          "Acompanhamento no terreno, adaptação da prática e apoio à evolução dos participantes.",
+      },
+    ],
+  },
   programs: {
     eyebrow: "O projeto",
-    title: "O que fazemos para transformar inclusão em prática regular.",
+    title: "O que fazemos para transformar a inclusão em prática real.",
     description:
-      "A intervenção é modular para responder a necessidades diferentes sem perder coerência metodológica, leitura de contexto e capacidade de avaliação.",
+      "A nossa intervenção adapta-se a cada pessoa e a cada contexto, mantendo uma forma de trabalhar consistente, próxima e orientada para resultados reais.",
     cards: [
       {
         icon: "movement",
         title: "Aikido Adaptado",
         description:
-          "Sessões desenhadas para deficiência, doenças raras e necessidades específicas, com adaptação individual e foco real na participação.",
+          "Sessões adaptadas a pessoas com diferentes necessidades, com foco na participação, na confiança e no desenvolvimento individual.",
       },
       {
         icon: "users",
         title: "Aulas Regulares",
         description:
-          "Continuidade semanal para consolidar competências, rotina, pertença ao grupo e prazer na prática a médio prazo.",
+          "Sessões semanais que promovem rotina, evolução e integração no grupo, através de uma prática contínua e acessível.",
       },
       {
         icon: "graduation",
         title: "Formação",
         description:
-          "Ações para técnicos, professores, monitores e parceiros que querem compreender como adaptar a prática com segurança, linguagem e intenção pedagógica.",
+          "Formação para técnicos, professores e parceiros, focada na adaptação da prática com segurança, clareza e intenção pedagógica.",
       },
       {
         icon: "calendar",
         title: "Eventos",
         description:
-          "Demonstrações, jornadas, dias abertos e ativações comunitárias que tornam o projeto mais visível, mais compreendido e mais mobilizador.",
+          "Atividades, demonstrações e encontros que dão visibilidade ao projeto e reforçam a ligação à comunidade.",
       },
     ],
     methodologyTitle: "Como trabalhamos",
     methodologyBody:
-      "Começamos com escuta e leitura do contexto. Depois desenhamos adaptação, ritmo e acompanhamento. O resultado é uma proposta humana, replicável e preparada para relatórios de impacto.",
+      "Começamos por ouvir e compreender cada contexto. Depois adaptamos a prática ao ritmo e às necessidades de cada pessoa. O resultado é um trabalho próximo, estruturado e com impacto real.",
     methodologyPoints: [
-      "Adaptação funcional, relacional e comunicacional.",
-      "Ambiente seguro com progressão real e participação ativa.",
-      "Ligação entre prática, autoestima, inclusão e autonomia.",
+      "Adaptação funcional, relacional e comunicacional",
+      "Ambiente seguro com progressão real e participação ativa",
+      "Ligação entre prática, autoestima, inclusão e autonomia",
     ],
   },
   impact: {
     eyebrow: "Impacto",
     title: "Impacto que se mede no corpo, na confiança e na relação.",
     description:
-      "O valor do projeto não está só na atividade física. Está na transformação que acontece quando uma pessoa participa com dignidade, regularidade e sentido de pertença.",
+      "O impacto do projeto vai além da atividade física. Está na forma como cada pessoa participa, evolui e se sente integrada.",
     metrics: [
       {
         value: "+50",
-        label: "participações em aulas, demonstrações e ações de proximidade",
+        label: "Participações em aulas, demonstrações e ações na comunidade",
         detail:
-          "Presença continuada em contexto adaptado, com foco na relação, no movimento e na participação regular.",
+          "Presença regular em contexto adaptado, com foco na participação, no movimento e na relação.",
       },
       {
         value: "3",
-        label: "frentes de intervenção em prática, demonstração e capacitação",
+        label: "Áreas de intervenção: prática, demonstração e formação",
         detail:
-          "Trabalho pensado para responder a participantes, equipas técnicas e contextos institucionais distintos.",
+          "Trabalho desenvolvido com participantes, equipas técnicas e instituições.",
       },
       {
         value: "5+",
-        label: "anos de experiência aplicada em Aikido adaptado",
+        label: "Anos de experiência em Aikido Adaptado",
         detail:
-          "Experiência acumulada com adaptação pedagógica, acompanhamento próximo e continuidade do processo.",
+          "Experiência construída com prática real, adaptação contínua e acompanhamento próximo.",
       },
     ],
     outcomesTitle: "Resultados humanos que importam",
     outcomes: [
-      "Mais autoestima: a prática reforça confiança, autorregulação e presença.",
+      "Mais autoestima: a prática reforça a confiança, a segurança e a presença.",
       "Mais inclusão: cada aula cria pertença, relação e reconhecimento.",
-      "Mais desenvolvimento: coordenação, consciência corporal e capacidade de adaptação.",
+      "Mais desenvolvimento: melhoria da coordenação, da consciência corporal e da capacidade de adaptação.",
     ],
     note:
       "O impacto sente-se no corpo, na autoestima e na forma como cada participante se relaciona consigo, com os outros e com o espaço.",
@@ -228,39 +248,39 @@ export const ptContent: SiteContent = {
     eyebrow: "Onde estamos",
     title: "Margem sul como base. Portugal como horizonte.",
     description:
-      "Trabalhamos a partir de Moita e Barreiro com vocação de proximidade. Ao mesmo tempo, desenhamos o projeto para crescer em rede, com implementação adaptada a cada parceiro.",
+      "Trabalhamos a partir da Moita e do Barreiro, com proximidade às pessoas e às comunidades. Ao mesmo tempo, desenvolvemos o projeto para crescer em rede, adaptando a intervenção a cada parceiro.",
     cards: [
       {
         icon: "pin",
         title: "Moita",
         description:
-          "Território de proximidade para continuidade de sessões, relação com famílias e consolidação da prática regular.",
+          "Território de proximidade, onde garantimos continuidade das sessões, ligação às famílias e prática regular.",
       },
       {
         icon: "pin",
         title: "Barreiro",
         description:
-          "Base de articulação com comunidade, instituições e novos percursos de participação adaptada.",
+          "Base de ligação à comunidade e às instituições, criando novas oportunidades de participação.",
       },
       {
         icon: "globe",
         title: "Intervenção móvel",
         description:
-          "Ações em instituições, demonstrações e formação em contexto parceiro sempre que a missão pede presença no terreno.",
+          "Levamos o projeto a diferentes contextos, com ações, demonstrações e formação sempre que há necessidade no terreno.",
       },
     ],
   },
   news: {
     eyebrow: "Notícias e eventos",
-    title: "Uma montra viva para agenda, relatos de terreno e convites a parceiros.",
+    title: "Uma montra viva do que fazemos no terreno.",
     description:
-      "Partilhamos sessões abertas, momentos de comunidade, convites institucionais e iniciativas que aproximam o projeto de famílias, parceiros e território.",
+      "Partilhamos sessões, momentos de comunidade, iniciativas e oportunidades de colaboração com famílias, parceiros e território.",
     cards: [
       {
         category: "Sessões abertas",
         title: "Apresentações para instituições e equipas técnicas",
         description:
-          "Momentos práticos para conhecer a metodologia, observar adaptações e discutir implementação com quem decide no terreno.",
+          "Apresentações práticas para instituições e equipas técnicas conhecerem o projeto no terreno.",
         cta: "Solicitar apresentação",
         href: "/pt#contactos",
       },
@@ -268,7 +288,7 @@ export const ptContent: SiteContent = {
         category: "Comunidade",
         title: "Dias abertos para famílias e participantes",
         description:
-          "Ativações de proximidade com foco na experimentação, no esclarecimento e na entrada de novos praticantes.",
+          "Dias abertos para famílias e participantes experimentarem a prática e integrarem o grupo.",
         cta: "Pedir informação",
         href: "/pt#contactos",
       },
@@ -276,7 +296,7 @@ export const ptContent: SiteContent = {
         category: "Capacitação",
         title: "Formação e partilha de boas práticas",
         description:
-          "Conteúdos pensados para técnicos, professores, parceiros sociais e programas territoriais que precisam de ferramentas replicáveis.",
+          "Formação e partilha de boas práticas para técnicos, professores e parceiros.",
         cta: "Explorar parceria",
         href: "/pt#parcerias",
       },
@@ -304,9 +324,10 @@ export const ptContent: SiteContent = {
   },
   contact: {
     eyebrow: "Contactos",
-    title: "Vamos construir impacto em conjunto.",
+    title: "Vamos construir impacto juntos.",
     description:
-      "Se procura participação, parceria institucional ou uma conversa séria sobre implementação e financiamento, fale connosco.",
+      "Se procura participação, parceria institucional ou desenvolver um projeto, fale connosco.",
+    prompt: "Escolha a melhor forma de entrar em contacto connosco:",
     quickLinks: [
       { label: "Quero participar", href: "/pt#contactos", variant: "secondary" },
       { label: "Quero apoiar", href: "/pt#contactos", variant: "secondary" },
@@ -339,7 +360,7 @@ export const ptContent: SiteContent = {
       { label: "Objetivo", name: "goal", placeholder: "Participação, parceria, patrocínio ou formação" },
     ],
     messageLabel: "Mensagem",
-    messagePlaceholder: "Conte-nos o contexto, a necessidade ou a oportunidade que gostaria de desenvolver.",
+    messagePlaceholder: "Conte-nos o seu contexto, necessidade ou ideia.",
     submitLabel: "Abrir email",
     note:
       "Ao clicar, o seu programa de email abre com a mensagem preparada para a equipa da APAAI.",

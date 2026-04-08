@@ -14,6 +14,7 @@ import {
   ProjectGallerySection,
   ProgramsSection,
   StorySection,
+  TeamSection,
 } from "@/components/site-sections";
 import type { SiteContent } from "@/data/site-content";
 import { getAssetPath } from "@/lib/assets";
@@ -234,6 +235,7 @@ function renderPageSections(content: SiteContent, locale: Locale, page: SitePage
       return (
         <>
           <StorySection content={content} />
+          <TeamSection content={content} />
           <CredibilitySection content={content} />
           <FinalCtaSection content={content} locale={locale} />
         </>
@@ -283,6 +285,7 @@ function renderPageSections(content: SiteContent, locale: Locale, page: SitePage
         <>
           <ProjectStatementSection content={content} />
           <StorySection content={content} />
+          <TeamSection content={content} />
           <ProgramsSection content={content} />
           <ImpactSection content={content} />
           <CredibilitySection content={content} />

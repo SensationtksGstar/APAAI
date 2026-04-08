@@ -80,76 +80,96 @@ export const enContent: SiteContent = {
       },
     ],
   },
+  team: {
+    eyebrow: "On-the-ground team",
+    title: "A team close to the practice and to people.",
+    description:
+      "Trust is built through direct contact: listening, adapting and supporting each person during practice.",
+    members: [
+      {
+        name: "Hélder Oliveira Rodrigues",
+        role: "Project coordination and development",
+        description:
+          "Experience teaching Aikido and Adapted Aikido in real settings.",
+      },
+      {
+        name: "APAAI technical team",
+        role: "Technical support and session development",
+        description:
+          "On-the-ground support, practice adaptation and participant progression.",
+      },
+    ],
+  },
   programs: {
     eyebrow: "The project",
-    title: "What we do to turn inclusion into consistent practice.",
+    title: "What we do to turn inclusion into real practice.",
     description:
-      "The intervention is modular so it can answer different needs without losing methodological coherence, contextual awareness or evaluation capacity.",
+      "Our intervention adapts to each person and each context while keeping a consistent, close and results-oriented way of working.",
     cards: [
       {
         icon: "movement",
         title: "Adapted Aikido",
         description:
-          "Sessions designed for disability, rare diseases and specific needs, with individual adaptation and a genuine focus on participation.",
+          "Sessions adapted to people with different needs, focused on participation, confidence and individual development.",
       },
       {
         icon: "users",
         title: "Regular Classes",
         description:
-          "Weekly continuity to consolidate skills, routine, group belonging and long-term enjoyment of the practice.",
+          "Weekly sessions that promote routine, progression and group integration through continuous and accessible practice.",
       },
       {
         icon: "graduation",
         title: "Training",
         description:
-          "Sessions for technicians, teachers, monitors and partners who want to understand how to adapt the practice with safety, language and pedagogical intention.",
+          "Training for technicians, teachers and partners, focused on adapting the practice with safety, clarity and pedagogical intention.",
       },
       {
         icon: "calendar",
         title: "Events",
         description:
-          "Demonstrations, open days and community activations that make the project more visible, better understood and easier to mobilise around.",
+          "Activities, demonstrations and meetings that give visibility to the project and strengthen its connection with the community.",
       },
     ],
     methodologyTitle: "How we work",
     methodologyBody:
-      "We begin with listening and contextual understanding. Then we define adaptation, rhythm and follow-up. The result is a human approach that is replicable and ready for impact reporting.",
+      "We begin by listening and understanding each context. Then we adapt the practice to each person’s rhythm and needs. The result is close, structured work with real impact.",
     methodologyPoints: [
-      "Functional, relational and communication-based adaptation.",
-      "Safe environments with real progression and active participation.",
-      "A clear link between practice, confidence, inclusion and autonomy.",
+      "Functional, relational and communication-based adaptation",
+      "Safe environments with real progression and active participation",
+      "A clear link between practice, confidence, inclusion and autonomy",
     ],
   },
   impact: {
     eyebrow: "Impact",
     title: "Impact measured in body awareness, confidence and connection.",
     description:
-      "The project is not only about physical activity. Its value lives in the transformation that happens when someone can participate with dignity, continuity and a sense of belonging.",
+      "The project’s impact goes beyond physical activity. It lives in the way each person participates, progresses and feels included.",
     metrics: [
       {
         value: "+50",
         label: "participations across classes, demonstrations and community actions",
         detail:
-          "Ongoing presence in adapted settings, with a focus on relationship, movement and regular participation.",
+          "Regular presence in adapted settings, focused on participation, movement and relationship.",
       },
       {
         value: "3",
-        label: "intervention fronts across practice, demonstration and training",
+        label: "areas of intervention: practice, demonstration and training",
         detail:
-          "Work designed to respond to participants, technical teams and distinct institutional settings.",
+          "Work developed with participants, technical teams and institutions.",
       },
       {
         value: "5+",
-        label: "years of applied experience in adapted Aikido",
+        label: "years of experience in Adapted Aikido",
         detail:
-          "Built on pedagogical adaptation, close support and continuity over time.",
+          "Experience built through real practice, continuous adaptation and close support.",
       },
     ],
     outcomesTitle: "Human outcomes that matter",
     outcomes: [
-      "More confidence: practice strengthens self-regulation, presence and trust.",
+      "More confidence: practice strengthens trust, safety and presence.",
       "More inclusion: each class creates belonging, relationship and recognition.",
-      "More development: coordination, body awareness and adaptive capacity grow over time.",
+      "More development: improved coordination, body awareness and adaptive capacity.",
     ],
     note:
       "Impact is felt in the body, in confidence and in the way each participant relates to themselves, to others and to the space around them.",
@@ -228,39 +248,39 @@ export const enContent: SiteContent = {
     eyebrow: "Where we are",
     title: "South bank roots. Portugal-wide horizon.",
     description:
-      "We work from Moita and Barreiro with a close-to-community mindset, while designing the project to expand through a network model shaped to each partner.",
+      "We work from Moita and Barreiro, close to people and communities. At the same time, we develop the project to grow through a network model adapted to each partner.",
     cards: [
       {
         icon: "pin",
         title: "Moita",
         description:
-          "A proximity-based territory for class continuity, family relationships and consolidation of regular practice.",
+          "A proximity-based territory where we ensure class continuity, family connection and regular practice.",
       },
       {
         icon: "pin",
         title: "Barreiro",
         description:
-          "A base for community articulation, institutional work and new pathways into adapted participation.",
+          "A base for connecting with the community and institutions, creating new opportunities for participation.",
       },
       {
         icon: "globe",
         title: "Mobile delivery",
         description:
-          "Institutional sessions, demonstrations and training in partner settings whenever the mission requires direct presence on the ground.",
+          "We bring the project to different contexts through actions, demonstrations and training whenever there is a need on the ground.",
       },
     ],
   },
   news: {
     eyebrow: "News and events",
-    title: "A living showcase for agenda updates, field stories and partner invitations.",
+    title: "A living showcase of what we do on the ground.",
     description:
-      "We share open sessions, community moments, institutional invitations and initiatives that bring the project closer to families, partners and local territory.",
+      "We share sessions, community moments, initiatives and opportunities for collaboration with families, partners and local territory.",
     cards: [
       {
         category: "Open sessions",
         title: "Presentations for institutions and technical teams",
         description:
-          "Practical sessions to understand the methodology, observe adaptations and discuss implementation with decision-makers.",
+          "Practical presentations for institutions and technical teams to understand the project on the ground.",
         cta: "Request a presentation",
         href: "/en#contact",
       },
@@ -268,7 +288,7 @@ export const enContent: SiteContent = {
         category: "Community",
         title: "Open days for families and participants",
         description:
-          "Proximity-based activations focused on experimentation, clarity and onboarding new practitioners.",
+          "Open days for families and participants to experience the practice and join the group.",
         cta: "Ask for details",
         href: "/en#contact",
       },
@@ -276,7 +296,7 @@ export const enContent: SiteContent = {
         category: "Capacity building",
         title: "Training and knowledge-sharing moments",
         description:
-          "Content designed for technicians, teachers, social partners and territorial programmes that need replicable tools.",
+          "Training and sharing of good practices for technicians, teachers and partners.",
         cta: "Explore a partnership",
         href: "/en#partnerships",
       },
@@ -306,7 +326,8 @@ export const enContent: SiteContent = {
     eyebrow: "Contact",
     title: "Let us build impact together.",
     description:
-      "If you are looking for an inclusive activity, an institutional partnership or a funding-ready initiative, the conversation starts here.",
+      "If you are looking for participation, an institutional partnership or a project to develop, talk to us.",
+    prompt: "Choose the best way to get in touch with us:",
     quickLinks: [
       { label: "I want to join", href: "/en#contact", variant: "secondary" },
       { label: "I want to support", href: "/en#contact", variant: "secondary" },
@@ -339,7 +360,7 @@ export const enContent: SiteContent = {
       { label: "Goal", name: "goal", placeholder: "Participation, partnership, sponsorship or training" },
     ],
     messageLabel: "Message",
-    messagePlaceholder: "Tell us about the context, need or opportunity you would like to explore.",
+    messagePlaceholder: "Tell us about your context, need or idea.",
     submitLabel: "Open email",
     note:
       "Clicking the button opens your email app with the message prepared for the APAAI team.",

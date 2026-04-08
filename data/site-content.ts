@@ -73,6 +73,12 @@ type GalleryPhoto = {
   alt: string;
 };
 
+type TeamMember = {
+  name: string;
+  role: string;
+  description: string;
+};
+
 type ContactField = {
   label: string;
   name: string;
@@ -93,6 +99,12 @@ export type SiteContent = {
     title: string;
     description: string;
     cards: FeatureCard[];
+  };
+  team: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    members: TeamMember[];
   };
   programs: {
     eyebrow: string;
@@ -150,6 +162,7 @@ export type SiteContent = {
     eyebrow: string;
     title: string;
     description: string;
+    prompt: string;
     quickLinks: ActionLink[];
     whatsappCta: ActionLink;
     detailsTitle: string;

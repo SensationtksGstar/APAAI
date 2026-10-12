@@ -21,6 +21,7 @@ test("navigation, images and responsive footer", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "O Aikido é para todos.",
   );
+  await expect(page.locator("footer")).not.toContainText("Bruno Correia");
   const images = page.locator("img");
   await images.evaluateAll((elements) =>
     Promise.all(
@@ -65,17 +66,19 @@ test("navigation, images and responsive footer", async ({ page }) => {
       }),
     );
     const overlap = await page.evaluate(() => {
-      const credit = [...document.querySelectorAll("footer p")]
-        .find((p) => p.textContent?.includes("Bruno Correia"))!
-        .getBoundingClientRect();
       const button = document
         .querySelector(".whatsapp-float")!
         .getBoundingClientRect();
-      return (
-        credit.left < button.right &&
-        credit.right > button.left &&
-        credit.top < button.bottom &&
-        credit.bottom > button.top
+      return [...document.querySelectorAll(".footer-bottom p")].some(
+        (element) => {
+          const text = element.getBoundingClientRect();
+          return (
+            text.left < button.right &&
+            text.right > button.left &&
+            text.top < button.bottom &&
+            text.bottom > button.top
+          );
+        },
       );
     });
     expect(overlap, `Footer clearance at ${width}px`).toBe(false);
@@ -137,6 +140,7 @@ test("institutional routes, archive and language switching", async ({
     const response = await page.goto(`./pt/${pt}/`);
     expect(response?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).not.toBeEmpty();
+    await expect(page.locator("footer")).not.toContainText("Bruno Correia");
     if (pt === "orgaos-sociais")
       await expect(page.locator("main dd")).toHaveCount(9);
     if (pt === "equipa")
@@ -144,5 +148,6 @@ test("institutional routes, archive and language switching", async ({
     await page.getByRole("link", { name: "EN", exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/en/${en}/$`));
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("footer")).not.toContainText("Bruno Correia");
   }
 });

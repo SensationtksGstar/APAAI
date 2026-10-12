@@ -18,6 +18,11 @@ const pages = await htmlFiles(root);
 let checked = 0;
 for (const file of pages) {
   const html = await readFile(file, "utf8");
+  assert(
+    !html.includes("Website desenvolvido por Bruno Correia") &&
+      !html.includes("Website developed by Bruno Correia"),
+    `Developer credit still present in ${file}`,
+  );
   const route =
     "/APAAI/" +
     path

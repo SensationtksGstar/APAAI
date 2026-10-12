@@ -142,11 +142,6 @@ export function SiteFooter({
         <div className="footer-bottom mt-7 flex flex-col gap-2 border-t border-white/15 pt-5 text-xs text-white/70 md:flex-row md:flex-wrap md:items-center md:justify-between">
           <p>{content.footer.location}</p>
           <p>© {content.footer.rights}</p>
-          <p className="text-white">
-            {pt
-              ? "Website desenvolvido por Bruno Correia"
-              : "Website developed by Bruno Correia"}
-          </p>
         </div>
       </div>
     </footer>

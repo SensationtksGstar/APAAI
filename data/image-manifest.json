@@ -1,0 +1,728 @@
+{
+  "/logo-apaai.jpeg": {
+    "width": 1024,
+    "height": 1024,
+    "originalBytes": 73512,
+    "version": "107249cfa9a1",
+    "variants": [
+      {
+        "src": "/optimized/logo-apaai-jpeg-w48.webp",
+        "width": 48,
+        "height": 48,
+        "bytes": 970
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w64.webp",
+        "width": 64,
+        "height": 64,
+        "bytes": 1362
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w96.webp",
+        "width": 96,
+        "height": 96,
+        "bytes": 2218
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w128.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 3210
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w192.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 5538
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w256.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 7856
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w360.webp",
+        "width": 360,
+        "height": 360,
+        "bytes": 11876
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w480.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 16860
+      },
+      {
+        "src": "/optimized/logo-apaai-jpeg-w640.webp",
+        "width": 640,
+        "height": 640,
+        "bytes": 23722
+      }
+    ]
+  },
+  "/media/partners/acpa.jpg": {
+    "width": 200,
+    "height": 200,
+    "originalBytes": 21173,
+    "version": "3b9c40b5ca00",
+    "variants": [
+      {
+        "src": "/media/partners/optimized/acpa-jpg-w48.webp",
+        "width": 48,
+        "height": 48,
+        "bytes": 1206
+      },
+      {
+        "src": "/media/partners/optimized/acpa-jpg-w64.webp",
+        "width": 64,
+        "height": 64,
+        "bytes": 2060
+      },
+      {
+        "src": "/media/partners/optimized/acpa-jpg-w96.webp",
+        "width": 96,
+        "height": 96,
+        "bytes": 4030
+      },
+      {
+        "src": "/media/partners/optimized/acpa-jpg-w128.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 5972
+      },
+      {
+        "src": "/media/partners/optimized/acpa-jpg-w192.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 10288
+      },
+      {
+        "src": "/media/partners/optimized/acpa-jpg-w200.webp",
+        "width": 200,
+        "height": 200,
+        "bytes": 11570
+      }
+    ]
+  },
+  "/media/partners/cercimb.jpg": {
+    "width": 1600,
+    "height": 853,
+    "originalBytes": 41097,
+    "version": "65105ce94aa7",
+    "variants": [
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w48.webp",
+        "width": 48,
+        "height": 25,
+        "bytes": 210
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w64.webp",
+        "width": 64,
+        "height": 34,
+        "bytes": 294
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w96.webp",
+        "width": 96,
+        "height": 51,
+        "bytes": 474
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w128.webp",
+        "width": 128,
+        "height": 68,
+        "bytes": 722
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w192.webp",
+        "width": 192,
+        "height": 102,
+        "bytes": 1102
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w256.webp",
+        "width": 256,
+        "height": 136,
+        "bytes": 1702
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w360.webp",
+        "width": 360,
+        "height": 192,
+        "bytes": 2534
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w480.webp",
+        "width": 480,
+        "height": 256,
+        "bytes": 3274
+      },
+      {
+        "src": "/media/partners/optimized/cercimb-jpg-w640.webp",
+        "width": 640,
+        "height": 341,
+        "bytes": 4678
+      }
+    ]
+  },
+  "/media/partners/junta-alhos-vedros.jpg": {
+    "width": 500,
+    "height": 500,
+    "originalBytes": 32331,
+    "version": "f9b17ba70b12",
+    "variants": [
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w48.webp",
+        "width": 48,
+        "height": 48,
+        "bytes": 1136
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w64.webp",
+        "width": 64,
+        "height": 64,
+        "bytes": 1668
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w96.webp",
+        "width": 96,
+        "height": 96,
+        "bytes": 2848
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w128.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 4280
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w192.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7446
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w256.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 10694
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w360.webp",
+        "width": 360,
+        "height": 360,
+        "bytes": 16240
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w480.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 23638
+      },
+      {
+        "src": "/media/partners/optimized/junta-alhos-vedros-jpg-w500.webp",
+        "width": 500,
+        "height": 500,
+        "bytes": 25168
+      }
+    ]
+  },
+  "/media/partners/junta-moita.jpg": {
+    "width": 1096,
+    "height": 1291,
+    "originalBytes": 77402,
+    "version": "a54aab15e9b2",
+    "variants": [
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w48.webp",
+        "width": 48,
+        "height": 56,
+        "bytes": 988
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w64.webp",
+        "width": 64,
+        "height": 75,
+        "bytes": 1420
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w96.webp",
+        "width": 96,
+        "height": 113,
+        "bytes": 2590
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w128.webp",
+        "width": 128,
+        "height": 150,
+        "bytes": 3830
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w192.webp",
+        "width": 192,
+        "height": 226,
+        "bytes": 6398
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w256.webp",
+        "width": 256,
+        "height": 301,
+        "bytes": 8840
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w360.webp",
+        "width": 360,
+        "height": 424,
+        "bytes": 13386
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w480.webp",
+        "width": 480,
+        "height": 565,
+        "bytes": 18436
+      },
+      {
+        "src": "/media/partners/optimized/junta-moita-jpg-w640.webp",
+        "width": 640,
+        "height": 754,
+        "bytes": 24620
+      }
+    ]
+  },
+  "/media/partners/municipio-moita.jpg": {
+    "width": 1600,
+    "height": 1600,
+    "originalBytes": 89890,
+    "version": "50a3e0ab9d87",
+    "variants": [
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w48.webp",
+        "width": 48,
+        "height": 48,
+        "bytes": 554
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w64.webp",
+        "width": 64,
+        "height": 64,
+        "bytes": 840
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w96.webp",
+        "width": 96,
+        "height": 96,
+        "bytes": 1356
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w128.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 2002
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w192.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 3096
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w256.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 4292
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w360.webp",
+        "width": 360,
+        "height": 360,
+        "bytes": 6240
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w480.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 8148
+      },
+      {
+        "src": "/media/partners/optimized/municipio-moita-jpg-w640.webp",
+        "width": 640,
+        "height": 640,
+        "bytes": 10896
+      }
+    ]
+  },
+  "/media/partners/o-chinquilho.jpg": {
+    "width": 305,
+    "height": 307,
+    "originalBytes": 19990,
+    "version": "a076cb7ce5b1",
+    "variants": [
+      {
+        "src": "/media/partners/optimized/o-chinquilho-jpg-w48.webp",
+        "width": 48,
+        "height": 48,
+        "bytes": 1348
+      },
+      {
+        "src": "/media/partners/optimized/o-chinquilho-jpg-w64.webp",
+        "width": 64,
+        "height": 64,
+        "bytes": 1964
+      },
+      {
+        "src": "/media/partners/optimized/o-chinquilho-jpg-w96.webp",
+        "width": 96,
+        "height": 97,
+        "bytes": 3132
+      },
+      {
+        "src": "/media/partners/optimized/o-chinquilho-jpg-w128.webp",
+        "width": 128,
+        "height": 129,
+        "bytes": 4328
+      },
+      {
+        "src": "/media/partners/optimized/o-chinquilho-jpg-w192.webp",
+        "width": 192,
+        "height": 193,
+        "bytes": 6460
+      },
+      {
+        "src": "/media/partners/optimized/o-chinquilho-jpg-w256.webp",
+        "width": 256,
+        "height": 258,
+        "bytes": 8692
+      },
+      {
+        "src": "/media/partners/optimized/o-chinquilho-jpg-w305.webp",
+        "width": 305,
+        "height": 307,
+        "bytes": 10222
+      }
+    ]
+  },
+  "/media/partners/rarissimas.jpg": {
+    "width": 180,
+    "height": 180,
+    "originalBytes": 5159,
+    "version": "037728114d2a",
+    "variants": [
+      {
+        "src": "/media/partners/optimized/rarissimas-jpg-w48.webp",
+        "width": 48,
+        "height": 48,
+        "bytes": 552
+      },
+      {
+        "src": "/media/partners/optimized/rarissimas-jpg-w64.webp",
+        "width": 64,
+        "height": 64,
+        "bytes": 674
+      },
+      {
+        "src": "/media/partners/optimized/rarissimas-jpg-w96.webp",
+        "width": 96,
+        "height": 96,
+        "bytes": 958
+      },
+      {
+        "src": "/media/partners/optimized/rarissimas-jpg-w128.webp",
+        "width": 128,
+        "height": 128,
+        "bytes": 1120
+      },
+      {
+        "src": "/media/partners/optimized/rarissimas-jpg-w180.webp",
+        "width": 180,
+        "height": 180,
+        "bytes": 1560
+      }
+    ]
+  },
+  "/media/project/apaai-adapted-partner-drill.jpeg": {
+    "width": 775,
+    "height": 1034,
+    "originalBytes": 72720,
+    "version": "f3c09d9f6d39",
+    "variants": [
+      {
+        "src": "/media/project/optimized/apaai-adapted-partner-drill-jpeg-w360.webp",
+        "width": 360,
+        "height": 480,
+        "bytes": 17392
+      },
+      {
+        "src": "/media/project/optimized/apaai-adapted-partner-drill-jpeg-w480.webp",
+        "width": 480,
+        "height": 640,
+        "bytes": 25142
+      },
+      {
+        "src": "/media/project/optimized/apaai-adapted-partner-drill-jpeg-w640.webp",
+        "width": 640,
+        "height": 854,
+        "bytes": 37592
+      },
+      {
+        "src": "/media/project/optimized/apaai-adapted-partner-drill-jpeg-w775.webp",
+        "width": 775,
+        "height": 1034,
+        "bytes": 50308
+      }
+    ]
+  },
+  "/media/project/apaai-floor-technique.jpeg": {
+    "width": 1200,
+    "height": 1600,
+    "originalBytes": 136763,
+    "version": "ba241745510e",
+    "variants": [
+      {
+        "src": "/media/project/optimized/apaai-floor-technique-jpeg-w360.webp",
+        "width": 360,
+        "height": 480,
+        "bytes": 19320
+      },
+      {
+        "src": "/media/project/optimized/apaai-floor-technique-jpeg-w480.webp",
+        "width": 480,
+        "height": 640,
+        "bytes": 27952
+      },
+      {
+        "src": "/media/project/optimized/apaai-floor-technique-jpeg-w640.webp",
+        "width": 640,
+        "height": 853,
+        "bytes": 39666
+      },
+      {
+        "src": "/media/project/optimized/apaai-floor-technique-jpeg-w800.webp",
+        "width": 800,
+        "height": 1067,
+        "bytes": 51326
+      },
+      {
+        "src": "/media/project/optimized/apaai-floor-technique-jpeg-w1024.webp",
+        "width": 1024,
+        "height": 1365,
+        "bytes": 69686
+      },
+      {
+        "src": "/media/project/optimized/apaai-floor-technique-jpeg-w1200.webp",
+        "width": 1200,
+        "height": 1600,
+        "bytes": 85934
+      }
+    ]
+  },
+  "/media/project/apaai-group-hands.jpeg": {
+    "width": 718,
+    "height": 1600,
+    "originalBytes": 90446,
+    "version": "580ebaa745eb",
+    "variants": [
+      {
+        "src": "/media/project/optimized/apaai-group-hands-jpeg-w360.webp",
+        "width": 360,
+        "height": 802,
+        "bytes": 23148
+      },
+      {
+        "src": "/media/project/optimized/apaai-group-hands-jpeg-w480.webp",
+        "width": 480,
+        "height": 1070,
+        "bytes": 30516
+      },
+      {
+        "src": "/media/project/optimized/apaai-group-hands-jpeg-w640.webp",
+        "width": 640,
+        "height": 1426,
+        "bytes": 43360
+      },
+      {
+        "src": "/media/project/optimized/apaai-group-hands-jpeg-w718.webp",
+        "width": 718,
+        "height": 1600,
+        "bytes": 51390
+      }
+    ]
+  },
+  "/media/project/apaai-guided-practice-bw.jpeg": {
+    "width": 599,
+    "height": 1054,
+    "originalBytes": 39809,
+    "version": "bbcf1f3b1d09",
+    "variants": [
+      {
+        "src": "/media/project/optimized/apaai-guided-practice-bw-jpeg-w360.webp",
+        "width": 360,
+        "height": 633,
+        "bytes": 11848
+      },
+      {
+        "src": "/media/project/optimized/apaai-guided-practice-bw-jpeg-w480.webp",
+        "width": 480,
+        "height": 845,
+        "bytes": 16478
+      },
+      {
+        "src": "/media/project/optimized/apaai-guided-practice-bw-jpeg-w599.webp",
+        "width": 599,
+        "height": 1054,
+        "bytes": 22146
+      }
+    ]
+  },
+  "/media/project/apaai-hero-cover.jpg": {
+    "width": 2048,
+    "height": 1289,
+    "originalBytes": 467269,
+    "version": "9620bbdd1a84",
+    "variants": [
+      {
+        "src": "/media/project/optimized/apaai-hero-cover-jpg-w360.webp",
+        "width": 360,
+        "height": 226,
+        "bytes": 15054
+      },
+      {
+        "src": "/media/project/optimized/apaai-hero-cover-jpg-w480.webp",
+        "width": 480,
+        "height": 302,
+        "bytes": 21934
+      },
+      {
+        "src": "/media/project/optimized/apaai-hero-cover-jpg-w640.webp",
+        "width": 640,
+        "height": 403,
+        "bytes": 30950
+      },
+      {
+        "src": "/media/project/optimized/apaai-hero-cover-jpg-w800.webp",
+        "width": 800,
+        "height": 504,
+        "bytes": 39926
+      },
+      {
+        "src": "/media/project/optimized/apaai-hero-cover-jpg-w1024.webp",
+        "width": 1024,
+        "height": 645,
+        "bytes": 53932
+      },
+      {
+        "src": "/media/project/optimized/apaai-hero-cover-jpg-w1280.webp",
+        "width": 1280,
+        "height": 806,
+        "bytes": 70738
+      },
+      {
+        "src": "/media/project/optimized/apaai-hero-cover-jpg-w1600.webp",
+        "width": 1600,
+        "height": 1007,
+        "bytes": 94530
+      }
+    ]
+  },
+  "/media/project/apaai-participant-achievement.jpg": {
+    "width": 1600,
+    "height": 1066,
+    "originalBytes": 190075,
+    "version": "378067fb1ae4",
+    "variants": [
+      {
+        "src": "/media/project/optimized/apaai-participant-achievement-jpg-w360.webp",
+        "width": 360,
+        "height": 240,
+        "bytes": 12452
+      },
+      {
+        "src": "/media/project/optimized/apaai-participant-achievement-jpg-w480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 19240
+      },
+      {
+        "src": "/media/project/optimized/apaai-participant-achievement-jpg-w640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 29416
+      },
+      {
+        "src": "/media/project/optimized/apaai-participant-achievement-jpg-w800.webp",
+        "width": 800,
+        "height": 533,
+        "bytes": 41594
+      },
+      {
+        "src": "/media/project/optimized/apaai-participant-achievement-jpg-w1024.webp",
+        "width": 1024,
+        "height": 682,
+        "bytes": 55700
+      },
+      {
+        "src": "/media/project/optimized/apaai-participant-achievement-jpg-w1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 75460
+      },
+      {
+        "src": "/media/project/optimized/apaai-participant-achievement-jpg-w1600.webp",
+        "width": 1600,
+        "height": 1066,
+        "bytes": 105726
+      }
+    ]
+  },
+  "/media/project/apaai-team-community.jpg": {
+    "width": 1600,
+    "height": 900,
+    "originalBytes": 425578,
+    "version": "1c4bdd003b64",
+    "variants": [
+      {
+        "src": "/media/project/optimized/apaai-team-community-jpg-w360.webp",
+        "width": 360,
+        "height": 203,
+        "bytes": 20996
+      },
+      {
+        "src": "/media/project/optimized/apaai-team-community-jpg-w480.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 32194
+      },
+      {
+        "src": "/media/project/optimized/apaai-team-community-jpg-w640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 50340
+      },
+      {
+        "src": "/media/project/optimized/apaai-team-community-jpg-w800.webp",
+        "width": 800,
+        "height": 450,
+        "bytes": 71330
+      },
+      {
+        "src": "/media/project/optimized/apaai-team-community-jpg-w1024.webp",
+        "width": 1024,
+        "height": 576,
+        "bytes": 104352
+      },
+      {
+        "src": "/media/project/optimized/apaai-team-community-jpg-w1280.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 138326
+      },
+      {
+        "src": "/media/project/optimized/apaai-team-community-jpg-w1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 197912
+      }
+    ]
+  }
+}

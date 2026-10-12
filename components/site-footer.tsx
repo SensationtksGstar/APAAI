@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResponsiveImage as Image } from "@/components/responsive-image";
 import type { SiteContent } from "@/data/site-content";
 import { institutionalLabels } from "@/data/association";
 import { getAssetPath } from "@/lib/assets";

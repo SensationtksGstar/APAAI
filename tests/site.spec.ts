@@ -151,3 +151,66 @@ test("institutional routes, archive and language switching", async ({
     await expect(page.locator("footer")).not.toContainText("Bruno Correia");
   }
 });
+
+test.describe("mobile image performance", () => {
+  test.use({
+    viewport: { width: 390, height: 844 },
+    deviceScaleFactor: 2,
+    isMobile: true,
+  });
+
+  test("responsive WebP, shared preload and deferred photos", async ({ page }) => {
+    await page.goto("./pt/", { waitUntil: "networkidle" });
+    const cover = page.locator(
+      'img[data-image-source="/media/project/apaai-hero-cover.jpg"]',
+    );
+    await expect(cover).toHaveAttribute("loading", "eager");
+    await expect(cover).toHaveAttribute("fetchpriority", "high");
+    await expect(cover).toHaveAttribute("srcset", /800w/);
+    await cover.evaluate((element) => (element as HTMLImageElement).decode());
+    const chosen = await cover.evaluate((element) => {
+      const image = element as HTMLImageElement;
+      return { src: image.currentSrc, width: image.naturalWidth };
+    });
+    expect(chosen.src).toMatch(/apaai-hero-cover-jpg-w800\.webp\?v=/);
+
+    const preload = page.locator(
+      'link[rel="preload"][as="image"][fetchpriority="high"]',
+    );
+    await expect(preload).toHaveCount(1);
+    expect(await preload.getAttribute("imagesrcset")).toBe(
+      await cover.getAttribute("srcset"),
+    );
+    expect(await preload.getAttribute("imagesizes")).toBe(
+      await cover.getAttribute("sizes"),
+    );
+
+    const photos = page.locator(
+      'img[data-image-source^="/media/project/"]:not([fetchpriority="high"])',
+    );
+    await expect(photos).toHaveCount(6);
+    expect(
+      await photos.evaluateAll((elements) =>
+        (elements as HTMLImageElement[]).every(
+          (image) => image.loading === "lazy" && image.width > 0 && image.height > 0,
+        ),
+      ),
+    ).toBe(true);
+
+    const resources = await page.evaluate(() =>
+      (performance.getEntriesByType("resource") as PerformanceResourceTiming[])
+        .filter((entry) => /\.(?:jpe?g|png|webp)(?:\?|$)/.test(entry.name))
+        .map((entry) => ({ url: entry.name, bytes: entry.encodedBodySize })),
+    );
+    expect(resources.every((entry) => new URL(entry.url).pathname.endsWith(".webp"))).toBe(true);
+    const coverRequests = resources.filter((entry) => entry.url.includes("apaai-hero-cover"));
+    expect(coverRequests, "Preload and image must share a single download").toHaveLength(1);
+    expect(coverRequests[0].url).toBe(chosen.src);
+    expect(coverRequests[0].bytes).toBeGreaterThan(0);
+    expect(coverRequests[0].bytes).toBeLessThan(60 * 1024);
+    const logoRequests = resources.filter((entry) => entry.url.includes("logo-apaai"));
+    expect(logoRequests).toHaveLength(1);
+    expect(logoRequests[0].url).toMatch(/logo-apaai-jpeg-w96\.webp\?v=/);
+    expect(logoRequests[0].bytes).toBeLessThan(4 * 1024);
+  });
+});

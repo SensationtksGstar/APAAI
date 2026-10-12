@@ -48,6 +48,14 @@ Os testes de navegador usam o Edge no Windows e Chromium nos restantes sistemas 
 
 A navegacao usa links HTML diretos, compativeis com alojamento estatico, sem depender de pedidos de navegacao RSC. Os elementos interativos, como a escolha do assunto do contacto, continuam ativos na pagina.
 
+## Performance das imagens
+
+As fotografias e logotipos originais ficam preservados em `public/`. `npm run images:build` gera variantes WebP, sem recortar as imagens, e atualiza `data/image-manifest.json`. A geracao corre automaticamente antes do desenvolvimento e de ambos os builds. Sharp e uma dependencia de desenvolvimento; nao existe processamento de imagens no navegador ou no GitHub Pages.
+
+O componente `ResponsiveImage` usa `srcset` e `sizes` para selecionar a resolucao adequada ao ecra. A capa tem preload responsivo e prioridade alta; as restantes fotografias usam carregamento diferido. Largura, altura e enquadramento ficam reservados para evitar saltos de layout. O primeiro conteudo aparece sem esperar por animacoes.
+
+As pastas `public/**/optimized/` sao geradas, ignoradas pelo Git e incluidas no export publicado. Nao editar o manifesto manualmente. Os URLs incluem a versao do original para atualizar a cache quando se muda uma fotografia. O verificador valida tambem todas as variantes de `srcset`; o teste mobile confirma a resolucao, o peso da capa e a ausencia de downloads duplicados.
+
 ## Atualizar os conteudos
 
 - `data/locales/pt.ts` e `en.ts`: textos da pagina principal e galeria.

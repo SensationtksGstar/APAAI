@@ -52,9 +52,6 @@ const nextConfig = {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
   images: {
-    formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 60 * 60 * 24 * 7,
-    unoptimized: isGitHubPages,
     remotePatterns: [],
   },
   ...(!isGitHubPages

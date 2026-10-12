@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResponsiveImage as Image } from "@/components/responsive-image";
 import { ActionButton, SmartLink } from "@/components/site-ui";
 import { governance, publicDocuments, teamGroups } from "@/data/association";
 import { getAssetPath } from "@/lib/assets";
@@ -65,7 +65,7 @@ export function InstitutionalContent({
                         src={getAssetPath(member.photo)}
                         alt={member.name}
                         fill
-                        sizes="(max-width: 768px) 100vw, 300px"
+                        sizes="(max-width: 339px) calc(100vw - 20px), 320px"
                         className="object-cover object-center"
                       />
                     </div>

@@ -6,4 +6,5 @@ dist
 .qa
 test-results
 playwright-report
+public/**/optimized/
 

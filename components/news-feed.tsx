@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResponsiveImage as Image } from "@/components/responsive-image";
 import { ActionButton, SmartLink } from "@/components/site-ui";
 import { getNewsArticles } from "@/data/news";
 import type { SiteContent } from "@/data/site-content";
@@ -36,7 +36,7 @@ export function NewsFeed({
                     src={getAssetPath(article.photo.src)}
                     alt={article.photo.alt[locale]}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 639px) calc(100vw - 20px), (max-width: 767px) calc(100vw - 32px), (max-width: 1023px) calc(50vw - 28px), (max-width: 1211px) calc(33.33vw - 27px), 378px"
                     className="object-cover object-center"
                   />
                 </div>

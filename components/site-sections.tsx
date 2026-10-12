@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import { ResponsiveImage as Image } from "@/components/responsive-image";
 import { SparkIcon } from "@/components/icons";
 import { PartnersSection } from "@/components/partners-section";
 import { NewsFeed } from "@/components/news-feed";
@@ -28,26 +28,26 @@ export function HomeHero({
       <div className="grid items-end gap-12 lg:grid-cols-[1.12fr_0.88fr]">
         <div className="max-w-3xl">
           <p className="eyebrow text-white/64">{content.hero.eyebrow}</p>
-          <h1 className="fade-up rise-1 mt-6 max-w-4xl font-serif text-4xl leading-none text-white sm:text-5xl lg:text-7xl">
+          <h1 className="mt-6 max-w-4xl font-serif text-4xl leading-none text-white sm:text-5xl lg:text-7xl">
             {content.hero.title}
           </h1>
-          <p className="fade-up rise-2 mt-6 max-w-2xl text-lg leading-8 text-white/74 lg:text-xl">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/74 lg:text-xl">
             {content.hero.subtitle}
           </p>
-          <div className="fade-up rise-3 mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <ActionButton {...content.hero.primaryCta} />
             <ActionButton {...content.hero.secondaryCta} />
           </div>
         </div>
 
-        <div className="fade-up rise-2 lg:row-span-2">
+        <div className="lg:row-span-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2.2rem] border border-white/10 bg-black/30 shadow-glow lg:aspect-auto lg:min-h-[440px]">
             <Image
               src={heroVisual.src}
               alt={heroVisual.alt}
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 42vw"
+              sizes="(max-width: 639px) calc(100vw - 20px), (max-width: 1023px) calc(100vw - 32px), (max-width: 1211px) calc(44vw - 35px), 500px"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,7,7,0.08),rgba(7,7,7,0.76))]" />
@@ -56,8 +56,8 @@ export function HomeHero({
               <Image
                 src={getAssetPath("/logo-apaai.jpeg")}
                 alt="APAAI logo"
-                width={56}
-                height={56}
+                width={48}
+                height={48}
                 className="h-12 w-12 rounded-full object-cover"
               />
               <div>
@@ -184,7 +184,7 @@ export function StorySection({ content }: { content: SiteContent }) {
               src={storyVisual.src}
               alt={storyVisual.alt}
               fill
-              sizes="(max-width: 1024px) 100vw, 42vw"
+              sizes="(max-width: 639px) calc(100vw - 20px), (max-width: 1023px) calc(100vw - 32px), (max-width: 1211px) calc(45vw - 29px), 520px"
               className="object-cover"
             />
           </figure>
@@ -235,7 +235,7 @@ export function TeamSection({ content }: { content: SiteContent }) {
               src={teamVisual.src}
               alt={teamVisual.alt}
               fill
-              sizes="(max-width: 1024px) 100vw, 42vw"
+              sizes="(max-width: 639px) calc(100vw - 20px), (max-width: 1023px) calc(100vw - 32px), (max-width: 1211px) calc(45vw - 29px), 520px"
               className="object-cover object-center"
             />
           </figure>
@@ -311,7 +311,7 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
                 src={programVisual.src}
                 alt={programVisual.alt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 54vw"
+                sizes="(max-width: 639px) calc(100vw - 20px), (max-width: 1023px) calc(100vw - 32px), (max-width: 1211px) calc(54vw - 39px), 616px"
                 className="object-cover object-center"
               />
             </figure>
@@ -394,7 +394,7 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
                 src={getAssetPath(photo.src)}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 640px) 100vw, 50vw"
+                sizes="(max-width: 639px) calc(100vw - 20px), (max-width: 1211px) calc(50vw - 26px), 580px"
                 className="object-contain object-center"
               />
             </figure>
@@ -425,7 +425,7 @@ export function ImpactSection({ content }: { content: SiteContent }) {
                   : "A participant celebrates an achievement on the tatami, recognised by the team."
               }
               fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 639px) calc(100vw - 20px), (max-width: 1023px) calc(100vw - 32px), (max-width: 1211px) calc(50vw - 32px), 574px"
               className="object-cover object-center"
             />
           </figure>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResponsiveImage as Image } from "@/components/responsive-image";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SmartLink } from "@/components/site-ui";
 import { institutionalLabels } from "@/data/association";
@@ -76,8 +76,9 @@ export function SiteHeader({
             <Image
               src={getAssetPath("/logo-apaai.jpeg")}
               alt={pt ? "Logótipo APAAI" : "APAAI logo"}
-              width={56}
-              height={56}
+              width={48}
+              height={48}
+              loading="eager"
               className="h-12 w-12 rounded-xl object-cover"
             />
             <div>

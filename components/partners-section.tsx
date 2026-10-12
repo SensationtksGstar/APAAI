@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ResponsiveImage as Image } from "@/components/responsive-image";
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, IconBadge } from "@/components/site-ui";
 import {
@@ -18,7 +18,7 @@ function PartnerLogo({ partner }: { partner: Partner }) {
           src={getAssetPath(partner.logo)}
           alt={partner.name}
           fill
-          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 28vw, 220px"
+          sizes="(max-width: 639px) calc(50vw - 18px), (max-width: 1023px) calc(33.33vw - 21px), (max-width: 1211px) calc(25vw - 20px), 283px"
           className={partner.logoClass ?? "object-contain p-4"}
         />
       ) : (

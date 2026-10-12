@@ -1,4 +1,5 @@
 import type { SiteContent } from "@/data/site-content";
+import { getContactHref } from "@/lib/contact";
 
 export const enContent: SiteContent = {
   locale: "en",
@@ -11,7 +12,7 @@ export const enContent: SiteContent = {
   skipToContent: "Skip to content",
   headerCta: {
     label: "Discuss partnerships",
-    href: "/en#contact",
+    href: getContactHref("en", "partnership"),
     variant: "primary",
   },
   nav: [
@@ -22,6 +23,7 @@ export const enContent: SiteContent = {
     { label: "Partnerships", href: "/en#partnerships" },
     { label: "Where We Are", href: "/en#locations" },
     { label: "News", href: "/en#news" },
+    { label: "Get Involved", href: "/en#get-involved" },
     { label: "Contact", href: "/en#contact" },
   ],
   hero: {
@@ -31,12 +33,12 @@ export const enContent: SiteContent = {
       "We develop sessions and partnerships that turn adapted Aikido into a real tool for inclusion, autonomy and wellbeing.",
     primaryCta: {
       label: "I want to join",
-      href: "/en#contact",
+      href: getContactHref("en", "participation"),
       variant: "primary",
     },
     secondaryCta: {
       label: "I want to partner",
-      href: "/en#partnerships",
+      href: "/en/#partnerships",
       variant: "secondary",
     },
     proof: [
@@ -56,9 +58,11 @@ export const enContent: SiteContent = {
   },
   story: {
     eyebrow: "About",
-    title: "A project built in real settings and designed to grow with credibility.",
-    description:
-      "We work with real people, real stories and real challenges.",
+    title:
+      "A project built in real settings and designed to grow with credibility.",
+    description: "We work with real people, real stories and real challenges.",
+    introduction:
+      "APAAI - the Portuguese Association of Inclusive Adapted Aikido - grew from practical field experience and the conviction that Aikido can be adapted to enable meaningful participation for people with different abilities and needs.",
     cards: [
       {
         icon: "movement",
@@ -108,7 +112,7 @@ export const enContent: SiteContent = {
     cards: [
       {
         icon: "movement",
-        title: "Adapted Aikido",
+        title: "Inclusive Adapted Aikido",
         description:
           "Sessions adapted to people with different needs, focused on participation, confidence and individual development.",
       },
@@ -120,7 +124,7 @@ export const enContent: SiteContent = {
       },
       {
         icon: "graduation",
-        title: "Training",
+        title: "Training and Capacity Building",
         description:
           "Training for technicians, teachers and partners, focused on adapting the practice with safety, clarity and pedagogical intention.",
       },
@@ -139,6 +143,8 @@ export const enContent: SiteContent = {
       "Safe environments with real progression and active participation",
       "A clear link between practice, confidence, inclusion and autonomy",
     ],
+    programmeDescription:
+      "APAAI's work is supported by its own Technical and Pedagogical Programme, currently in development, which organises principles, methods and criteria for adaptation and progression in Inclusive Adapted Aikido.",
   },
   impact: {
     eyebrow: "Impact",
@@ -147,22 +153,25 @@ export const enContent: SiteContent = {
       "The project’s impact goes beyond physical activity. It lives in the way each person participates, progresses and feels included.",
     metrics: [
       {
-        value: "+50",
-        label: "participations across classes, demonstrations and community actions",
+        value: "40+",
+        label: "People involved",
         detail:
-          "Regular presence in adapted settings, focused on participation, movement and relationship.",
+          "Practitioners, technical team and participants involved in the project's different activities.",
       },
       {
-        value: "3",
-        label: "areas of intervention: practice, demonstration and training",
-        detail:
-          "Work developed with participants, technical teams and institutions.",
+        value: "13",
+        label: "Practitioners with disabilities",
+        detail: "Participation in Inclusive Adapted Aikido.",
       },
       {
-        value: "5+",
-        label: "years of experience in Adapted Aikido",
+        label: "Different settings for our work",
         detail:
-          "Experience built through real practice, continuous adaptation and close support.",
+          "Institutions, community, teaching, demonstrations and training activities.",
+      },
+      {
+        label: "Experience built on the ground",
+        detail:
+          "Work developed in real settings, with continuous adaptation and close support.",
       },
     ],
     outcomesTitle: "Human outcomes that matter",
@@ -171,14 +180,13 @@ export const enContent: SiteContent = {
       "More inclusion: each class creates belonging, relationship and recognition.",
       "More development: improved coordination, body awareness and adaptive capacity.",
     ],
-    note:
-      "Impact is felt in the body, in confidence and in the way each participant relates to themselves, to others and to the space around them.",
   },
   credibility: {
     eyebrow: "Partnerships and credibility",
-    title: "A structure built to collaborate, attract social investment and grow with legitimacy.",
+    title:
+      "A network of partners bringing Inclusive Adapted Aikido to more people and communities.",
     description:
-      "The project is designed to speak both to real-world practice and to funding logic. It stays human, while already operating with the language of implementation, partnership and scale.",
+      "APAAI works with associations, social institutions, local authorities, sports organisations and national and international partners, building cooperative relationships around inclusion, proximity and the development of Inclusive Adapted Aikido.",
     cards: [
       {
         icon: "handshake",
@@ -188,59 +196,46 @@ export const enContent: SiteContent = {
       },
       {
         icon: "path",
-        title: "Federated ecosystem",
+        title: "Technical collaboration and cooperation",
         description:
-          "Its connection to the wider Aikido ecosystem in Portugal reinforces technical quality, network access and legitimacy for growth.",
+          "APAAI develops technical cooperation within the Aikido community, promoting quality, knowledge sharing and responsible development of adapted and inclusive practice.",
       },
       {
         icon: "spark",
-        title: "Ready for programmes and consortia",
+        title: "National and international cooperation",
         description:
-          "The offer can be shaped for calls, pilot projects and expansion with municipalities, schools, social organisations and European partners.",
+          "APAAI participates in developing projects, applications and cooperation networks with local authorities, institutions, education organisations and national and European partners.",
       },
     ],
-    ecosystemTitle: "Growth ecosystem",
-    ecosystem: [
-      "Raríssimas",
-      "CERCIMB",
-      "Municipalities",
-      "Schools",
-      "Social organisations",
-      "Portuguese Aikido Federation",
-      "IPDJ",
-      "Erasmus+ Sport",
-    ],
-    programsNote:
-      "APAAI is looking for durable relationships with institutions, municipalities, schools and programmes that value real impact, proximity and implementation quality.",
     partnerCta: {
       label: "Start an institutional conversation",
-      href: "/en#contact",
+      href: getContactHref("en", "partnership"),
       variant: "primary",
     },
   },
   roadmap: {
     eyebrow: "Growth vision",
-    title: "A national ambition grounded locally and built on a replicable method.",
+    title: "A national ambition built on local experience.",
     description:
-      "The goal is not only to add more sessions. It is to build a model that can be implemented, monitored and funded with quality across different territories.",
+      "The goal goes beyond increasing the number of sessions. It is to develop a structured approach to Inclusive Adapted Aikido that can reach new territories while maintaining quality, safety, proximity and adaptation to each setting.",
     phases: [
       {
         phase: "Short term",
         title: "Strengthen the local base",
         description:
-          "Stabilise regular sessions in Moita and Barreiro, grow participation and formalise active cooperation with nearby institutions.",
+          "Consolidate activities in Baixa da Banheira, Moita and Alhos Vedros, strengthen participation and deepen cooperation with local institutions, associations and authorities.",
       },
       {
         phase: "Medium term",
-        title: "Train and replicate",
+        title: "Train and expand",
         description:
-          "Create a methodological toolkit, train partner teams and open new nodes with municipalities, schools and social organisations.",
+          "Develop APAAI's Technical and Pedagogical Programme, train practitioners and partner teams, and support new Inclusive Adapted Aikido services and groups alongside institutions, local authorities, schools and social organisations.",
       },
       {
         phase: "Long term",
-        title: "Scale through alliances",
+        title: "Build a national and international network",
         description:
-          "Position APAAI as a national reference and an eligible partner for European networks, consortia and social innovation projects.",
+          "Establish APAAI as a reference in Inclusive Adapted Aikido through national and international cooperation, participation in European projects and sharing knowledge and good practices.",
       },
     ],
   },
@@ -248,25 +243,25 @@ export const enContent: SiteContent = {
     eyebrow: "Where we are",
     title: "South bank roots. Portugal-wide horizon.",
     description:
-      "We work from Moita and Barreiro, close to people and communities. At the same time, we develop the project to grow through a network model adapted to each partner.",
+      "APAAI currently works across several territories on the south bank of the Tagus, close to people, institutions, associations and local communities. From this base, we continue to build a network that can bring Inclusive Adapted Aikido to new territories.",
     cards: [
+      {
+        icon: "pin",
+        title: "Baixa da Banheira",
+        description:
+          "One of APAAI's home territories, where we carry out activities and maintain close connections with the community and local partners.",
+      },
       {
         icon: "pin",
         title: "Moita",
         description:
-          "A proximity-based territory where we ensure class continuity, family connection and regular practice.",
+          "Development of Inclusive Adapted Aikido in community settings alongside local authorities and partners.",
       },
       {
         icon: "pin",
-        title: "Barreiro",
+        title: "Alhos Vedros",
         description:
-          "A base for connecting with the community and institutions, creating new opportunities for participation.",
-      },
-      {
-        icon: "globe",
-        title: "Mobile delivery",
-        description:
-          "We bring the project to different contexts through actions, demonstrations and training whenever there is a need on the ground.",
+          "Work in institutional and adapted settings through our cooperation with CERCIMB.",
       },
     ],
   },
@@ -274,31 +269,37 @@ export const enContent: SiteContent = {
     eyebrow: "News and events",
     title: "A living showcase of what we do on the ground.",
     description:
-      "We share sessions, community moments, initiatives and opportunities for collaboration with families, partners and local territory.",
+      "Follow the activities, projects, events, training and moments that shape APAAI's journey.",
+  },
+  collaboration: {
+    eyebrow: "Get involved",
+    title: "There are many ways to get to know and work with APAAI.",
+    description:
+      "Institutions, families, practitioners and partners can discover the project, take part in our initiatives or develop new ways to collaborate with us.",
     cards: [
       {
-        category: "Open sessions",
-        title: "Presentations for institutions and technical teams",
+        category: "Presentations",
+        title: "Discover the project at your institution",
         description:
-          "Practical presentations for institutions and technical teams to understand the project on the ground.",
+          "Presentations and practical sessions for institutions and technical teams.",
         cta: "Request a presentation",
-        href: "/en#contact",
+        href: getContactHref("en", "presentation"),
       },
       {
         category: "Community",
-        title: "Open days for families and participants",
+        title: "Discover and experience Inclusive Adapted Aikido",
         description:
-          "Open days for families and participants to experience the practice and join the group.",
+          "Open sessions for participants, families and the community.",
         cta: "Ask for details",
-        href: "/en#contact",
+        href: getContactHref("en", "participation"),
       },
       {
-        category: "Capacity building",
+        category: "Training and cooperation",
         title: "Training and knowledge-sharing moments",
         description:
-          "Training and sharing of good practices for technicians, teachers and partners.",
-        cta: "Explore a partnership",
-        href: "/en#partnerships",
+          "Training, awareness activities and shared experience for practitioners, teachers, institutions and organisations.",
+        cta: "Propose a collaboration",
+        href: getContactHref("en", "partnership"),
       },
     ],
   },
@@ -316,22 +317,30 @@ export const enContent: SiteContent = {
         src: "/media/project/apaai-adapted-partner-drill.jpeg",
         alt: "Partner exercise in a sports setting with adaptation and close support.",
       },
-      {
-        src: "/media/project/apaai-floor-technique.jpeg",
-        alt: "Floor technique during an Adapted Aikido session with close guidance.",
-      },
     ],
   },
   contact: {
     eyebrow: "Contact",
     title: "Let us build impact together.",
     description:
-      "If you are looking for participation, an institutional partnership or a project to develop, talk to us.",
+      "If you would like to participate, discover the project, support APAAI, request a presentation or develop a collaboration, talk to us.",
     prompt: "Choose the best way to get in touch with us:",
     quickLinks: [
-      { label: "I want to join", href: "/en#contact", variant: "secondary" },
-      { label: "I want to support", href: "/en#contact", variant: "secondary" },
-      { label: "Institutional partnership", href: "/en#partnerships", variant: "secondary" },
+      {
+        label: "I want to join",
+        href: getContactHref("en", "participation"),
+        variant: "secondary",
+      },
+      {
+        label: "I want to support",
+        href: getContactHref("en", "support"),
+        variant: "secondary",
+      },
+      {
+        label: "Institutional partnership",
+        href: getContactHref("en", "partnership"),
+        variant: "secondary",
+      },
       {
         label: "APAAI on Facebook",
         href: "https://www.facebook.com/people/Associa%C3%A7%C3%A3o-Portuguesa-de-Aikido-Adaptado-Inclusivo-APAAI/61574527752279/",
@@ -345,7 +354,11 @@ export const enContent: SiteContent = {
     },
     detailsTitle: "Direct contact",
     details: [
-      { label: "Email", value: "aikidoadaptado@gmail.com", href: "mailto:aikidoadaptado@gmail.com" },
+      {
+        label: "Email",
+        value: "appaigeral@gmail.com",
+        href: "mailto:appaigeral@gmail.com",
+      },
       { label: "Phone", value: "+351 926 334 870", href: "tel:+351926334870" },
       {
         label: "Facebook",
@@ -355,19 +368,28 @@ export const enContent: SiteContent = {
     ],
     formFields: [
       { label: "Name", name: "name", placeholder: "Your name" },
-      { label: "Organisation", name: "organization", placeholder: "Institution, school or organisation" },
-      { label: "Email", name: "email", type: "email", placeholder: "name@example.org" },
-      { label: "Goal", name: "goal", placeholder: "Participation, partnership, sponsorship or training" },
+      {
+        label: "Organisation/Institution",
+        name: "organization",
+        placeholder: "Optional",
+      },
+      {
+        label: "Email",
+        name: "email",
+        type: "email",
+        placeholder: "name@example.org",
+      },
+      { label: "Phone", name: "phone", type: "tel", placeholder: "Optional" },
     ],
     messageLabel: "Message",
     messagePlaceholder: "Tell us about your context, need or idea.",
     submitLabel: "Open email",
-    note:
-      "Clicking the button opens your email app with the message prepared for the APAAI team.",
+    note: "Clicking the button opens your email app with the message prepared for the APAAI team.",
   },
   footer: {
-    statement: "Inclusion is not an add-on. It is the way we design practice from the very first encounter.",
-    location: "Moita / Barreiro, Portugal",
+    statement:
+      "Inclusion is not an add-on. It is the way we design practice from the very first encounter.",
+    location: "Baixa da Banheira · Moita · Alhos Vedros | Portugal",
     rights: "APAAI - Portuguese Association of Inclusive Adapted Aikido",
   },
 };

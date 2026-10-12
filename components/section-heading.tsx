@@ -14,12 +14,15 @@ export function SectionHeading({
   descriptionClassName,
 }: SectionHeadingProps) {
   const titleClass = tone === "dark" ? "text-white" : "text-[var(--ink)]";
-  const descriptionClass = tone === "dark" ? "text-white/72" : "text-[var(--muted)]";
+  const descriptionClass =
+    tone === "dark" ? "text-white/72" : "text-[var(--muted)]";
 
   return (
     <div className="max-w-3xl">
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className={`mt-4 font-serif text-3xl leading-tight sm:text-4xl ${titleClass}`}>
+      <h2
+        className={`mt-4 font-serif text-3xl leading-tight sm:text-4xl ${titleClass}`}
+      >
         {title}
       </h2>
       <p

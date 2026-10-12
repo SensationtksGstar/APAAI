@@ -1,16 +1,20 @@
 import type { MetadataRoute } from "next";
+export const dynamic = "force-static";
 
-import { getPublicPageHref, locales } from "@/lib/i18n";
+import { getPublicPageHref, locales, standalonePages } from "@/lib/i18n";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sensationtksgstar.github.io";
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://sensationtksgstar.github.io";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  return locales.map((locale) => ({
-    url: `${baseUrl}${getPublicPageHref(locale, "home")}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: locale === "pt" ? 1 : 0.9,
-  }));
+  return locales.flatMap((locale) =>
+    ["home" as const, ...standalonePages].map((page) => ({
+      url: `${baseUrl}${getPublicPageHref(locale, page)}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: page === "home" ? (locale === "pt" ? 1 : 0.9) : 0.6,
+    })),
+  );
 }

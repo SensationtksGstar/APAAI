@@ -1,6 +1,7 @@
 import type { ComponentType, ReactNode, SVGProps } from "react";
 
-import Link from "next/link";
+import { ContactIntentLink } from "@/components/contact-intent-link";
+import { getAssetPath } from "@/lib/assets";
 
 import {
   CalendarIcon,
@@ -43,7 +44,17 @@ type LinkLikeProps = {
 };
 
 export function SmartLink({ href, className, children }: LinkLikeProps) {
-  if (isExternalHref(href) || href.startsWith("#")) {
+  if (href.includes("?assunto="))
+    return (
+      <ContactIntentLink href={href} className={className}>
+        {children}
+      </ContactIntentLink>
+    );
+  if (
+    isExternalHref(href) ||
+    href.startsWith("#") ||
+    /\.pdf(?:[?#]|$)/i.test(href)
+  ) {
     const shouldOpenNewTab = href.startsWith("http");
 
     return (
@@ -59,9 +70,9 @@ export function SmartLink({ href, className, children }: LinkLikeProps) {
   }
 
   return (
-    <Link href={href} className={className}>
+    <a href={getAssetPath(href)} className={className}>
       {children}
-    </Link>
+    </a>
   );
 }
 
@@ -79,9 +90,9 @@ export function ActionButton({
       ? "button-primary"
       : variant === "facebook"
         ? "button-facebook"
-      : variant === "whatsapp"
-        ? "button-whatsapp"
-        : "button-secondary";
+        : variant === "whatsapp"
+          ? "button-whatsapp"
+          : "button-secondary";
 
   return (
     <SmartLink href={href} className={`button ${variantClass}`}>

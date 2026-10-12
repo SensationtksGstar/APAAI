@@ -12,7 +12,12 @@ export const sitePages = [
   "partners",
   "locations",
   "news",
+  "collaborate",
   "contact",
+  "governance",
+  "team",
+  "documents",
+  "technical-program",
 ] as const;
 
 export type SitePage = (typeof sitePages)[number];
@@ -26,7 +31,12 @@ const pageSlugs: Record<Locale, Record<SitePage, string>> = {
     partners: "parcerias",
     locations: "onde-estamos",
     news: "noticias",
+    collaborate: "participe-e-colabore",
     contact: "contactos",
+    governance: "orgaos-sociais",
+    team: "equipa",
+    documents: "documentacao-institucional",
+    "technical-program": "programa-tecnico-pedagogico",
   },
   en: {
     home: "",
@@ -36,7 +46,12 @@ const pageSlugs: Record<Locale, Record<SitePage, string>> = {
     partners: "partnerships",
     locations: "locations",
     news: "news",
+    collaborate: "get-involved",
     contact: "contact",
+    governance: "governance",
+    team: "team",
+    documents: "institutional-documents",
+    "technical-program": "technical-pedagogical-programme",
   },
 };
 
@@ -55,11 +70,24 @@ export function getPageSlug(locale: Locale, page: SitePage): string {
 
 export function getPageHref(locale: Locale, page: SitePage): string {
   const slug = getPageSlug(locale, page);
-
-  return slug ? `/${locale}/${slug}` : `/${locale}`;
+  if (standalonePages.includes(page)) {
+    return `/${locale}/${slug}/`;
+  }
+  return slug ? `/${locale}/#${slug}` : `/${locale}/`;
 }
 
-const publicBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
+export const institutionalPages: SitePage[] = [
+  "governance",
+  "team",
+  "documents",
+  "technical-program",
+];
+export const standalonePages: SitePage[] = [...institutionalPages, "news"];
+
+const publicBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(
+  /\/$/,
+  "",
+);
 
 export function getPublicPageHref(locale: Locale, page: SitePage): string {
   return `${publicBasePath}${getPageHref(locale, page)}`;
@@ -77,7 +105,10 @@ export function getPublicSectionHref(locale: Locale, page: SitePage): string {
   return `${publicBasePath}${getSectionHref(locale, page)}`;
 }
 
-export function resolveSitePage(locale: Locale, slug?: string): SitePage | null {
+export function resolveSitePage(
+  locale: Locale,
+  slug?: string,
+): SitePage | null {
   if (!slug) {
     return "home";
   }

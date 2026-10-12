@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+
 const isProduction = process.env.NODE_ENV === "production";
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
 const repoName = "APAAI";
@@ -30,7 +32,7 @@ const securityHeaders = [
       "object-src 'none'",
       "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://images.pexels.com",
+      "img-src 'self' data: blob:",
       "font-src 'self' data:",
       "connect-src 'self'",
     ].join("; "),
@@ -39,6 +41,7 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: fileURLToPath(new URL(".", import.meta.url)),
   reactStrictMode: true,
   poweredByHeader: false,
   output: isGitHubPages ? "export" : undefined,
@@ -52,12 +55,7 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 7,
     unoptimized: isGitHubPages,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.pexels.com",
-      },
-    ],
+    remotePatterns: [],
   },
   ...(!isGitHubPages
     ? {
@@ -78,4 +76,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-

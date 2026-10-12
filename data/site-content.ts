@@ -49,7 +49,7 @@ type FeatureCard = {
 };
 
 type ImpactMetric = {
-  value: string;
+  value?: string;
   label: string;
   detail: string;
 };
@@ -98,6 +98,7 @@ export type SiteContent = {
     eyebrow: string;
     title: string;
     description: string;
+    introduction: string;
     cards: FeatureCard[];
   };
   team: {
@@ -114,6 +115,7 @@ export type SiteContent = {
     methodologyTitle: string;
     methodologyBody: string;
     methodologyPoints: string[];
+    programmeDescription: string;
   };
   impact: {
     eyebrow: string;
@@ -122,16 +124,12 @@ export type SiteContent = {
     metrics: ImpactMetric[];
     outcomesTitle: string;
     outcomes: string[];
-    note: string;
   };
   credibility: {
     eyebrow: string;
     title: string;
     description: string;
     cards: FeatureCard[];
-    ecosystemTitle: string;
-    ecosystem: string[];
-    programsNote: string;
     partnerCta: ActionLink;
   };
   roadmap: {
@@ -147,6 +145,11 @@ export type SiteContent = {
     cards: FeatureCard[];
   };
   news: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  collaboration: {
     eyebrow: string;
     title: string;
     description: string;

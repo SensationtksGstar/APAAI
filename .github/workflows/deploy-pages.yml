@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Configure Pages
@@ -39,6 +39,15 @@ jobs:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_SITE_URL: "https://sensationtksgstar.github.io"
         run: npm run build
+
+      - name: Validate exported pages and links
+        run: npm run check:export
+
+      - name: Install test browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Test navigation and responsive layouts
+        run: npm run test:browser
 
       - name: Add .nojekyll
         run: touch out/.nojekyll

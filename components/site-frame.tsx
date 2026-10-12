@@ -28,11 +28,18 @@ export function SiteFrame({
         {content.skipToContent}
       </a>
 
-      <div className="bg-[var(--surface)]">
+      <div
+        lang={locale === "pt" ? "pt-PT" : "en-GB"}
+        className="bg-[var(--surface)]"
+      >
         <section className="hero-shell relative overflow-hidden text-white">
           <div className="hero-orbit hero-orbit-red" />
           <div className="hero-orbit hero-orbit-green" />
-          <SiteHeader content={content} locale={locale} currentPage={currentPage} />
+          <SiteHeader
+            content={content}
+            locale={locale}
+            currentPage={currentPage}
+          />
           {hero}
         </section>
 
@@ -42,11 +49,18 @@ export function SiteFrame({
           href={content.contact.whatsappCta.href}
           className="whatsapp-float button button-whatsapp"
         >
+          <span className="sr-only">
+            {locale === "pt" ? "Falar por WhatsApp" : "Contact via WhatsApp"}
+          </span>
           <WhatsAppIcon className="h-5 w-5" />
           <span>WhatsApp</span>
         </SmartLink>
 
-        <SiteFooter content={content} locale={locale} currentPage={currentPage} />
+        <SiteFooter
+          content={content}
+          locale={locale}
+          currentPage={currentPage}
+        />
       </div>
     </>
   );

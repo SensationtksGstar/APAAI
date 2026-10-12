@@ -1,65 +1,125 @@
 import Image from "next/image";
-import Link from "next/link";
-
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { SmartLink } from "@/components/site-ui";
+import { institutionalLabels } from "@/data/association";
 import type { SiteContent } from "@/data/site-content";
 import { getAssetPath } from "@/lib/assets";
-import { getPageHref, type Locale, type SitePage } from "@/lib/i18n";
+import {
+  getPageHref,
+  getSectionHref,
+  institutionalPages,
+  type Locale,
+  type SitePage,
+} from "@/lib/i18n";
 
-type SiteHeaderProps = {
+export function SiteHeader({
+  content,
+  locale,
+  currentPage,
+}: {
   content: SiteContent;
   locale: Locale;
   currentPage: SitePage;
-};
-
-export function SiteHeader({ content, locale, currentPage }: SiteHeaderProps) {
-  const currentHref = getPageHref(locale, currentPage);
-
+}) {
+  const pt = locale === "pt";
+  const links = content.nav.map((item) => {
+    const page =
+      item.href.includes("#noticias") || item.href.includes("#news")
+        ? "news"
+        : null;
+    return {
+      ...item,
+      href: page
+        ? getSectionHref(locale, page)
+        : item.href.replace(/^\/(pt|en)(?=#|$)/, "/$1/"),
+    };
+  });
+  const institutional = (
+    <details className="institutional-menu">
+      <summary className="nav-link">
+        {pt ? "Institucional" : "Institutional"}
+      </summary>
+      <ul className="institutional-dropdown">
+        {institutionalPages.map((page) => (
+          <li key={page}>
+            <a
+              href={getAssetPath(getPageHref(locale, page))}
+              aria-current={currentPage === page ? "page" : undefined}
+            >
+              {institutionalLabels[locale][page]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  );
+  const navigation = (
+    <ul className="header-nav-list">
+      {links.map((item) => (
+        <li key={item.href}>
+          <a href={getAssetPath(item.href)} className="nav-link">
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <li>{institutional}</li>
+    </ul>
+  );
   return (
     <header className="relative z-20 border-b border-white/10">
-      <div className="container-shell flex flex-col gap-4 py-5 lg:flex-row lg:items-center lg:justify-between">
-        <Link href={`/${locale}`} className="flex items-center gap-3 text-white">
-          <div className="overflow-hidden rounded-[1.35rem] border border-white/15 bg-white/10 p-1 shadow-glow">
+      <div className="container-shell">
+        <div className="flex items-center justify-between gap-4 py-4">
+          <a
+            href={getAssetPath(getPageHref(locale, "home"))}
+            className="flex items-center gap-3 text-white"
+          >
             <Image
               src={getAssetPath("/logo-apaai.jpeg")}
-              alt="Logótipo APAAI"
+              alt={pt ? "Logótipo APAAI" : "APAAI logo"}
               width={56}
               height={56}
-              className="h-14 w-14 rounded-[1rem] object-cover"
+              className="h-12 w-12 rounded-xl object-cover"
             />
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-white/70">
+                APAAI
+              </p>
+              <p className="mt-1 text-sm font-medium text-white">
+                Aikido Inclusive
+              </p>
+            </div>
+          </a>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher
+              currentLocale={locale}
+              currentPage={currentPage}
+            />
+            <div className="hidden md:block">
+              <SmartLink
+                href={content.headerCta.href}
+                className="button button-primary"
+              >
+                {content.headerCta.label}
+              </SmartLink>
+            </div>
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-white/56">APAAI</p>
-            <p className="max-w-xs text-sm font-medium text-white/84">Aikido Inclusive</p>
-          </div>
-        </Link>
-
-        <nav
-          aria-label={content.locale === "pt" ? "Navegação principal" : "Primary navigation"}
-          className="overflow-x-auto"
-        >
-          <ul className="flex min-w-max items-center gap-5 text-sm text-white/72">
-            {content.nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`nav-link ${item.href === currentHref ? "text-white" : ""}`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <LanguageSwitcher currentLocale={locale} currentPage={currentPage} />
-          <Link href={content.headerCta.href} className="button button-primary hidden lg:inline-flex">
-            {content.headerCta.label}
-          </Link>
         </div>
+        <nav
+          aria-label={pt ? "Navegação principal" : "Primary navigation"}
+          className="hidden lg:block"
+        >
+          {navigation}
+        </nav>
+        <details className="mobile-menu lg:hidden">
+          <summary className="flex min-h-11 cursor-pointer items-center justify-between border-t border-white/15 py-3 text-sm font-semibold text-white">
+            {pt ? "Menu" : "Menu"}
+            <span aria-hidden="true">+</span>
+          </summary>
+          <nav aria-label={pt ? "Navegação móvel" : "Mobile navigation"}>
+            {navigation}
+          </nav>
+        </details>
       </div>
     </header>
   );
 }
-

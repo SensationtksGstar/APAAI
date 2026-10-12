@@ -3,4 +3,7 @@ node_modules
 out
 dist
 *.log
+.qa
+test-results
+playwright-report
 

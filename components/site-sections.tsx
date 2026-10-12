@@ -1,5 +1,7 @@
 ﻿import Image from "next/image";
 import { SparkIcon } from "@/components/icons";
+import { PartnersSection } from "@/components/partners-section";
+import { NewsFeed } from "@/components/news-feed";
 import { SectionHeading } from "@/components/section-heading";
 import { ActionButton, IconBadge, SmartLink } from "@/components/site-ui";
 import type { SiteContent } from "@/data/site-content";
@@ -36,20 +38,10 @@ export function HomeHero({
             <ActionButton {...content.hero.primaryCta} />
             <ActionButton {...content.hero.secondaryCta} />
           </div>
-          <ul className="mt-10 grid gap-4 text-sm text-white/68 sm:grid-cols-3">
-            {content.hero.proof.map((item) => (
-              <li
-                key={item}
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
 
-        <div className="fade-up rise-2">
-          <div className="relative min-h-[440px] overflow-hidden rounded-[2.2rem] border border-white/10 bg-black/30 shadow-glow">
+        <div className="fade-up rise-2 lg:row-span-2">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[2.2rem] border border-white/10 bg-black/30 shadow-glow lg:aspect-auto lg:min-h-[440px]">
             <Image
               src={heroVisual.src}
               alt={heroVisual.alt}
@@ -73,12 +65,24 @@ export function HomeHero({
                   APAAI
                 </p>
                 <p className="mt-1 text-sm text-white/86">
-                  {locale === "pt" ? "Projeto em movimento real" : "Project in real motion"}
+                  {locale === "pt"
+                    ? "Projeto em movimento real"
+                    : "Project in real motion"}
                 </p>
               </div>
             </div>
           </div>
         </div>
+        <ul className="grid gap-4 text-sm text-white/80 sm:grid-cols-3 lg:col-start-1 lg:row-start-2">
+          {content.hero.proof.map((item) => (
+            <li
+              key={item}
+              className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -160,13 +164,19 @@ export function StorySection({ content }: { content: SiteContent }) {
   };
 
   return (
-    <section id={getPageSlug(content.locale, "about")} className="section-shell">
+    <section
+      id={getPageSlug(content.locale, "about")}
+      className="section-shell"
+    >
       <div className="container-shell">
         <SectionHeading
           eyebrow={content.story.eyebrow}
           title={content.story.title}
           description={content.story.description}
         />
+        <p className="mt-5 max-w-3xl text-base leading-7 text-[var(--muted)]">
+          {content.story.introduction}
+        </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
           <figure className="fade-up rise-1 relative min-h-[420px] overflow-hidden rounded-[2.2rem] border border-[var(--line)] bg-[#111] shadow-[0_22px_52px_rgba(23,21,20,0.13)]">
@@ -190,7 +200,9 @@ export function StorySection({ content }: { content: SiteContent }) {
                 <div className="flex gap-5">
                   <IconBadge icon={card.icon} />
                   <div>
-                    <h3 className="font-serif text-2xl text-[var(--ink)]">{card.title}</h3>
+                    <h3 className="font-serif text-2xl text-[var(--ink)]">
+                      {card.title}
+                    </h3>
                     <p className="mt-3 text-base leading-7 text-[var(--muted)]">
                       {card.description}
                     </p>
@@ -207,18 +219,18 @@ export function StorySection({ content }: { content: SiteContent }) {
 
 export function TeamSection({ content }: { content: SiteContent }) {
   const teamVisual = {
-    src: getAssetPath("/media/project/apaai-adapted-partner-drill.jpeg"),
+    src: getAssetPath("/media/project/apaai-team-community.jpg"),
     alt:
       content.locale === "pt"
-        ? "Acompanhamento técnico numa sessão de Aikido Adaptado."
-        : "Technical support during an Adapted Aikido session.",
+        ? "Participantes e equipa reunidos numa atividade de Aikido Adaptado Inclusivo."
+        : "Participants and team together during an Inclusive Adapted Aikido activity.",
   };
 
   return (
     <section className="section-shell section-shell-muted">
       <div className="container-shell">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <figure className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white shadow-[0_18px_48px_rgba(23,21,20,0.09)]">
+          <figure className="relative aspect-video overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white shadow-[0_18px_48px_rgba(23,21,20,0.09)]">
             <Image
               src={teamVisual.src}
               alt={teamVisual.alt}
@@ -253,6 +265,17 @@ export function TeamSection({ content }: { content: SiteContent }) {
                 </article>
               ))}
             </div>
+            <div className="mt-6">
+              <ActionButton
+                label={
+                  content.locale === "pt"
+                    ? "Conhecer a equipa"
+                    : "Meet the team"
+                }
+                href={getPageHref(content.locale, "team")}
+                variant="secondary"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -270,7 +293,10 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
   };
 
   return (
-    <section id={getPageSlug(content.locale, "project")} className="section-shell section-shell-muted">
+    <section
+      id={getPageSlug(content.locale, "project")}
+      className="section-shell section-shell-muted"
+    >
       <div className="container-shell">
         <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr]">
           <div>
@@ -294,19 +320,25 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
               {content.programs.cards.map((card) => (
                 <article key={card.title} className="soft-panel">
                   <IconBadge icon={card.icon} />
-                  <h3 className="mt-5 font-serif text-2xl text-[var(--ink)]">{card.title}</h3>
-                  <p className="mt-3 text-base leading-7 text-[var(--muted)]">{card.description}</p>
+                  <h3 className="mt-5 font-serif text-2xl text-[var(--ink)]">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-[var(--muted)]">
+                    {card.description}
+                  </p>
                 </article>
               ))}
             </div>
           </div>
 
-          <aside className="h-full">
+          <aside>
             <div className="sticky-panel bg-[#121212] text-white">
-              <p className="eyebrow text-white/56">{content.programs.methodologyTitle}</p>
-              <h3 className="mt-5 font-serif text-3xl leading-tight">
+              <p className="eyebrow text-white/56">
+                {content.programs.methodologyTitle}
+              </p>
+              <p className="mt-5 text-lg leading-8 text-white/90">
                 {content.programs.methodologyBody}
-              </h3>
+              </p>
               <div className="quiet-grid mt-8">
                 {content.programs.methodologyPoints.map((point) => (
                   <div
@@ -317,6 +349,27 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
                   </div>
                 ))}
               </div>
+              <div className="mt-8 border-t border-white/20 pt-6">
+                <h3 className="font-serif text-2xl">
+                  {content.locale === "pt"
+                    ? "Programa Técnico e Pedagógico"
+                    : "Technical and Pedagogical Programme"}
+                </h3>
+                <p className="mt-4 text-base leading-7 text-white/80">
+                  {content.programs.programmeDescription}
+                </p>
+                <div className="mt-5">
+                  <ActionButton
+                    label={
+                      content.locale === "pt"
+                        ? "Conhecer o programa"
+                        : "Explore the programme"
+                    }
+                    href={getPageHref(content.locale, "technical-program")}
+                    variant="secondary"
+                  />
+                </div>
+              </div>
             </div>
           </aside>
         </div>
@@ -326,51 +379,26 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
 }
 
 export function ProjectGallerySection({ content }: { content: SiteContent }) {
-  if (content.gallery.photos.length === 0) {
-    return null;
-  }
-
+  if (!content.gallery.photos.length) return null;
   return (
     <section className="section-shell">
       <div className="container-shell">
-        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-          <div>
-            <SectionHeading
-              eyebrow={content.gallery.eyebrow}
-              title={content.gallery.title}
-              description={content.gallery.description}
-            />
-
-            <div className="mt-7 rounded-[1.6rem] border border-[var(--line)] bg-white/72 px-5 py-5">
-              <p className="eyebrow">
-                {content.locale === "pt" ? "Em contexto real" : "In real settings"}
-              </p>
-              <p className="mt-4 text-base leading-7 text-[var(--ink)]">
-                {content.locale === "pt"
-                  ? "Cada imagem mostra relação, adaptação e prática partilhada. É aqui que o projeto ganha corpo, confiança e continuidade."
-                  : "Each image shows relationship, adaptation and shared practice. This is where the project gains substance, trust and continuity."}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid items-start gap-5 sm:grid-cols-3">
-            {content.gallery.photos.map((photo) => (
-              <figure
-                key={photo.src}
-                className="overflow-hidden rounded-[1.7rem] border border-[var(--line)] bg-white shadow-[0_14px_36px_rgba(23,21,20,0.06)]"
-              >
-                <div className="relative aspect-[4/5]">
-                  <Image
-                    src={getAssetPath(photo.src)}
-                    alt={photo.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 33vw, 24vw"
-                    className="object-cover object-center"
-                  />
-                </div>
-              </figure>
-            ))}
-          </div>
+        <SectionHeading {...content.gallery} />
+        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          {content.gallery.photos.map((photo) => (
+            <figure
+              key={photo.src}
+              className="relative aspect-[4/3] overflow-hidden rounded-[1.7rem] bg-white"
+            >
+              <Image
+                src={getAssetPath(photo.src)}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </figure>
+          ))}
         </div>
       </div>
     </section>
@@ -378,68 +406,61 @@ export function ProjectGallerySection({ content }: { content: SiteContent }) {
 }
 
 export function ImpactSection({ content }: { content: SiteContent }) {
-  const impactVisual = {
-    src: getAssetPath("/media/project/apaai-guided-practice-bw.jpeg"),
-    alt:
-      content.locale === "pt"
-        ? "Momento de orientação individual numa sessão adaptada."
-        : "Individual guidance during an adapted session.",
-  };
-
   return (
-    <section id={getPageSlug(content.locale, "impact")} className="section-shell">
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-        <div className="sticky-panel border-[rgba(208,28,31,0.18)] bg-white">
-          <SectionHeading
-            eyebrow={content.impact.eyebrow}
-            title={content.impact.title}
-            description={content.impact.description}
-          />
-
-          <figure className="relative mt-8 aspect-[16/7] overflow-hidden rounded-[1.6rem] border border-[var(--line)] bg-[var(--surface-soft)]">
+    <section
+      id={getPageSlug(content.locale, "impact")}
+      className="section-shell"
+    >
+      <div className="container-shell">
+        <SectionHeading {...content.impact} />
+        <div className="mt-8 grid items-start gap-8 lg:grid-cols-2">
+          <figure className="relative aspect-[3/2] overflow-hidden rounded-[1.8rem] bg-[var(--surface-soft)]">
             <Image
-              src={impactVisual.src}
-              alt={impactVisual.alt}
+              src={getAssetPath(
+                "/media/project/apaai-participant-achievement.jpg",
+              )}
+              alt={
+                content.locale === "pt"
+                  ? "Uma participante celebra uma conquista no tatami, com o reconhecimento da equipa."
+                  : "A participant celebrates an achievement on the tatami, recognised by the team."
+              }
               fill
-              sizes="(max-width: 1024px) 100vw, 44vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center"
             />
           </figure>
-
-          <div className="mt-6 grid gap-4">
+          <div className="grid gap-x-6 gap-y-7 sm:grid-cols-2">
             {content.impact.metrics.map((metric) => (
-              <div
+              <article
                 key={metric.label}
-                className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--surface-soft)] px-5 py-5"
+                className="border-t border-[var(--line)] pt-4"
               >
-                <div className="font-serif text-4xl text-[var(--ink)]">{metric.value}</div>
-                <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+                {metric.value && (
+                  <p className="font-serif text-5xl tabular-nums text-[var(--accent-red)]">
+                    {metric.value}
+                  </p>
+                )}
+                <h3 className="mt-2 text-lg font-semibold leading-6 text-[var(--ink)]">
                   {metric.label}
-                </div>
-                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{metric.detail}</p>
-              </div>
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
+                  {metric.detail}
+                </p>
+              </article>
             ))}
           </div>
         </div>
-
-        <div className="soft-panel self-start">
-          <div>
-            <p className="eyebrow">{content.impact.outcomesTitle}</p>
-            <div className="mt-6 grid gap-4">
-              {content.impact.outcomes.map((item) => (
-                <article
-                  key={item}
-                  className="rounded-[1.45rem] border border-[var(--line)] bg-white px-5 py-4"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(208,28,31,0.1)] text-[var(--accent-red)]">
-                      <SparkIcon className="h-4 w-4" />
-                    </div>
-                    <p className="text-base leading-7 text-[var(--ink)]">{item}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+        <div className="mt-8 border-t border-[var(--line)] pt-6">
+          <h3 className="eyebrow">{content.impact.outcomesTitle}</h3>
+          <div className="mt-5 grid gap-6 lg:grid-cols-3">
+            {content.impact.outcomes.map((item) => (
+              <article key={item} className="flex items-start gap-4">
+                <span className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[rgba(208,28,31,0.1)] text-[var(--accent-red)]">
+                  <SparkIcon className="h-4 w-4" />
+                </span>
+                <p className="text-base leading-7 text-[var(--ink)]">{item}</p>
+              </article>
+            ))}
           </div>
         </div>
       </div>
@@ -448,69 +469,15 @@ export function ImpactSection({ content }: { content: SiteContent }) {
 }
 
 export function CredibilitySection({ content }: { content: SiteContent }) {
-  return (
-    <section
-      id={getPageSlug(content.locale, "partners")}
-      className="section-shell section-shell-dark"
-    >
-      <div className="container-shell">
-        <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-start">
-          <div>
-            <SectionHeading
-              eyebrow={content.credibility.eyebrow}
-              title={content.credibility.title}
-              description={content.credibility.description}
-              tone="dark"
-            />
-            <div className="mt-10 grid gap-4">
-              {content.credibility.cards.map((card) => (
-                <article key={card.title} className="dark-panel">
-                  <IconBadge icon={card.icon} />
-                  <h3 className="mt-5 font-serif text-2xl text-white">{card.title}</h3>
-                  <p className="mt-3 text-base leading-7 text-white/70">{card.description}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid content-start gap-5">
-            <div className="contrast-panel self-start">
-              <p className="eyebrow text-[var(--accent-red)]">{content.credibility.ecosystemTitle}</p>
-              <div className="mt-5 flex flex-wrap gap-2.5">
-                {content.credibility.ecosystem.map((item) => (
-                  <span key={item} className="contrast-chip">
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-5 text-sm leading-6 text-[var(--muted)]">
-                {content.credibility.programsNote}
-              </p>
-            </div>
-
-            <div className="dark-cta self-start">
-              <div>
-                <p className="eyebrow text-white/52">
-                  {content.locale === "pt" ? "Convite institucional" : "Institutional invitation"}
-                </p>
-                <h3 className="mt-4 font-serif text-2xl leading-tight text-white">
-                  {content.locale === "pt"
-                    ? "Se procura impacto com método, esta parceria merece conversa."
-                    : "If you are looking for impact with method, this partnership deserves a conversation."}
-                </h3>
-              </div>
-              <ActionButton {...content.credibility.partnerCta} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <PartnersSection content={content} />;
 }
 
 export function LocationsSection({ content }: { content: SiteContent }) {
   return (
-    <section id={getPageSlug(content.locale, "locations")} className="section-shell">
+    <section
+      id={getPageSlug(content.locale, "locations")}
+      className="section-shell"
+    >
       <div className="container-shell">
         <SectionHeading
           eyebrow={content.locations.eyebrow}
@@ -522,8 +489,12 @@ export function LocationsSection({ content }: { content: SiteContent }) {
           {content.locations.cards.map((card) => (
             <article key={card.title} className="soft-panel">
               <IconBadge icon={card.icon} />
-              <h3 className="mt-6 font-serif text-2xl text-[var(--ink)]">{card.title}</h3>
-              <p className="mt-4 text-base leading-7 text-[var(--muted)]">{card.description}</p>
+              <h3 className="mt-6 font-serif text-2xl text-[var(--ink)]">
+                {card.title}
+              </h3>
+              <p className="mt-4 text-base leading-7 text-[var(--muted)]">
+                {card.description}
+              </p>
             </article>
           ))}
         </div>
@@ -539,8 +510,12 @@ export function LocationsSection({ content }: { content: SiteContent }) {
             {content.roadmap.phases.map((phase) => (
               <article key={phase.phase} className="timeline-card">
                 <p className="eyebrow">{phase.phase}</p>
-                <h3 className="mt-4 font-serif text-2xl text-[var(--ink)]">{phase.title}</h3>
-                <p className="mt-4 text-base leading-7 text-[var(--muted)]">{phase.description}</p>
+                <h3 className="mt-4 font-serif text-2xl text-[var(--ink)]">
+                  {phase.title}
+                </h3>
+                <p className="mt-4 text-base leading-7 text-[var(--muted)]">
+                  {phase.description}
+                </p>
               </article>
             ))}
           </div>
@@ -552,23 +527,42 @@ export function LocationsSection({ content }: { content: SiteContent }) {
 
 export function NewsSection({ content }: { content: SiteContent }) {
   return (
-    <section id={getPageSlug(content.locale, "news")} className="section-shell section-shell-muted">
+    <section
+      id={getPageSlug(content.locale, "news")}
+      className="section-shell section-shell-muted"
+    >
       <div className="container-shell">
-        <SectionHeading
-          eyebrow={content.news.eyebrow}
-          title={content.news.title}
-          description={content.news.description}
-        />
+        <SectionHeading {...content.news} />
+        <NewsFeed content={content} />
+      </div>
+    </section>
+  );
+}
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {content.news.cards.map((card) => (
-            <article key={card.title} className="soft-panel flex h-full flex-col">
+export function CollaborationSection({ content }: { content: SiteContent }) {
+  return (
+    <section
+      id={getPageSlug(content.locale, "collaborate")}
+      className="section-shell"
+    >
+      <div className="container-shell">
+        <SectionHeading {...content.collaboration} />
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {content.collaboration.cards.map((card) => (
+            <article
+              key={card.title}
+              className="flex flex-col border-t border-[var(--line)] pt-6"
+            >
               <p className="eyebrow">{card.category}</p>
-              <h3 className="mt-5 font-serif text-2xl text-[var(--ink)]">{card.title}</h3>
-              <p className="mt-4 flex-1 text-base leading-7 text-[var(--muted)]">{card.description}</p>
+              <h3 className="mt-4 font-serif text-2xl text-[var(--ink)]">
+                {card.title}
+              </h3>
+              <p className="mt-4 flex-1 text-base leading-7 text-[var(--muted)]">
+                {card.description}
+              </p>
               <SmartLink
                 href={card.href}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-red)]"
+                className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--accent-red)]"
               >
                 {card.cta}
                 <span aria-hidden="true">→</span>
@@ -580,69 +574,3 @@ export function NewsSection({ content }: { content: SiteContent }) {
     </section>
   );
 }
-
-export function FinalCtaSection({
-  content,
-  locale,
-}: {
-  content: SiteContent;
-  locale: Locale;
-}) {
-  return (
-    <section className="section-shell section-shell-dark">
-      <div className="container-shell">
-        <div className="dark-cta">
-          <div className="max-w-3xl">
-            <p className="eyebrow text-white/52">{content.contact.eyebrow}</p>
-            <h2 className="mt-5 font-serif text-3xl text-white sm:text-4xl">
-              {content.contact.title}
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-white">
-              {content.contact.description}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            <ActionButton label={content.headerCta.label} href={content.headerCta.href} />
-            <ActionButton
-              label={content.contact.whatsappCta.label}
-              href={content.contact.whatsappCta.href}
-              variant="whatsapp"
-            />
-            <ActionButton
-              label={locale === "pt" ? "Ver contactos" : "View contact page"}
-              href={getPageHref(locale, "contact")}
-              variant="secondary"
-            />
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {content.contact.details.map((detail) => (
-              <div
-                key={`${detail.label}-${detail.value}`}
-                className="rounded-[1.6rem] border border-white/20 bg-white/12 px-5 py-5 shadow-[0_12px_32px_rgba(0,0,0,0.18)]"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
-                  {detail.label}
-                </p>
-                {detail.href ? (
-                  <SmartLink
-                    href={detail.href}
-                    className="mt-3 block text-xl font-semibold tracking-[0.01em] text-white hover:text-white/78"
-                  >
-                    {detail.value}
-                  </SmartLink>
-                ) : (
-                  <p className="mt-3 text-xl font-semibold tracking-[0.01em] text-white">
-                    {detail.value}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-

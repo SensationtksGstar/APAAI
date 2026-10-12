@@ -4,9 +4,17 @@ import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const nextBin = path.join(__dirname, "..", "node_modules", "next", "dist", "bin", "next");
+const nextBin = path.join(
+  __dirname,
+  "..",
+  "node_modules",
+  "next",
+  "dist",
+  "bin",
+  "next",
+);
 
-const child = spawn(process.execPath, [nextBin, "build"], {
+const child = spawn(process.execPath, [nextBin, "build", "--webpack"], {
   stdio: "inherit",
   env: {
     ...process.env,

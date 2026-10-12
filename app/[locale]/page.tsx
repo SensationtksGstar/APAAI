@@ -7,29 +7,33 @@ import { getSiteContent } from "@/data/site-content";
 import { isLocale, locales } from "@/lib/i18n";
 
 type LocalePageProps = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({ params }: LocalePageProps): Metadata {
-  if (!isLocale(params.locale)) {
+export async function generateMetadata({
+  params,
+}: LocalePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) {
     return {};
   }
 
-  const content = getSiteContent(params.locale);
+  const content = getSiteContent(locale);
 
-  return getSitePageMetadata(content, params.locale, "home");
+  return getSitePageMetadata(content, locale, "home");
 }
 
-export default function LocalePage({ params }: LocalePageProps) {
-  if (!isLocale(params.locale)) {
+export default async function LocalePage({ params }: LocalePageProps) {
+  const { locale } = await params;
+  if (!isLocale(locale)) {
     notFound();
   }
 
-  return <Homepage content={getSiteContent(params.locale)} locale={params.locale} />;
+  return <Homepage content={getSiteContent(locale)} locale={locale} />;
 }

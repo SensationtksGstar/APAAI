@@ -3,22 +3,22 @@ import { notFound } from "next/navigation";
 import { LocaleDocument } from "@/components/locale-document";
 import { isLocale } from "@/lib/i18n";
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
-  if (!isLocale(params.locale)) {
+  const { locale } = await params;
+  if (!isLocale(locale)) {
     notFound();
   }
 
   return (
     <>
-      <LocaleDocument locale={params.locale} />
+      <LocaleDocument locale={locale} />
       {children}
     </>
   );
 }
-

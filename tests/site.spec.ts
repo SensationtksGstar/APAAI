@@ -37,6 +37,22 @@ test("navigation, images and responsive footer", async ({ page }) => {
   ).toBe(true);
   for (const width of [360, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
+    const gallery = await page.locator(".project-gallery img").evaluateAll(
+      (elements) =>
+        (elements as HTMLImageElement[]).map((img) => {
+          const style = getComputedStyle(img);
+          const frame = img.parentElement!.getBoundingClientRect();
+          return {
+            fit: style.objectFit,
+            portrait: frame.height > frame.width,
+            loaded: img.naturalWidth > 0,
+          };
+        }),
+    );
+    expect(gallery.length).toBeGreaterThanOrEqual(2);
+    for (const photo of gallery) {
+      expect(photo).toEqual({ fit: "contain", portrait: true, loaded: true });
+    }
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,

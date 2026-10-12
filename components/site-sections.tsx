@@ -381,21 +381,21 @@ export function ProgramsSection({ content }: { content: SiteContent }) {
 export function ProjectGallerySection({ content }: { content: SiteContent }) {
   if (!content.gallery.photos.length) return null;
   return (
-    <section className="section-shell">
+    <section className="section-shell project-gallery">
       <div className="container-shell">
         <SectionHeading {...content.gallery} />
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           {content.gallery.photos.map((photo) => (
             <figure
               key={photo.src}
-              className="relative aspect-[4/3] overflow-hidden rounded-[1.7rem] bg-white"
+              className="relative aspect-[3/4] overflow-hidden rounded-[1.7rem] bg-white"
             >
               <Image
                 src={getAssetPath(photo.src)}
                 alt={photo.alt}
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-cover object-center"
+                className="object-contain object-center"
               />
             </figure>
           ))}
